@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" version="1.1">
+<!-- <symbol id="medium" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"> -->
+<g id="surface1">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(5.882353%,5.882353%,5.882353%);fill-opacity:1;" d="M 8.667969 8 C 8.667969 10.210938 6.875 12 4.667969 12 C 2.457031 12 0.667969 10.210938 0.667969 8 C 0.667969 5.789062 2.457031 4 4.667969 4 C 6.875 4 8.667969 5.789062 8.667969 8 Z M 8.667969 8 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(5.882353%,5.882353%,5.882353%);fill-opacity:1;" d="M 15.332031 8 C 15.332031 9.839844 15.035156 11.332031 14.667969 11.332031 C 14.296875 11.332031 14 9.839844 14 8 C 14 6.160156 14.296875 4.667969 14.667969 4.667969 C 15.035156 4.667969 15.332031 6.160156 15.332031 8 Z M 15.332031 8 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(5.882353%,5.882353%,5.882353%);fill-opacity:1;" d="M 11.332031 12 C 12.4375 12 13.332031 10.210938 13.332031 8 C 13.332031 5.789062 12.4375 4 11.332031 4 C 10.230469 4 9.332031 5.789062 9.332031 8 C 9.332031 10.210938 10.230469 12 11.332031 12 Z M 11.332031 12 "/>
+</g>
+<!-- </symbol> -->
+</svg>
