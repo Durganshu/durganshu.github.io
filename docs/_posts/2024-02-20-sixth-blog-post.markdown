@@ -6,5 +6,5 @@ categories: jekyll update
 ---
 Here's the second blog on my series on multi-threading. Discover SIMD intrinsics, MIMD architectures and parallel programming models: Shared Memory, distributed memory, PGAS, DSM, OpenMP, MPI, DGAS, etc.💻✨
 
-The story is available on [Medium](https://medium.datadriveninvestor.com/understanding-parallel-programming-models-4f3e1c4c8637) and [HackerNoon](https://hackernoon.com/flynns-taxonomy-and-the-concept-of-multithreading).
+The story is available on [Medium](https://medium.datadriveninvestor.com/understanding-parallel-programming-models-4f3e1c4c8637) and [HackerNoon](https://hackernoon.com/navigating-the-parallel-programming-landscape-a-deep-dive-into-simd-and-mimd-architectures).
 
