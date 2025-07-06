@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "Podcast Out Now & Paper Published in ISC 2025 Proceedings"
+date:   2025-06-05 11:00:00 +0100
+categories: jekyll update
+---
+
+Excited to share two major updates related to our award-winning research at ISC 2025! 🎙️📄
+
+First, my conversation with Addison Snell is now live on the [HPCwire podcast](https://www.hpcwire.com/podcast/advancing-the-integration-of-hpc-and-quantum-hans-meuer-award-), where we discuss the motivation and impact of our paper, *“Towards a Unified Architectural Representation in HPCQC: Extending sys-sage for Quantum Technologies.”* It was an honor to reflect on the work that led to the [Hans Meuer Award](https://www.ce.cit.tum.de/caps/aktuelles/news-single-view/article/isc-hans-meuer-award-goes-to-our-paper-towards-a-unified-architectural-representation-in-hpcqc-extending-sys-sage-for-quantum-technologies/) and the future of HPC-QC integration.
+
+Second, the paper has now been officially published in the [ISC 2025 conference proceedings on IEEE Xplore](https://ieeexplore.ieee.org/document/11017506). The publication dives deep into the extensions made to the [`sys-sage`](https://github.com/caps-tum/sys-sage) library and outlines our proposed framework for bridging classical and quantum architectures.
+
+Stay tuned for more updates as I prepare to present the work live at ISC on **June 10th**!
