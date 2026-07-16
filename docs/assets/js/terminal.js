@@ -95,7 +95,7 @@ const COMMANDS = {
   },
 
   ls: () => [
-    { type: 'highlight', label: 'index.cpp', value: '    about.h    blogs.md    projects.cpp' },
+    { type: 'highlight', label: 'index', value: '    about.h    blogs.md    projects.cpp' },
     { type: 'muted', text: 'attachments/  images/  assets/' },
   ],
 
@@ -192,7 +192,7 @@ function buildNeofetchHTML() {
     return `<span style="color:#56d4dd;font-weight:600">${label}: </span><span style="color:#8b949e">${value}</span>`;
   }).join('\n');
 
-  const colors = ['#f85149','#d29922','#3fb950','#58a6ff','#bc8cff','#56d4dd','#f778ba','#e6edf3'];
+  const colors = ['#f85149', '#d29922', '#3fb950', '#58a6ff', '#bc8cff', '#56d4dd', '#f778ba', '#e6edf3'];
   const colorBlocks = colors.map(c => `<span style="display:inline-block;width:20px;height:10px;background:${c};border-radius:2px;margin-right:3px"></span>`).join('');
 
   return `<div style="display:flex;gap:24px;font-family:var(--font-mono);font-size:12px;line-height:1.5">
