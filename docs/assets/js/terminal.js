@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initEditorToggle();
   initVSCodeToggles();
+  initVSCodeTabs();
 });
 
 // ─── Command Definitions ────────────────────────────
@@ -469,21 +470,51 @@ function initVSCodeToggles() {
   const bottomPanel = document.getElementById('vscode-bottom-panel');
   const closeTerminalBtn = document.getElementById('close-terminal-btn');
 
-  if (explorerBtn && sidebar) {
+  // Load and apply persistent states, default to 'collapsed'
+  const sidebarState = localStorage.getItem('vscode-sidebar-state') || 'collapsed';
+  const terminalState = localStorage.getItem('vscode-terminal-state') || 'collapsed';
+
+  if (sidebar && explorerBtn) {
+    if (sidebarState === 'collapsed') {
+      sidebar.classList.add('collapsed');
+      explorerBtn.classList.remove('active');
+    } else {
+      sidebar.classList.remove('collapsed');
+      explorerBtn.classList.add('active');
+    }
+
     explorerBtn.addEventListener('click', () => {
       if (window.innerWidth <= 768) {
         sidebar.classList.toggle('open');
       } else {
-        sidebar.classList.toggle('collapsed');
+        const isCollapsed = sidebar.classList.toggle('collapsed');
+        localStorage.setItem('vscode-sidebar-state', isCollapsed ? 'collapsed' : 'expanded');
+        if (isCollapsed) {
+          explorerBtn.classList.remove('active');
+        } else {
+          explorerBtn.classList.add('active');
+        }
       }
-      explorerBtn.classList.toggle('active');
     });
   }
 
-  if (terminalBtn && bottomPanel) {
+  if (bottomPanel && terminalBtn) {
+    if (terminalState === 'collapsed') {
+      bottomPanel.classList.add('collapsed');
+      terminalBtn.classList.remove('active');
+    } else {
+      bottomPanel.classList.remove('collapsed');
+      terminalBtn.classList.add('active');
+    }
+
     terminalBtn.addEventListener('click', () => {
-      bottomPanel.classList.toggle('collapsed');
-      terminalBtn.classList.toggle('active');
+      const isCollapsed = bottomPanel.classList.toggle('collapsed');
+      localStorage.setItem('vscode-terminal-state', isCollapsed ? 'collapsed' : 'expanded');
+      if (isCollapsed) {
+        terminalBtn.classList.remove('active');
+      } else {
+        terminalBtn.classList.add('active');
+      }
     });
   }
 
@@ -491,6 +522,127 @@ function initVSCodeToggles() {
     closeTerminalBtn.addEventListener('click', () => {
       bottomPanel.classList.add('collapsed');
       terminalBtn.classList.remove('active');
+      localStorage.setItem('vscode-terminal-state', 'collapsed');
     });
   }
+}
+
+// ─── VS Code Tabs Persistence and Interaction ──────
+const TAB_CONFIG = {
+  index: {
+    id: 'index',
+    title: 'index',
+    url: '/',
+    icon: '📄',
+    iconColor: 'var(--accent-cyan)',
+    pinned: true
+  },
+  about: {
+    id: 'about',
+    title: 'about',
+    url: 'about-me.html',
+    icon: '📋',
+    iconColor: 'var(--accent-cyan)',
+    pinned: false
+  },
+  projects: {
+    id: 'projects',
+    title: 'projects',
+    url: 'projects.html',
+    icon: '🔧',
+    iconColor: 'var(--accent-green)',
+    pinned: false
+  },
+  blogs: {
+    id: 'blogs',
+    title: 'blogs',
+    url: 'blogs.html',
+    icon: '📝',
+    iconColor: 'var(--accent-purple)',
+    pinned: false
+  }
+};
+
+function getCurrentPageKey() {
+  const path = window.location.pathname;
+  if (path.includes('about-me.html')) return 'about';
+  if (path.includes('projects.html')) return 'projects';
+  if (path.includes('blogs.html')) return 'blogs';
+  return 'index';
+}
+
+function initVSCodeTabs() {
+  const tabsBar = document.querySelector('.vscode-tabs-bar');
+  if (!tabsBar) return;
+
+  const currentKey = getCurrentPageKey();
+  
+  // Load open tabs from localStorage
+  let openTabs;
+  try {
+    openTabs = JSON.parse(localStorage.getItem('vscode-open-tabs'));
+  } catch (e) {
+    openTabs = null;
+  }
+  
+  if (!Array.isArray(openTabs) || openTabs.length === 0) {
+    openTabs = ['index'];
+  }
+
+  // Ensure current page is in the open tabs
+  if (!openTabs.includes(currentKey)) {
+    openTabs.push(currentKey);
+    localStorage.setItem('vscode-open-tabs', JSON.stringify(openTabs));
+  }
+
+  // Dynamic tab rendering function
+  function renderTabs() {
+    tabsBar.innerHTML = '';
+    openTabs.forEach(key => {
+      const config = TAB_CONFIG[key];
+      if (!config) return;
+
+      const tabDiv = document.createElement('div');
+      tabDiv.className = `vscode-tab ${key === currentKey ? 'active' : ''}`;
+      
+      const iconSpan = `<span class="sidebar-file-icon" style="color:${config.iconColor}">${config.icon}</span>`;
+      
+      const pinOrClose = config.pinned
+        ? `<span class="vscode-tab-pin-icon" title="Pinned" style="margin-left: 6px;">📌</span>`
+        : `<span class="vscode-tab-close-btn" style="margin-left: 8px;">×</span>`;
+
+      tabDiv.innerHTML = `${iconSpan} ${config.title} ${pinOrClose}`;
+
+      // Tab click navigation
+      tabDiv.addEventListener('click', (e) => {
+        if (e.target.classList.contains('vscode-tab-close-btn')) return;
+        window.location.href = config.url;
+      });
+
+      // Tab close event
+      const closeBtn = tabDiv.querySelector('.vscode-tab-close-btn');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          
+          const idx = openTabs.indexOf(key);
+          if (idx > -1) {
+            openTabs.splice(idx, 1);
+            localStorage.setItem('vscode-open-tabs', JSON.stringify(openTabs));
+          }
+
+          if (key === currentKey) {
+            const nextKey = openTabs[idx] || openTabs[idx - 1] || 'index';
+            window.location.href = TAB_CONFIG[nextKey].url;
+          } else {
+            renderTabs();
+          }
+        });
+      }
+
+      tabsBar.appendChild(tabDiv);
+    });
+  }
+
+  renderTabs();
 }
