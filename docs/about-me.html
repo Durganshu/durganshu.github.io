@@ -42,22 +42,145 @@
     </nav>
   </header>
 
-  <main class="page-content">
-    <div class="container">
+  <main class="workspace-container">
+    <!-- ═══ VS Code Sidebar Explorer ═══ -->
+    <aside class="workspace-sidebar">
+      <div class="sidebar-header">EXPLORER</div>
+      <div class="sidebar-title">durganshu.github.io</div>
+      <ul class="file-tree">
+        <li class="tree-item folder open">
+          <span class="tree-icon">📂</span> src
+          <ul class="file-tree" style="margin-top:0">
+            <li class="tree-item file" onclick="location.href='/'">
+              <span class="tree-icon" style="color:var(--accent-cyan)">📄</span> index.cpp
+            </li>
+            <li class="tree-item file active-file" onclick="location.href='about-me.html'">
+              <span class="tree-icon" style="color:var(--accent-orange)">📋</span> about.h
+            </li>
+            <li class="tree-item file" onclick="location.href='projects.html'">
+              <span class="tree-icon" style="color:var(--accent-cyan)">🔧</span> projects.cpp
+            </li>
+          </ul>
+        </li>
+        <li class="tree-item folder open">
+          <span class="tree-icon">📂</span> content
+          <ul class="file-tree" style="margin-top:0">
+            <li class="tree-item file" onclick="location.href='blogs.html'">
+              <span class="tree-icon" style="color:var(--accent-purple)">📝</span> blogs.md
+            </li>
+          </ul>
+        </li>
+        <li class="tree-item file muted">
+          <span class="tree-icon">⚙️</span> CMakeLists.txt
+        </li>
+        <li class="tree-item file muted">
+          <span class="tree-icon">📖</span> README.md
+        </li>
+      </ul>
+    </aside>
 
-      <h1 class="page-title fade-in"><span class="prompt">~/</span>about-me</h1>
-      <p class="page-subtitle fade-in">// exploring my academic and professional journey</p>
+    <!-- ═══ VS Code Editor Frame ═══ -->
+    <div class="workspace-main">
+      <div class="editor-tabs-header">
+        <div class="active-editor-tabs-list">
+          <div class="nav-tab" href="/" onclick="location.href='/'" style="display:flex;align-items:center;height:100%;border-right:1px solid var(--border-color);padding:0 16px;font-family:var(--font-mono);font-size:13px;color:var(--text-secondary);cursor:pointer">
+            <span class="tab-icon" style="color:var(--accent-cyan);margin-right:6px">📄</span> index.cpp
+          </div>
+          <div class="active-editor-tab" onclick="location.href='about-me.html'" style="cursor:pointer">
+            <span class="tab-icon" style="color:var(--accent-orange)">📋</span> about.h <span class="tab-close-btn" style="margin-left: 8px;">×</span>
+          </div>
+        </div>
+        <div class="editor-actions">
+          <button class="editor-action-btn active" id="btn-split">
+            <span>🗖</span> Split
+          </button>
+          <button class="editor-action-btn" id="btn-code">
+            <span>💻</span> Code
+          </button>
+          <button class="editor-action-btn" id="btn-preview">
+            <span>👁️</span> Preview
+          </button>
+        </div>
+      </div>
 
-      <a class="resume-btn fade-in" href="./attachments/CV_Mishra.pdf" download="Resume_Mishra.pdf">
-        <span>📥</span> $ wget resume.pdf
-      </a>
+      <!-- IDE Workspace split views -->
+      <div class="editor-workspace split-layout" id="editor-workspace">
+        
+        <!-- PANE 1: Raw Code Source (about.h style) -->
+        <div class="editor-pane pane-code">
+          <div class="pane-header"><span class="pane-title">src / about.h</span></div>
+          <div class="code-editor-content">
+            <div class="line-numbers">
+              <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span><span>32</span><span>33</span><span>34</span><span>35</span><span>36</span><span>37</span><span>38</span><span>39</span><span>40</span><span>41</span><span>42</span><span>43</span><span>44</span><span>45</span><span>46</span><span>47</span><span>48</span><span>49</span><span>50</span>
+            </div>
+            <pre class="code-viewport"><code><span class="pre">#ifndef</span> <span class="str">ABOUT_H</span>
+<span class="pre">#define</span> <span class="str">ABOUT_H</span>
 
-      <!-- ═══ Work Experience ═══ -->
-      <div class="build-section-title fade-in">make -j$(nproc) work_experience</div>
+<span class="pre">#include</span> <span class="str">&lt;string&gt;</span>
+<span class="pre">#include</span> <span class="str">&lt;vector&gt;</span>
 
-      <div class="build-timeline fade-in-stagger">
+<span class="kw">struct</span> <span class="typ">Job</span> {
+    <span class="typ">std::string</span> role;
+    <span class="typ">std::string</span> company;
+    <span class="typ">std::string</span> duration;
+    <span class="typ">std::string</span> location;
+};
 
-        <div class="build-entry">
+<span class="kw">struct</span> <span class="typ">Education</span> {
+    <span class="typ">std::string</span> degree;
+    <span class="typ">std::string</span> school;
+    <span class="typ">std::string</span> duration;
+    <span class="typ">std::string</span> grade;
+};
+
+<span class="kw">class</span> <span class="typ">DeveloperProfile</span> {
+<span class="kw">public</span>:
+    <span class="typ">std::string</span> getFullName() { <span class="kw">return</span> <span class="str">"Durganshu Mishra"</span>; }
+    
+    <span class="typ">std::vector</span>&lt;<span class="typ">Job</span>&gt; getExperience() {
+        <span class="kw">return</span> {
+            {<span class="str">"C++ Developer"</span>, <span class="str">"SevenCs GmbH"</span>, <span class="str">"Aug 2024 - Present"</span>},
+            {<span class="str">"Research Assistant"</span>, <span class="str">"TU Munich"</span>, <span class="str">"Jul 2023 - Jul 2024"</span>},
+            {<span class="str">"Student Assistant"</span>, <span class="str">"TUM Chairs"</span>, <span class="str">"Jun 2022 - Aug 2023"</span>}
+        };
+    }
+
+    <span class="typ">std::vector</span>&lt;<span class="typ">Education</span>&gt; getEducation() {
+        <span class="kw">return</span> {
+            {<span class="str">"M.Sc Computational Science &amp; Eng"</span>, <span class="str">"TUM"</span>, <span class="str">"2021 - 2024"</span>},
+            {<span class="str">"B.Tech Mechanical Engineering"</span>, <span class="str">"IIITDMJ"</span>, <span class="str">"2016 - 2020"</span>}
+        };
+    }
+
+    <span class="typ">std::vector</span>&lt;<span class="typ">std::string</span>&gt; getResearch() {
+        <span class="kw">return</span> {
+            <span class="str">"Towards a Unified Architectural Representation in HPCQC: Extending Sys-Sage"</span>,
+            <span class="str">"Analysis of Heat Flux Quenching using Nanofluids"</span>
+        };
+    }
+};
+
+<span class="pre">#endif</span> <span class="com">// ABOUT_H</span></code></pre>
+          </div>
+        </div>
+
+        <!-- PANE 2: Rendered Visual Output -->
+        <div class="editor-pane pane-render">
+          <div class="pane-header"><span class="pane-title">Compilation Timeline Preview</span></div>
+          <div class="render-viewport">
+            
+            <h1 class="page-title fade-in" style="margin-top:0"><span class="prompt">~/</span>about-me</h1>
+            <p class="page-subtitle fade-in" style="margin-bottom:20px">// exploring my academic and professional journey</p>
+
+            <a class="resume-btn fade-in" href="./attachments/CV_Mishra.pdf" download="Resume_Mishra.pdf">
+              <span>📥</span> $ wget resume.pdf
+            </a>
+
+            <!-- Work Experience -->
+            <div class="build-section-title fade-in">make -j$(nproc) work_experience</div>
+
+            <div class="build-timeline fade-in-stagger">
+<div class="build-entry">
           <div class="build-status">
             <span class="build-progress">[100%]</span>
             <span class="build-action">Linking</span>
@@ -277,11 +400,11 @@
 
       </div>
 
-      <!-- ═══ Education ═══ -->
-      <div class="build-section-title fade-in">make -j$(nproc) education</div>
+            <!-- Education -->
+            <div class="build-section-title fade-in">make -j$(nproc) education</div>
 
-      <div class="build-timeline fade-in-stagger">
-        <div class="build-entry">
+            <div class="build-timeline fade-in-stagger">
+<div class="build-entry">
           <div class="build-status">
             <span class="build-progress">[100%]</span>
             <span class="build-action">Building</span>
@@ -348,13 +471,14 @@
             </div>
           </div>
         </div>
-      </div>
+      
+            </div>
 
-      <!-- ═══ Publications ═══ -->
-      <div class="build-section-title fade-in">make -j$(nproc) publications</div>
+            <!-- Publications -->
+            <div class="build-section-title fade-in">make -j$(nproc) publications</div>
 
-      <div class="fade-in-stagger">
-        <div class="pub-entry">
+            <div class="fade-in-stagger" style="display:flex;flex-direction:column;gap:16px">
+<div class="pub-entry">
           <div class="pub-venue">
             <img class="pub-venue-logo" src="images/logos/ISC-High-Performance-logo.jpg" alt="ISC">
             <span class="pub-venue-name">ISC High Performance 2025 • 40th International Conference</span>
@@ -388,10 +512,17 @@
         </div>
       </div>
 
-      <div class="build-complete fade-in">
-        [100%] Build complete. 0 errors, 0 warnings. 🎉
-      </div>
+      
+            </div>
 
+            <div class="build-complete fade-in" style="margin-top:24px;margin-bottom:32px">
+              [100%] Build complete. 0 errors, 0 warnings. 🎉
+            </div>
+
+          </div>
+        </div>
+
+      </div>
     </div>
   </main>
 

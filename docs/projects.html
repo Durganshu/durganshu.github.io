@@ -42,177 +42,300 @@
     </nav>
   </header>
 
-  <main class="page-content">
-    <div class="container">
+  <main class="workspace-container">
+    <!-- ═══ VS Code Sidebar Explorer ═══ -->
+    <aside class="workspace-sidebar">
+      <div class="sidebar-header">EXPLORER</div>
+      <div class="sidebar-title">durganshu.github.io</div>
+      <ul class="file-tree">
+        <li class="tree-item folder open">
+          <span class="tree-icon">📂</span> src
+          <ul class="file-tree" style="margin-top:0">
+            <li class="tree-item file" onclick="location.href='/'">
+              <span class="tree-icon" style="color:var(--accent-cyan)">📄</span> index.cpp
+            </li>
+            <li class="tree-item file" onclick="location.href='about-me.html'">
+              <span class="tree-icon" style="color:var(--accent-orange)">📋</span> about.h
+            </li>
+            <li class="tree-item file active-file" onclick="location.href='projects.html'">
+              <span class="tree-icon" style="color:var(--accent-cyan)">🔧</span> projects.cpp
+            </li>
+          </ul>
+        </li>
+        <li class="tree-item folder open">
+          <span class="tree-icon">📂</span> content
+          <ul class="file-tree" style="margin-top:0">
+            <li class="tree-item file" onclick="location.href='blogs.html'">
+              <span class="tree-icon" style="color:var(--accent-purple)">📝</span> blogs.md
+            </li>
+          </ul>
+        </li>
+        <li class="tree-item file muted">
+          <span class="tree-icon">⚙️</span> CMakeLists.txt
+        </li>
+        <li class="tree-item file muted">
+          <span class="tree-icon">📖</span> README.md
+        </li>
+      </ul>
+    </aside>
 
-      <h1 class="page-title fade-in"><span class="prompt">~/</span>projects</h1>
-      <p class="page-subtitle fade-in">// git log --oneline --all — academic and hobby projects (<a href="https://github.com/Durganshu/" target="_blank">view all on GitHub</a>)</p>
-
-      <div class="projects-grid fade-in-stagger">
-
-        <!-- Abalone Game -->
-        <a class="git-commit" href="https://github.com/Durganshu/Abalone-Game" target="_blank">
-          <div class="git-commit-header">
-            <span class="git-hash">commit e7a3f1d</span>
-            <span class="git-refs">
-              <span class="git-ref">HEAD → main</span>
-            </span>
+    <!-- ═══ VS Code Editor Frame ═══ -->
+    <div class="workspace-main">
+      <div class="editor-tabs-header">
+        <div class="active-editor-tabs-list">
+          <div class="nav-tab" href="/" onclick="location.href='/'" style="display:flex;align-items:center;height:100%;border-right:1px solid var(--border-color);padding:0 16px;font-family:var(--font-mono);font-size:13px;color:var(--text-secondary);cursor:pointer">
+            <span class="tab-icon" style="color:var(--accent-cyan);margin-right:6px">📄</span> index.cpp
           </div>
-          <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
-          <div class="git-commit-message">feat: Abalone-Game — competitive board game AI</div>
-          <div class="git-commit-body">Abalone is a board game of class "2-Person Zero-Sum Game with Complete Information". This repository contains 4 different search strategies for a competitive Abalone gameplay.</div>
-          <div class="git-commit-stats">
-            <span class="git-stat-tech">
-              <span class="tech-badge">C++</span>
-              <span class="tech-badge">Game AI</span>
-              <span class="tech-badge">Search Algorithms</span>
-            </span>
+          <div class="nav-tab" href="about-me.html" onclick="location.href='about-me.html'" style="display:flex;align-items:center;height:100%;border-right:1px solid var(--border-color);padding:0 16px;font-family:var(--font-mono);font-size:13px;color:var(--text-secondary);cursor:pointer">
+            <span class="tab-icon" style="color:var(--accent-orange);margin-right:6px">📋</span> about.h
           </div>
-        </a>
-
-        <!-- Fluidchen-EM -->
-        <a class="git-commit" href="https://github.com/Durganshu/Fluidchen-EM" target="_blank">
-          <div class="git-commit-header">
-            <span class="git-hash">commit b4c9e2c</span>
-            <span class="git-refs">
-              <span class="git-ref">origin/main</span>
-            </span>
+          <div class="active-editor-tab" onclick="location.href='projects.html'" style="cursor:pointer">
+            <span class="tab-icon" style="color:var(--accent-cyan)">🔧</span> projects.cpp <span class="tab-close-btn" style="margin-left: 8px;">×</span>
           </div>
-          <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
-          <div class="git-commit-message">feat: Fluidchen-EM — MPI-parallelized CFD Solver</div>
-          <div class="git-commit-body">A Computational Fluid Dynamics Solver capable of solving a wide range of problems. The whole code is parallelized using MPI and is compatible with preCICE for coupling with other solvers.</div>
-          <div class="git-commit-stats">
-            <span class="git-stat-tech">
-              <span class="tech-badge">C++</span>
-              <span class="tech-badge">MPI</span>
-              <span class="tech-badge">CFD</span>
-              <span class="tech-badge">preCICE</span>
-            </span>
-          </div>
-        </a>
-
-        <!-- Modern C++ Performance -->
-        <a class="git-commit" href="https://github.com/Durganshu/Modern-Cpp-Performance" target="_blank">
-          <div class="git-commit-header">
-            <span class="git-hash">commit a1b2c3d</span>
-            <span class="git-refs">
-              <span class="git-ref">origin/main</span>
-            </span>
-          </div>
-          <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
-          <div class="git-commit-message">feat: C++ Performance Benchmarks — modern C++ evaluation</div>
-          <div class="git-commit-body">Comprehensively evaluates the performance aspects of Modern C++ (C++11 and later), particularly focusing on programming practices and their impact on hardware resource utilization.</div>
-          <div class="git-commit-stats">
-            <span class="git-stat-tech">
-              <span class="tech-badge">C++11/14/17</span>
-              <span class="tech-badge">Benchmarking</span>
-              <span class="tech-badge">Performance</span>
-            </span>
-          </div>
-        </a>
-
-        <!-- Parallelized Jacobi -->
-        <a class="git-commit" href="https://github.com/Durganshu/Parallelized-Jacobi-Method" target="_blank">
-          <div class="git-commit-header">
-            <span class="git-hash">commit 5d8f9a2</span>
-            <span class="git-refs">
-              <span class="git-ref">origin/main</span>
-            </span>
-          </div>
-          <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
-          <div class="git-commit-message">feat: Parallelized Jacobi Solver — shared + distributed memory</div>
-          <div class="git-commit-body">Implements the Jacobi method on a discretized 5-point stencil with shared, distributed, and hybrid memory parallelism. Supports OpenMP and MPI.</div>
-          <div class="git-commit-stats">
-            <span class="git-stat-tech">
-              <span class="tech-badge">C++</span>
-              <span class="tech-badge">OpenMP</span>
-              <span class="tech-badge">MPI</span>
-              <span class="tech-badge">HPC</span>
-            </span>
-          </div>
-        </a>
-
-        <!-- DeepBio -->
-        <a class="git-commit" href="https://github.com/Durganshu/DeepBio" target="_blank">
-          <div class="git-commit-header">
-            <span class="git-hash">commit c8d3e7f</span>
-            <span class="git-refs">
-              <span class="git-ref">origin/main</span>
-            </span>
-          </div>
-          <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
-          <div class="git-commit-message">feat: DeepBio — GPT-3 powered biography generator</div>
-          <div class="git-commit-body">A tool that helps create biographies for older people. The app generates a biography based on a list of questions using GPT-3 from OpenAI. Created during the TUM.ai Makeathon in April 2022.</div>
-          <div class="git-commit-stats">
-            <span class="git-stat-tech">
-              <span class="tech-badge">Python</span>
-              <span class="tech-badge">GPT-3</span>
-              <span class="tech-badge">Hackathon</span>
-            </span>
-          </div>
-        </a>
-
-        <!-- MPI Ping Pong -->
-        <a class="git-commit" href="https://github.com/Durganshu/MPI-Ping-Pong" target="_blank">
-          <div class="git-commit-header">
-            <span class="git-hash">commit 9f2e1b4</span>
-            <span class="git-refs">
-              <span class="git-ref">origin/main</span>
-            </span>
-          </div>
-          <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
-          <div class="git-commit-message">feat: MPI Ping Pong — message passing visualization</div>
-          <div class="git-commit-body">Visualizes an MPI connection by sending a message from node A to node B and back (ping-pong), using blocking send and receive constructs.</div>
-          <div class="git-commit-stats">
-            <span class="git-stat-tech">
-              <span class="tech-badge">C++</span>
-              <span class="tech-badge">MPI</span>
-            </span>
-          </div>
-        </a>
-
-        <!-- wgetD -->
-        <a class="git-commit" href="https://github.com/Durganshu/wgetD" target="_blank">
-          <div class="git-commit-header">
-            <span class="git-hash">commit 3a7b5c9</span>
-            <span class="git-refs">
-              <span class="git-ref">origin/main</span>
-            </span>
-          </div>
-          <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
-          <div class="git-commit-message">feat: wgetD — TCP-based HTTP client</div>
-          <div class="git-commit-body">A TCP-based application for sending and receiving HTTP requests. A simplified version of the Linux wget application.</div>
-          <div class="git-commit-stats">
-            <span class="git-stat-tech">
-              <span class="tech-badge">C++</span>
-              <span class="tech-badge">Networking</span>
-              <span class="tech-badge">TCP/IP</span>
-            </span>
-          </div>
-        </a>
-
-        <!-- UDP Server Client -->
-        <a class="git-commit" href="https://github.com/Durganshu/wgetD" target="_blank">
-          <div class="git-commit-header">
-            <span class="git-hash">commit d6e8f0a</span>
-            <span class="git-refs">
-              <span class="git-ref">origin/main</span>
-            </span>
-          </div>
-          <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
-          <div class="git-commit-message">feat: UDP Server and Client — multithreaded messaging</div>
-          <div class="git-commit-body">UDP-based server and clients for communicating messages. Includes a sequential as well as a pthread-based multithreaded version.</div>
-          <div class="git-commit-stats">
-            <span class="git-stat-tech">
-              <span class="tech-badge">C++</span>
-              <span class="tech-badge">UDP</span>
-              <span class="tech-badge">pthreads</span>
-            </span>
-          </div>
-        </a>
-
+        </div>
+        <div class="editor-actions">
+          <button class="editor-action-btn active" id="btn-split">
+            <span>🗖</span> Split
+          </button>
+          <button class="editor-action-btn" id="btn-code">
+            <span>💻</span> Code
+          </button>
+          <button class="editor-action-btn" id="btn-preview">
+            <span>👁️</span> Preview
+          </button>
+        </div>
       </div>
 
+      <!-- IDE Workspace split views -->
+      <div class="editor-workspace split-layout" id="editor-workspace">
+        
+        <!-- PANE 1: Raw Code Source (projects.cpp style) -->
+        <div class="editor-pane pane-code">
+          <div class="pane-header"><span class="pane-title">src / projects.cpp</span></div>
+          <div class="code-editor-content">
+            <div class="line-numbers">
+              <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span><span>32</span><span>33</span><span>34</span><span>35</span><span>36</span><span>37</span><span>38</span><span>39</span><span>40</span><span>41</span><span>42</span><span>43</span><span>44</span><span>45</span><span>46</span><span>47</span><span>48</span><span>49</span><span>50</span><span>51</span><span>52</span><span>53</span><span>54</span><span>55</span><span>56</span><span>57</span><span>58</span><span>59</span><span>60</span><span>61</span><span>62</span><span>63</span><span>64</span>
+            </div>
+            <pre class="code-viewport"><code><span class="pre">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="pre">#include</span> <span class="str">&lt;vector&gt;</span>
+<span class="pre">#include</span> <span class="str">&lt;string&gt;</span>
+
+<span class="kw">struct</span> <span class="typ">Project</span> {
+    <span class="typ">std::string</span> title;
+    <span class="typ">std::string</span> icon;
+    <span class="typ">std::string</span> description;
+    <span class="typ">std::vector</span>&lt;<span class="typ">std::string</span>&gt; tech_stack;
+    <span class="typ">std::string</span> repo_link;
+};
+
+<span class="typ">std::vector</span>&lt;<span class="typ">Project</span>&gt; <span class="fn">getProjects</span>() {
+    <span class="kw">return</span> {
+        {
+            <span class="str">"Abalone Board Game AI"</span>, <span class="str">"♟️"</span>,
+            <span class="str">"Competitive AI playing Abalone board game with 4 search strategies."</span>,
+            {<span class="str">"C++"</span>, <span class="str">"Minimax"</span>, <span class="str">"Alpha-Beta Pruning"</span>, <span class="str">"Heuristic Search"</span>},
+            <span class="str">"https://github.com/Durganshu/Abalone-Game"</span>
+        },
+        {
+            <span class="str">"Fluidchen-EM"</span>, <span class="str">"🌊"</span>,
+            <span class="str">"MPI-parallelized CFD solver supporting preCICE multi-physics coupling."</span>,
+            {<span class="str">"C++"</span>, <span class="str">"MPI"</span>, <span class="str">"Parallel Computing"</span>, <span class="str">"Fluid Dynamics"</span>, <span class="str">"preCICE"</span>},
+            <span class="str">"https://github.com/Durganshu/Fluidchen-EM"</span>
+        },
+        {
+            <span class="str">"Modern C++ Performance"</span>, <span class="str">"⚙️"</span>,
+            <span class="str">"Evaluates Modern C++ (C++11+) programming practices and their hardware resource impact."</span>,
+            {<span class="str">"C++11/14/17"</span>, <span class="str">"Benchmarking"</span>, <span class="str">"Performance"</span>},
+            <span class="str">"https://github.com/Durganshu/Modern-Cpp-Performance"</span>
+        },
+        {
+            <span class="str">"Parallelized Jacobi Method"</span>, <span class="str">"🧮"</span>,
+            <span class="str">"5-point stencil Jacobi solver with shared, distributed, and hybrid memory parallelism."</span>,
+            {<span class="str">"C++"</span>, <span class="str">"OpenMP"</span>, <span class="str">"MPI"</span>, <span class="str">"HPC"</span>},
+            <span class="str">"https://github.com/Durganshu/Parallelized-Jacobi-Method"</span>
+        },
+        {
+            <span class="str">"DeepBio"</span>, <span class="str">"🤖"</span>,
+            <span class="str">"GPT-3 powered biography generator, built at the TUM.ai Makeathon 2022."</span>,
+            {<span class="str">"Python"</span>, <span class="str">"GPT-3"</span>, <span class="str">"Hackathon"</span>},
+            <span class="str">"https://github.com/Durganshu/DeepBio"</span>
+        },
+        {
+            <span class="str">"MPI Ping Pong"</span>, <span class="str">"🏓"</span>,
+            <span class="str">"Visualizes an MPI connection with blocking send/receive between two nodes."</span>,
+            {<span class="str">"C++"</span>, <span class="str">"MPI"</span>},
+            <span class="str">"https://github.com/Durganshu/MPI-Ping-Pong"</span>
+        },
+        {
+            <span class="str">"wgetD"</span>, <span class="str">"🌐"</span>,
+            <span class="str">"A simplified, TCP-based HTTP client — a minimal wget clone."</span>,
+            {<span class="str">"C++"</span>, <span class="str">"Networking"</span>, <span class="str">"TCP/IP"</span>},
+            <span class="str">"https://github.com/Durganshu/wgetD"</span>
+        },
+        {
+            <span class="str">"Multi-threaded UDP Server-Client"</span>, <span class="str">"📡"</span>,
+            <span class="str">"High performance UDP server with POSIX threads & select API."</span>,
+            {<span class="str">"C++"</span>, <span class="str">"pthreads"</span>, <span class="str">"Socket Programming"</span>, <span class="str">"UDP"</span>},
+            <span class="str">"https://github.com/Durganshu/UDP-Server-Client"</span>
+        }
+    };
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- PANE 2: Rendered Visual Output -->
+        <div class="editor-pane pane-render">
+          <div class="pane-header"><span class="pane-title">Git log Cards Preview</span></div>
+          <div class="render-viewport">
+            
+            <h1 class="page-title fade-in" style="margin-top:0"><span class="prompt">~/</span>projects</h1>
+            <p class="page-subtitle fade-in" style="margin-bottom:20px">// git log --oneline --all — academic and hobby projects (<a href="https://github.com/Durganshu/" target="_blank">view all on GitHub</a>)</p>
+
+            <div class="git-log-container fade-in-stagger">
+
+              <a class="git-commit" href="https://github.com/Durganshu/Abalone-Game" target="_blank">
+                <div class="git-commit-header">
+                  <span class="git-hash">commit e7a3f1d</span>
+                  <span class="git-refs"><span class="git-ref">HEAD → main</span></span>
+                </div>
+                <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
+                <div class="git-commit-message">feat: Abalone-Game — competitive board game AI</div>
+                <div class="git-commit-body">Abalone is a board game of class "2-Person Zero-Sum Game with Complete Information". This repository contains 4 different search strategies for a competitive Abalone gameplay.</div>
+                <div class="git-commit-stats">
+                  <span class="git-stat-tech">
+                    <span class="tech-badge">C++</span>
+                    <span class="tech-badge">Game AI</span>
+                    <span class="tech-badge">Search Algorithms</span>
+                  </span>
+                </div>
+              </a>
+
+              <a class="git-commit" href="https://github.com/Durganshu/Fluidchen-EM" target="_blank">
+                <div class="git-commit-header">
+                  <span class="git-hash">commit b4c9e2c</span>
+                  <span class="git-refs"><span class="git-ref">origin/main</span></span>
+                </div>
+                <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
+                <div class="git-commit-message">feat: Fluidchen-EM — MPI-parallelized CFD Solver</div>
+                <div class="git-commit-body">A Computational Fluid Dynamics Solver capable of solving a wide range of problems. The whole code is parallelized using MPI and is compatible with preCICE for coupling with other solvers.</div>
+                <div class="git-commit-stats">
+                  <span class="git-stat-tech">
+                    <span class="tech-badge">C++</span>
+                    <span class="tech-badge">MPI</span>
+                    <span class="tech-badge">CFD</span>
+                    <span class="tech-badge">preCICE</span>
+                  </span>
+                </div>
+              </a>
+
+              <a class="git-commit" href="https://github.com/Durganshu/Modern-Cpp-Performance" target="_blank">
+                <div class="git-commit-header">
+                  <span class="git-hash">commit a1b2c3d</span>
+                  <span class="git-refs"><span class="git-ref">origin/main</span></span>
+                </div>
+                <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
+                <div class="git-commit-message">feat: C++ Performance Benchmarks — modern C++ evaluation</div>
+                <div class="git-commit-body">Comprehensively evaluates the performance aspects of Modern C++ (C++11 and later), particularly focusing on programming practices and their impact on hardware resource utilization.</div>
+                <div class="git-commit-stats">
+                  <span class="git-stat-tech">
+                    <span class="tech-badge">C++11/14/17</span>
+                    <span class="tech-badge">Benchmarking</span>
+                    <span class="tech-badge">Performance</span>
+                  </span>
+                </div>
+              </a>
+
+              <a class="git-commit" href="https://github.com/Durganshu/Parallelized-Jacobi-Method" target="_blank">
+                <div class="git-commit-header">
+                  <span class="git-hash">commit 5d8f9a2</span>
+                  <span class="git-refs"><span class="git-ref">origin/main</span></span>
+                </div>
+                <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
+                <div class="git-commit-message">feat: Parallelized Jacobi Solver — shared + distributed memory</div>
+                <div class="git-commit-body">Implements the Jacobi method on a discretized 5-point stencil with shared, distributed, and hybrid memory parallelism. Supports OpenMP and MPI.</div>
+                <div class="git-commit-stats">
+                  <span class="git-stat-tech">
+                    <span class="tech-badge">C++</span>
+                    <span class="tech-badge">OpenMP</span>
+                    <span class="tech-badge">MPI</span>
+                    <span class="tech-badge">HPC</span>
+                  </span>
+                </div>
+              </a>
+
+              <a class="git-commit" href="https://github.com/Durganshu/DeepBio" target="_blank">
+                <div class="git-commit-header">
+                  <span class="git-hash">commit c8d3e7f</span>
+                  <span class="git-refs"><span class="git-ref">origin/main</span></span>
+                </div>
+                <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
+                <div class="git-commit-message">feat: DeepBio — GPT-3 powered biography generator</div>
+                <div class="git-commit-body">A tool that helps create biographies for older people. The app generates a biography based on a list of questions using GPT-3 from OpenAI. Created during the TUM.ai Makeathon in April 2022.</div>
+                <div class="git-commit-stats">
+                  <span class="git-stat-tech">
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">GPT-3</span>
+                    <span class="tech-badge">Hackathon</span>
+                  </span>
+                </div>
+              </a>
+
+              <a class="git-commit" href="https://github.com/Durganshu/MPI-Ping-Pong" target="_blank">
+                <div class="git-commit-header">
+                  <span class="git-hash">commit 9f2e1b4</span>
+                  <span class="git-refs"><span class="git-ref">origin/main</span></span>
+                </div>
+                <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
+                <div class="git-commit-message">feat: MPI Ping Pong — message passing visualization</div>
+                <div class="git-commit-body">Visualizes an MPI connection by sending a message from node A to node B and back (ping-pong), using blocking send and receive constructs.</div>
+                <div class="git-commit-stats">
+                  <span class="git-stat-tech">
+                    <span class="tech-badge">C++</span>
+                    <span class="tech-badge">MPI</span>
+                  </span>
+                </div>
+              </a>
+
+              <a class="git-commit" href="https://github.com/Durganshu/wgetD" target="_blank">
+                <div class="git-commit-header">
+                  <span class="git-hash">commit 3a7b5c9</span>
+                  <span class="git-refs"><span class="git-ref">origin/main</span></span>
+                </div>
+                <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
+                <div class="git-commit-message">feat: wgetD — TCP-based HTTP client</div>
+                <div class="git-commit-body">A TCP-based application for sending and receiving HTTP requests. A simplified version of the Linux wget application.</div>
+                <div class="git-commit-stats">
+                  <span class="git-stat-tech">
+                    <span class="tech-badge">C++</span>
+                    <span class="tech-badge">Networking</span>
+                    <span class="tech-badge">TCP/IP</span>
+                  </span>
+                </div>
+              </a>
+
+              <a class="git-commit" href="https://github.com/Durganshu/UDP-Server-Client" target="_blank">
+                <div class="git-commit-header">
+                  <span class="git-hash">commit d6e8f0a</span>
+                  <span class="git-refs"><span class="git-ref">origin/main</span></span>
+                </div>
+                <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
+                <div class="git-commit-message">feat: UDP Server and Client — multithreaded messaging</div>
+                <div class="git-commit-body">UDP-based server and clients for communicating messages. Includes a sequential as well as a pthread-based multithreaded version.</div>
+                <div class="git-commit-stats">
+                  <span class="git-stat-tech">
+                    <span class="tech-badge">C++</span>
+                    <span class="tech-badge">UDP</span>
+                    <span class="tech-badge">pthreads</span>
+                  </span>
+                </div>
+              </a>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
     </div>
   </main>
 

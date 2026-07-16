@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTerminalTyping();
   initScrollAnimations();
   initMobileNav();
+  initEditorToggle();
 });
 
 // ─── Command Definitions ────────────────────────────
@@ -406,6 +407,38 @@ function initScrollAnimations() {
   });
 
   targets.forEach(t => observer.observe(t));
+}
+
+// ─── Editor Split/Code/Preview Toggle ──────────────
+function initEditorToggle() {
+  const workspace = document.getElementById('editor-workspace');
+  const btnSplit = document.getElementById('btn-split');
+  const btnCode = document.getElementById('btn-code');
+  const btnPreview = document.getElementById('btn-preview');
+  if (!workspace || !btnSplit || !btnCode || !btnPreview) return;
+
+  const buttons = [btnSplit, btnCode, btnPreview];
+
+  function setActive(btn) {
+    buttons.forEach(b => b.classList.toggle('active', b === btn));
+  }
+
+  btnSplit.addEventListener('click', () => {
+    workspace.classList.remove('show-code-only', 'show-render-only', 'show-code');
+    setActive(btnSplit);
+  });
+
+  btnCode.addEventListener('click', () => {
+    workspace.classList.remove('show-render-only');
+    workspace.classList.add('show-code-only', 'show-code');
+    setActive(btnCode);
+  });
+
+  btnPreview.addEventListener('click', () => {
+    workspace.classList.remove('show-code-only', 'show-code');
+    workspace.classList.add('show-render-only');
+    setActive(btnPreview);
+  });
 }
 
 // ─── Mobile Navigation Toggle ──────────────────────
