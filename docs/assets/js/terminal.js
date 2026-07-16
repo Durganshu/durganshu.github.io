@@ -73,7 +73,6 @@ const COMMANDS = {
   contact: () => [
     { type: 'output', text: '📬 Contact Info' },
     { type: 'output', text: '' },
-    { type: 'highlight', label: '  Email', value: ':    durganshu.mishra@tum.de' },
     { type: 'link', label: '  GitHub', value: ':   github.com/durganshu', url: 'https://github.com/durganshu' },
     { type: 'link', label: '  LinkedIn', value: ': linkedin.com/in/durganshu', url: 'https://www.linkedin.com/in/durganshu' },
     { type: 'link', label: '  Medium', value: ':   medium.com/@durganshu', url: 'https://medium.com/@durganshu' },
@@ -148,10 +147,6 @@ const COMMANDS = {
         { type: 'output', text: 'High-Performance Computing · HPC-QC Integration · Scientific Computing' },
       ],
       'contact.txt': () => COMMANDS.contact(),
-      'resume.pdf': () => [
-        { type: 'output', text: '📄 Downloading resume...' },
-        { type: 'download', url: './attachments/CV_Mishra.pdf', delay: 400 },
-      ],
     };
     const file = args?.trim();
     if (!file) return [{ type: 'error', text: 'cat: missing file operand' }];
