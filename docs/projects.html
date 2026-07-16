@@ -3,162 +3,260 @@
 
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Projects | Durganshu Mishra</title>
-  <meta name="generator" content="Jekyll v3.9.3" />
-  <meta property="og:title" content="Projects" />
-  <meta property="og:locale" content="en_US" />
-  <meta name="description"
-    content="I'm Durganshu, a C++ Software Developer at SevenCs GmbH (Teledyne) in Hamburg. 
-Explore my academic and professional journey, my projects and blogs here! I am always open to new opportunities and collaborations. Don't forget to contact me if you have any questions or just want to say hi!" />
-  <meta property="og:description"
-    content="I'm Durganshu, a C++ Software Developer at SevenCs GmbH (Teledyne) in Hamburg. 
-Explore my academic and professional journey, my projects and blogs here! I am always open to new opportunities and collaborations. Don't forget to contact me if you have any questions or just want to say hi!" />
-  <link rel="canonical" href="http://localhost:4000/projects/" />
-  <meta property="og:url" content="http://localhost:4000/projects/" />
-  <meta property="og:site_name" content="Durganshu Mishra" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary" />
-  <meta property="twitter:title" content="Projects" />
-  <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"I'm Durganshu, a C++ Software Developer at SevenCs GmbH (Teledyne) in Hamburg. 
-Explore my academic and professional journey, my projects and blogs here! I am always open to new opportunities and collaborations. Don't forget to contact me if you have any questions or just want to say hi!","headline":"Projects","url":"http://localhost:4000/projects/"}</script>
-  <!-- End Jekyll SEO tag -->
-  <link rel="stylesheet" href="/assets/main.css">
-  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Durganshu Mishra" />
+  <meta name="description" content="Academic and hobby projects — CFD solvers, board game AI, C++ performance benchmarks, MPI tools, and more.">
+  <meta property="og:title" content="Projects — Durganshu Mishra">
+  <meta property="og:description" content="C++ & HPC Projects — CFD, AI, Networking, Performance Benchmarks">
+  <meta property="og:url" content="https://durganshu.github.io/projects.html">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://durganshu.github.io/projects.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/theme.css">
 </head>
 
 <body>
-  <header class="site-header" role="banner">
-
-    <div class="wrapper"><a class="site-title" rel="author" href="/">Durganshu Mishra</a>
-      <nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path
-                d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z" />
-            </svg>
-          </span>
-        </label>
-
-        <div class="trigger"><a class="page-link" href="about-me.html">About Me</a>
-          <a class="page-link" href="blogs.html">Blogs</a><a class="page-link" href="projects.html">Projects</a>
-        </div>
-      </nav>
-    </div>
+  <!-- ═══ Navigation ═══ -->
+  <header class="site-header">
+    <nav class="nav-wrapper">
+      <a class="nav-brand" href="/">
+        <span class="brand-icon">⌘</span> durganshu
+      </a>
+      <div class="nav-tabs" id="nav-tabs">
+        <a class="nav-tab" href="/">
+          <span class="tab-icon">📄</span> index.cpp <span class="tab-close">×</span>
+        </a>
+        <a class="nav-tab" href="about-me.html">
+          <span class="tab-icon">📋</span> about.h <span class="tab-close">×</span>
+        </a>
+        <a class="nav-tab" href="blogs.html">
+          <span class="tab-icon">📝</span> blogs.md <span class="tab-close">×</span>
+        </a>
+        <a class="nav-tab active" href="projects.html">
+          <span class="tab-icon">🔧</span> projects.cpp <span class="tab-close">×</span>
+        </a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">☰</button>
+    </nav>
   </header>
-  <main class="page-content" aria-label="Content">
-    <div class="wrapper">
-      <article class="post">
 
-        <header class="post-header">
-          <h1 class="post-title">Projects</h1>
-        </header>
+  <main class="page-content">
+    <div class="container">
 
-        <div class="post-content">
-          <p> This page lists some of my academic and hobby porjects. All of these (and maybe more) can be found out on
-            my GitHub repository, <a href="https://github.com/Durganshu/">here</a>.</p>
+      <h1 class="page-title fade-in"><span class="prompt">~/</span>projects</h1>
+      <p class="page-subtitle fade-in">// git log --oneline --all — academic and hobby projects (<a href="https://github.com/Durganshu/" target="_blank">view all on GitHub</a>)</p>
 
-          <h2 id="abalone-game"><a href="https://github.com/Durganshu/Abalone-Game">Abalone-Game</a></h2>
+      <div class="projects-grid fade-in-stagger">
 
-          <p>Abalone is a board game of class "2-Person Zero-Sum Game with Complete Information". This repository
-            contains 4 different search strategies for a competitive Abalone gameplay.</p>
+        <!-- Abalone Game -->
+        <a class="git-commit" href="https://github.com/Durganshu/Abalone-Game" target="_blank">
+          <div class="git-commit-header">
+            <span class="git-hash">commit e7a3f1d</span>
+            <span class="git-refs">
+              <span class="git-ref">HEAD → main</span>
+            </span>
+          </div>
+          <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
+          <div class="git-commit-message">feat: Abalone-Game — competitive board game AI</div>
+          <div class="git-commit-body">Abalone is a board game of class "2-Person Zero-Sum Game with Complete Information". This repository contains 4 different search strategies for a competitive Abalone gameplay.</div>
+          <div class="git-commit-stats">
+            <span class="git-stat-tech">
+              <span class="tech-badge">C++</span>
+              <span class="tech-badge">Game AI</span>
+              <span class="tech-badge">Search Algorithms</span>
+            </span>
+          </div>
+        </a>
 
-          <!-- <p><strong>This article was very well liked by the readers and even featured as a <a href="https://hackernoon.com/">Hackernoon Top Story</a> and translated in 8 languages</strong>. Read the full article here: <a href="https://medium.com/@durganshumishra/a-deep-dive-into-amdahls-law-and-gustafson-s-law-33c6313020bc">Medium</a> and <a href="https://hackernoon.com/a-deep-dive-into-amdahls-law-and-gustafsons-law">Hackernoon</a>.</p> -->
+        <!-- Fluidchen-EM -->
+        <a class="git-commit" href="https://github.com/Durganshu/Fluidchen-EM" target="_blank">
+          <div class="git-commit-header">
+            <span class="git-hash">commit b4c9e2c</span>
+            <span class="git-refs">
+              <span class="git-ref">origin/main</span>
+            </span>
+          </div>
+          <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
+          <div class="git-commit-message">feat: Fluidchen-EM — MPI-parallelized CFD Solver</div>
+          <div class="git-commit-body">A Computational Fluid Dynamics Solver capable of solving a wide range of problems. The whole code is parallelized using MPI and is compatible with preCICE for coupling with other solvers.</div>
+          <div class="git-commit-stats">
+            <span class="git-stat-tech">
+              <span class="tech-badge">C++</span>
+              <span class="tech-badge">MPI</span>
+              <span class="tech-badge">CFD</span>
+              <span class="tech-badge">preCICE</span>
+            </span>
+          </div>
+        </a>
 
-          <h2 id="fluidchen-em"><a href="https://github.com/Durganshu/Fluidchen-EM">Fluidchen-EM</a></h2>
+        <!-- Modern C++ Performance -->
+        <a class="git-commit" href="https://github.com/Durganshu/Modern-Cpp-Performance" target="_blank">
+          <div class="git-commit-header">
+            <span class="git-hash">commit a1b2c3d</span>
+            <span class="git-refs">
+              <span class="git-ref">origin/main</span>
+            </span>
+          </div>
+          <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
+          <div class="git-commit-message">feat: C++ Performance Benchmarks — modern C++ evaluation</div>
+          <div class="git-commit-body">Comprehensively evaluates the performance aspects of Modern C++ (C++11 and later), particularly focusing on programming practices and their impact on hardware resource utilization.</div>
+          <div class="git-commit-stats">
+            <span class="git-stat-tech">
+              <span class="tech-badge">C++11/14/17</span>
+              <span class="tech-badge">Benchmarking</span>
+              <span class="tech-badge">Performance</span>
+            </span>
+          </div>
+        </a>
 
-          <p>Fluidchen EM is a Computational Fluid Dynamics Solver capable of solving a wide range of problems. The
-            whole code is parallelized using MPI and is compatible with preCICE for coupling with other solvers.</p>
+        <!-- Parallelized Jacobi -->
+        <a class="git-commit" href="https://github.com/Durganshu/Parallelized-Jacobi-Method" target="_blank">
+          <div class="git-commit-header">
+            <span class="git-hash">commit 5d8f9a2</span>
+            <span class="git-refs">
+              <span class="git-ref">origin/main</span>
+            </span>
+          </div>
+          <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
+          <div class="git-commit-message">feat: Parallelized Jacobi Solver — shared + distributed memory</div>
+          <div class="git-commit-body">Implements the Jacobi method on a discretized 5-point stencil with shared, distributed, and hybrid memory parallelism. Supports OpenMP and MPI.</div>
+          <div class="git-commit-stats">
+            <span class="git-stat-tech">
+              <span class="tech-badge">C++</span>
+              <span class="tech-badge">OpenMP</span>
+              <span class="tech-badge">MPI</span>
+              <span class="tech-badge">HPC</span>
+            </span>
+          </div>
+        </a>
 
-          <!-- <p><strong>This was my first online article ever.</strong> Read the full article here: <a href="https://medium.com/@durganshumishra/the-power-of-parallel-programming-why-its-a-necessity-2429e4622f5e">Medium</a> and <a href="https://hackernoon.com/why-parallel-programming-is-a-game-changer">Hackernoon</a>.</p> -->
+        <!-- DeepBio -->
+        <a class="git-commit" href="https://github.com/Durganshu/DeepBio" target="_blank">
+          <div class="git-commit-header">
+            <span class="git-hash">commit c8d3e7f</span>
+            <span class="git-refs">
+              <span class="git-ref">origin/main</span>
+            </span>
+          </div>
+          <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
+          <div class="git-commit-message">feat: DeepBio — GPT-3 powered biography generator</div>
+          <div class="git-commit-body">A tool that helps create biographies for older people. The app generates a biography based on a list of questions using GPT-3 from OpenAI. Created during the TUM.ai Makeathon in April 2022.</div>
+          <div class="git-commit-stats">
+            <span class="git-stat-tech">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">GPT-3</span>
+              <span class="tech-badge">Hackathon</span>
+            </span>
+          </div>
+        </a>
 
-          <h2 id="modern-cpp"><a href="https://github.com/Durganshu/Modern-Cpp-Performance">C++ Performance
-              Benchmarks</a></h2>
-          <p>C++ is a powerful language usually preferred over other languages because of its potential to exploit
-            hardware resources to extract maximum performance. However, its vast range of features should be used
-            suitably to achieve the intended performance. In this repository, I have comprehensively evaluated the
-            performance aspects of Modern C++ (C++11 and later), particularly focusing on the programming practices.</p>
+        <!-- MPI Ping Pong -->
+        <a class="git-commit" href="https://github.com/Durganshu/MPI-Ping-Pong" target="_blank">
+          <div class="git-commit-header">
+            <span class="git-hash">commit 9f2e1b4</span>
+            <span class="git-refs">
+              <span class="git-ref">origin/main</span>
+            </span>
+          </div>
+          <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
+          <div class="git-commit-message">feat: MPI Ping Pong — message passing visualization</div>
+          <div class="git-commit-body">Visualizes an MPI connection by sending a message from node A to node B and back (ping-pong), using blocking send and receive constructs.</div>
+          <div class="git-commit-stats">
+            <span class="git-stat-tech">
+              <span class="tech-badge">C++</span>
+              <span class="tech-badge">MPI</span>
+            </span>
+          </div>
+        </a>
 
-          <h2 id="parallelized-jacobi"><a href="https://github.com/Durganshu/Parallelized-Jacobi-Method">Parallelized
-              Jacobi Solver</a></h2>
-          <p>The code implements the Jacobi method on a discretized 5-point stencil with shared, distributed and hybrid
-            memory parallelism. OpenMP and MPI are supported.</p>
+        <!-- wgetD -->
+        <a class="git-commit" href="https://github.com/Durganshu/wgetD" target="_blank">
+          <div class="git-commit-header">
+            <span class="git-hash">commit 3a7b5c9</span>
+            <span class="git-refs">
+              <span class="git-ref">origin/main</span>
+            </span>
+          </div>
+          <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
+          <div class="git-commit-message">feat: wgetD — TCP-based HTTP client</div>
+          <div class="git-commit-body">A TCP-based application for sending and receiving HTTP requests. A simplified version of the Linux wget application.</div>
+          <div class="git-commit-stats">
+            <span class="git-stat-tech">
+              <span class="tech-badge">C++</span>
+              <span class="tech-badge">Networking</span>
+              <span class="tech-badge">TCP/IP</span>
+            </span>
+          </div>
+        </a>
 
-          <h2 id="deep-bio"><a href="https://github.com/Durganshu/DeepBio">DeepBio</a></h2>
-          <p>DeepBio is a tool that helps to create biographies for older people. The app creates a biography based on a
-            list of questions with the use of GPT3 from OpenAi. The application was created during the TUM.ai Makeathon
-            in April 2022.</p>
+        <!-- UDP Server Client -->
+        <a class="git-commit" href="https://github.com/Durganshu/wgetD" target="_blank">
+          <div class="git-commit-header">
+            <span class="git-hash">commit d6e8f0a</span>
+            <span class="git-refs">
+              <span class="git-ref">origin/main</span>
+            </span>
+          </div>
+          <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
+          <div class="git-commit-message">feat: UDP Server and Client — multithreaded messaging</div>
+          <div class="git-commit-body">UDP-based server and clients for communicating messages. Includes a sequential as well as a pthread-based multithreaded version.</div>
+          <div class="git-commit-stats">
+            <span class="git-stat-tech">
+              <span class="tech-badge">C++</span>
+              <span class="tech-badge">UDP</span>
+              <span class="tech-badge">pthreads</span>
+            </span>
+          </div>
+        </a>
 
-          <h2 id="mpi-ping-pong"><a href="https://github.com/Durganshu/MPI-Ping-Pong">MPI Ping Pong</a></h2>
-          <p>This code visualizes an MPI connection by sending a message from node A to node B and back (a so called
-            ping-pong), while using the blocking send and receive constructs.</p>
-
-          <h2 id="wgetD"><a href="https://github.com/Durganshu/wgetD">wgetD</a></h2>
-          <p>wgetD is a TCP based application for sending and receiving HTTP requests. It is a simplified version of the
-            linux wget application.</p>
-
-          <h2 id="udp-server-client"><a href="https://github.com/Durganshu/wgetD">UDP Server and Client</a></h2>
-          <p>UDP based server and clients for communicating messages. The multithreaded version is pthread based. The
-            repository includes a sequential as well as a pthread-based multithreaded version.</p>
-
-
-
-        </div>
-
-      </article>
-
-    </div>
-  </main>
-  <footer class="site-footer h-card">
-    <data class="u-url" href="/"></data>
-
-    <div class="wrapper">
-
-      <h2 class="footer-heading">Let's get in touch!</h2>
-
-      <div class="footer-col-wrapper">
-        <div class="footer-col footer-col-1">
-          <ul class="contact-list">
-            <li class="p-name">Durganshu Mishra</li>
-            <li><a class="u-email" href="mailto:durganshu.mishra@tum.de">durganshu.mishra@tum.de</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col footer-col-2">
-          <ul class="social-media-list">
-            <li><a href="https://github.com/durganshu"><svg class="svg-icon">
-                  <use xlink:href="/assets/minima-social-icons.svg#github"></use>
-                </svg> <span class="username">durganshu</span></a></li>
-            <li><a href="https://www.linkedin.com/in/durganshu"><svg class="svg-icon">
-                  <use xlink:href="/assets/minima-social-icons.svg#linkedin"></use>
-                </svg> <span class="username">durganshu</span></a></li>
-            <li><a href="https://www.twitter.com/mdurganshu"><svg class="svg-icon">
-                  <use xlink:href="/assets/minima-social-icons.svg#twitter"></use>
-                </svg> <span class="username">mdurganshu</span></a></li>
-            <li><a href="https://medium.com/@durganshu"><svg class="svg-icon">
-                  <use xlink:href="/attachments/medium-svgrepo-com_resized.svg#surface1"></use>
-                </svg> <span class="username">@durganshu</span></a></li>
-            <li><a href="https://hackernoon.com/about/durganshu"><svg class="svg-icon">
-                  <use xlink:href="/attachments/HackerNoon-Rounded-Logo.svg#surface1"></use>
-                </svg> <span class="username">durganshu</span></a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col footer-col-3">
-          <p>I'm Durganshu, a C++ Software Developer at SevenCs GmbH (Teledyne) in Hamburg.
-            Explore my academic and professional journey, my projects and blogs here! I am always open to new
-            opportunities and collaborations. Don't forget to contact me if you have any questions or just want to say
-            hi!</p>
-        </div>
       </div>
 
     </div>
+  </main>
 
+  <!-- ═══ Footer ═══ -->
+  <footer class="site-footer">
+    <div class="footer-wrapper">
+      <div class="footer-prompt">
+        <span class="green">durganshu@dev:~$</span> cat contact.txt
+      </div>
+      <div class="footer-grid">
+        <div>
+          <div class="footer-section-title">Contact</div>
+          <a class="footer-link" href="mailto:durganshu.mishra@tum.de">
+            <span class="link-icon">📧</span> durganshu.mishra@tum.de
+          </a>
+        </div>
+        <div>
+          <div class="footer-section-title">Profiles</div>
+          <a class="footer-link" href="https://github.com/durganshu" target="_blank">
+            <span class="link-icon">⚡</span> GitHub
+          </a>
+          <a class="footer-link" href="https://www.linkedin.com/in/durganshu" target="_blank">
+            <span class="link-icon">🔗</span> LinkedIn
+          </a>
+          <a class="footer-link" href="https://medium.com/@durganshu" target="_blank">
+            <span class="link-icon">📰</span> Medium
+          </a>
+          <a class="footer-link" href="https://hackernoon.com/about/durganshu" target="_blank">
+            <span class="link-icon">💚</span> HackerNoon
+          </a>
+        </div>
+        <div>
+          <div class="footer-section-title">About</div>
+          <p class="footer-desc">C++ Software Developer at SevenCs GmbH (Teledyne) in Hamburg. Passionate about High-Performance Computing, HPC-QC integration, GPU programming, and scientific computing.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Durganshu Mishra</span>
+        <span>Built with ☕ and too many compiler flags</span>
+      </div>
+    </div>
   </footer>
+
+  <script src="/assets/js/terminal.js"></script>
 </body>
 
 </html>

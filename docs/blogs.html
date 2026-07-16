@@ -1,142 +1,182 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+
+<head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Blogs | Durganshu Mishra</title>
-<meta name="generator" content="Jekyll v3.9.3" />
-<meta property="og:title" content="Blogs" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="I'm Durganshu, a C++ Software Developer at SevenCs GmbH (Teledyne) in Hamburg. 
-Explore my academic and professional journey, my projects and blogs here! I am always open to new opportunities and collaborations. Don't forget to contact me if you have any questions or just want to say hi!" />
-<meta property="og:description" content="I'm Durganshu, a C++ Software Developer at SevenCs GmbH (Teledyne) in Hamburg. 
-Explore my academic and professional journey, my projects and blogs here! I am always open to new opportunities and collaborations. Don't forget to contact me if you have any questions or just want to say hi!" />
-<link rel="canonical" href="http://localhost:4000/blogs/" />
-<meta property="og:url" content="http://localhost:4000/blogs/" />
-<meta property="og:site_name" content="Durganshu Mishra" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Blogs" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"I'm Durganshu, a C++ Software Developer at SevenCs GmbH (Teledyne) in Hamburg. 
-Explore my academic and professional journey, my projects and blogs here! I am always open to new opportunities and collaborations. Don't forget to contact me if you have any questions or just want to say hi!","headline":"Blogs","url":"http://localhost:4000/blogs/"}</script>
-<!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Durganshu Mishra" />
-<style>
-  .right-align-image {
-      float: right;
-      margin-left: 10px; /* Adjust the margin as needed */
-      max-width: 100%; /* Ensure the image doesn't exceed its container */
-      height: 200; /* Maintain the image's aspect ratio */
-  }
-</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blogs | Durganshu Mishra</title>
+  <meta name="description" content="Technical blog posts on parallel programming, compiler optimizations, performance modeling, and HPC.">
+  <meta property="og:title" content="Blogs — Durganshu Mishra">
+  <meta property="og:description" content="Technical blog posts on C++, HPC, parallel programming, and performance optimization.">
+  <meta property="og:url" content="https://durganshu.github.io/blogs.html">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://durganshu.github.io/blogs.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/theme.css">
 </head>
-<body><header class="site-header" role="banner">
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/">Durganshu Mishra</a><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
-            </svg>
-          </span>
-        </label>
-
-        <div class="trigger"><a class="page-link" href="about-me.html">About Me</a>
-          <a class="page-link" href="blogs.html">Blogs</a><a class="page-link" href="projects.html">Projects</a></div>
-      </nav></div>
-</header>
-<main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <article class="post">
-
-  <header class="post-header">
-    <h1 class="post-title">Blogs</h1>
+<body>
+  <!-- ═══ Navigation ═══ -->
+  <header class="site-header">
+    <nav class="nav-wrapper">
+      <a class="nav-brand" href="/">
+        <span class="brand-icon">⌘</span> durganshu
+      </a>
+      <div class="nav-tabs" id="nav-tabs">
+        <a class="nav-tab" href="/">
+          <span class="tab-icon">📄</span> index.cpp <span class="tab-close">×</span>
+        </a>
+        <a class="nav-tab" href="about-me.html">
+          <span class="tab-icon">📋</span> about.h <span class="tab-close">×</span>
+        </a>
+        <a class="nav-tab active" href="blogs.html">
+          <span class="tab-icon">📝</span> blogs.md <span class="tab-close">×</span>
+        </a>
+        <a class="nav-tab" href="projects.html">
+          <span class="tab-icon">🔧</span> projects.cpp <span class="tab-close">×</span>
+        </a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">☰</button>
+    </nav>
   </header>
 
-  <div class="post-content">
-    
-    <h2 id="parallel-programming-models">Understanding Parallel Programming Models</h2>
+  <main class="page-content">
+    <div class="container">
 
-    <p><img class="right-align-image" src="images/blog6.jpg" alt="Description of the first image" width="275" height="180"> Here's the second blog on my series on multi-threading.</p> 
-      
-      <p>Discover SIMD intrinsics, 
-      MIMD architectures and parallel programming models: Shared Memory, distributed memory, PGAS, DSM, OpenMP, MPI, DGAS, etc. 💻✨</p>
-    
-    
-    <p> The full story is available on <a href="https://medium.datadriveninvestor.com/understanding-parallel-programming-models-4f3e1c4c8637">Medium</a> and <a href="https://hackernoon.com/navigating-the-parallel-programming-landscape-a-deep-dive-into-simd-and-mimd-architectures">Hackernoon</a>.</p>  
-    
-    <h2 id="flynn-taxonomy">An Introduction to Flynn's Taxonomy</h2>
+      <h1 class="page-title fade-in"><span class="prompt">~/</span>blogs</h1>
+      <p class="page-subtitle fade-in">// technical writing on C++, HPC, and parallel programming</p>
 
-    <p><img class="right-align-image" src="images/blog5.webp" alt="Description of the first image" width="275" height="220"> Flynn's taxonomy forms the basis of modern-day 
-      computing architectures. My latest blog marks the beginning of a blog series on multithreading. 💻✨</p>
+      <div class="blog-grid fade-in-stagger">
 
-      <p>Discover SISD, SIMD, MISD, and MIMD architectures. These form the basis of the parallel programming models and are crucial for digging deep into threading fundamentals.</p>
-    
-    
-    <p> The full story is available on <a href="https://medium.datadriveninvestor.com/towards-multithreading-an-introduction-to-flynns-taxonomy-bee0761ac90b">Medium</a> and <a href="https://hackernoon.com/flynns-taxonomy-and-the-concept-of-multithreading">Hackernoon</a>.</p>  
-    
-    <h2 id="roofline-model">A comprehensive guide to the roofline model</h2>
+        <!-- Blog 6 -->
+        <div class="blog-card">
+          <img class="blog-thumb" src="images/blog6.jpg" alt="Parallel Programming Models">
+          <div class="blog-info">
+            <div class="blog-title">Understanding Parallel Programming Models</div>
+            <div class="blog-desc">Discover SIMD intrinsics, MIMD architectures and parallel programming models: Shared Memory, distributed memory, PGAS, DSM, OpenMP, MPI, DGAS, and more. The second blog in the multithreading series.</div>
+            <div class="blog-meta">
+              <a class="blog-platform" href="https://medium.datadriveninvestor.com/understanding-parallel-programming-models-4f3e1c4c8637" target="_blank">📰 Medium</a>
+              <a class="blog-platform" href="https://hackernoon.com/navigating-the-parallel-programming-landscape-a-deep-dive-into-simd-and-mimd-architectures" target="_blank">💚 HackerNoon</a>
+            </div>
+          </div>
+        </div>
 
-    <p><img class="right-align-image" src="images/blog4.webp" alt="Description of the first image" width="275" height="150"> This blog discusses the fundamentals and 
-      complexities of the Roofline performance model. Apart from the theoretical concepts, 
-      a hands-on example based on matrix multiplication in C++ (with all the relevant calculations) is showcased for better understanding.
-    </p>
-    
-    <p> Read the full article here: <a href="https://medium.com/nerd-for-tech/a-comprehensive-guide-to-the-roofline-model-fddaa506ce2b">Medium</a> and <a href="https://hackernoon.com/understanding-the-roofline-model">Hackernoon</a>.</p>  
+        <!-- Blog 5 -->
+        <div class="blog-card">
+          <img class="blog-thumb" src="images/blog5.webp" alt="Flynn's Taxonomy">
+          <div class="blog-info">
+            <div class="blog-title">An Introduction to Flynn's Taxonomy</div>
+            <div class="blog-desc">Flynn's taxonomy forms the basis of modern-day computing architectures. Discover SISD, SIMD, MISD, and MIMD architectures — the foundation of parallel programming models and key to understanding threading fundamentals.</div>
+            <div class="blog-meta">
+              <a class="blog-platform" href="https://medium.datadriveninvestor.com/towards-multithreading-an-introduction-to-flynns-taxonomy-bee0761ac90b" target="_blank">📰 Medium</a>
+              <a class="blog-platform" href="https://hackernoon.com/flynns-taxonomy-and-the-concept-of-multithreading" target="_blank">💚 HackerNoon</a>
+            </div>
+          </div>
+        </div>
 
-    <h2 id="compiler-optimizations">Compiler Optimizations: Boosting code performance without doing much!</h2>
+        <!-- Blog 4 -->
+        <div class="blog-card">
+          <img class="blog-thumb" src="images/blog4.webp" alt="Roofline Model">
+          <div class="blog-info">
+            <div class="blog-title">A Comprehensive Guide to the Roofline Model</div>
+            <div class="blog-desc">Fundamentals and complexities of the Roofline performance model. Includes theoretical concepts plus a hands-on C++ matrix multiplication example with all relevant calculations.</div>
+            <div class="blog-meta">
+              <a class="blog-platform" href="https://medium.com/nerd-for-tech/a-comprehensive-guide-to-the-roofline-model-fddaa506ce2b" target="_blank">📰 Medium</a>
+              <a class="blog-platform" href="https://hackernoon.com/understanding-the-roofline-model" target="_blank">💚 HackerNoon</a>
+            </div>
+          </div>
+        </div>
 
-    <p><img class="right-align-image" src="images/blog3.webp" alt="Description of the first image" width="275" height="200"> Developers looking to optimize the performance of their C++ code should discover compiler optimizations: a set of very effective C++ flags that improve the code performance without much effort. The only prerequisite is that you know what you're doing. Explore flags suitable for Intel C++ compilers such as -fno-alias, -xHost, -xCORE-AVX512, IPO, etc, with a hands-on showdown on a Jacobi iteration C++ code. My latest blog post talks in detail about a set of very useful compiler flags, compatible with Intel C++ Compiler.</p>
-    
-    <p><strong>The blog post featured as one of the top stories on <a href="https://hackernoon.com/">Hackernoon </a>. It is available in 12 languages.</strong> Read the full article here: <a href="https://medium.com/nerd-for-tech/compiler-optimizations-boosting-code-performance-without-doing-much-95f1182a5757">Medium</a> and <a href="https://hackernoon.com/compiler-optimizations-boosting-code-performance-with-minimum-tweaks">Hackernoon</a>.</p>  
-    
-  <h2 id="a-deep-dive-into-amdahls-law-and-gustafsons-law">A Deep Dive Into Amdahl’s Law and Gustafson’s Law</h2>
+        <!-- Blog 3 -->
+        <div class="blog-card">
+          <img class="blog-thumb" src="images/blog3.webp" alt="Compiler Optimizations">
+          <div class="blog-info">
+            <div class="blog-title">Compiler Optimizations: Boosting Code Performance Without Doing Much!</div>
+            <div class="blog-desc">Discover compiler optimizations: effective C++ flags that improve code performance without much effort. Explores Intel C++ Compiler flags (-fno-alias, -xHost, -xCORE-AVX512, IPO) with a hands-on Jacobi iteration benchmark.</div>
+            <div class="blog-meta">
+              <a class="blog-platform" href="https://medium.com/nerd-for-tech/compiler-optimizations-boosting-code-performance-without-doing-much-95f1182a5757" target="_blank">📰 Medium</a>
+              <a class="blog-platform" href="https://hackernoon.com/compiler-optimizations-boosting-code-performance-with-minimum-tweaks" target="_blank">💚 HackerNoon</a>
+              <span class="blog-badge">🔥 HackerNoon Top Story • 12 languages</span>
+            </div>
+          </div>
+        </div>
 
-<p><img class="right-align-image" src="images/blog2.webp" alt="Description of the first image" width="275" height="200">Join me in this journey, where we dive deep into the core, real-world applications, and the profound impact of these revolutionary principles. Discover insights from the original research, understand the math, and witness practical applications, including scaling tests in Computational Fluid Dynamics using a solver co-developed by <a href="https://www.linkedin.com/in/harish-ramachandran-20a941111/">Harish Ramachandran</a>, <a href="https://www.linkedin.com/in/yashasgandhi/">Yashas Gandhi</a> and me.</p>
+        <!-- Blog 2 -->
+        <div class="blog-card">
+          <img class="blog-thumb" src="images/blog2.webp" alt="Amdahl's and Gustafson's Law">
+          <div class="blog-info">
+            <div class="blog-title">A Deep Dive Into Amdahl's Law and Gustafson's Law</div>
+            <div class="blog-desc">Deep dive into the core, real-world applications, and profound impact of these revolutionary principles. Includes insights from original research, math, and practical applications with CFD scaling tests.</div>
+            <div class="blog-meta">
+              <a class="blog-platform" href="https://medium.com/@durganshumishra/a-deep-dive-into-amdahls-law-and-gustafson-s-law-33c6313020bc" target="_blank">📰 Medium</a>
+              <a class="blog-platform" href="https://hackernoon.com/a-deep-dive-into-amdahls-law-and-gustafsons-law" target="_blank">💚 HackerNoon</a>
+              <span class="blog-badge">🔥 HackerNoon Top Story • 12 languages</span>
+            </div>
+          </div>
+        </div>
 
-<!-- Inline image added below -->
-<!-- <p><img src="images/blog3.webp" alt="Description of the first image"> <strong>This blog post even featured as a <a href="https://hackernoon.com/">Hackernoon Top Story</a> and translated in 12 languages</strong>. Read the full article here: <a href="https://medium.com/@durganshumishra/a-deep-dive-into-amdahls-law-and-gustafson-s-law-33c6313020bc">Medium</a> and <a href="https://hackernoon.com/a-deep-dive-into-amdahls-law-and-gustafsons-law">Hackernoon</a>.</p> -->
-<p> <strong>This blog post even featured as a <a href="https://hackernoon.com/">Hackernoon Top Story</a> and translated in 12 languages</strong>. Read the full article here: <a href="https://medium.com/@durganshumishra/a-deep-dive-into-amdahls-law-and-gustafson-s-law-33c6313020bc">Medium</a> and <a href="https://hackernoon.com/a-deep-dive-into-amdahls-law-and-gustafsons-law">Hackernoon</a>.</p>
-<!-- <p><strong>This blog post even featured as a <a href="https://hackernoon.com/">Hackernoon Top Story</a> and translated in 12 languages</strong>. Read the full article here: <a href="https://medium.com/@durganshumishra/a-deep-dive-into-amdahls-law-and-gustafson-s-law-33c6313020bc">Medium</a> and <a href="https://hackernoon.com/a-deep-dive-into-amdahls-law-and-gustafsons-law">Hackernoon</a>.</p> -->
-
-<h2 id="the-power-of-parallel-programming-why-its-a-necessity">The Power of Parallel Programming: Why It's a Necessity</h2>
-
-<p><img class="right-align-image" src="images/blog1.webp" alt="Description of the first image" width="275" height="200"> Discover why parallelism is a game-changer in today’s tech landscape. With a brief historical overview, the article dives deeper into the role of Moore’s law in past decades and how multicore processors became necessary.</p>
-
-<p><strong>This was my first online article ever.</strong> Read the full article here: <a href="https://medium.com/@durganshumishra/the-power-of-parallel-programming-why-its-a-necessity-2429e4622f5e">Medium</a> and <a href="https://hackernoon.com/why-parallel-programming-is-a-game-changer">Hackernoon</a>.</p>
-
-  </div>
-
-</article>
+        <!-- Blog 1 -->
+        <div class="blog-card">
+          <img class="blog-thumb" src="images/blog1.webp" alt="Parallel Programming">
+          <div class="blog-info">
+            <div class="blog-title">The Power of Parallel Programming: Why It's a Necessity</div>
+            <div class="blog-desc">Discover why parallelism is a game-changer in today's tech landscape. Brief historical overview, the role of Moore's law, and how multicore processors became necessary. My first-ever technical article!</div>
+            <div class="blog-meta">
+              <a class="blog-platform" href="https://medium.com/@durganshumishra/the-power-of-parallel-programming-why-its-a-necessity-2429e4622f5e" target="_blank">📰 Medium</a>
+              <a class="blog-platform" href="https://hackernoon.com/why-parallel-programming-is-a-game-changer" target="_blank">💚 HackerNoon</a>
+              <span class="blog-badge">✨ First article</span>
+            </div>
+          </div>
+        </div>
 
       </div>
-    </main><footer class="site-footer h-card">
-  <data class="u-url" href="/"></data>
 
-  <div class="wrapper">
+    </div>
+  </main>
 
-    <h2 class="footer-heading">Let's get in touch!</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">Durganshu Mishra</li><li><a class="u-email" href="mailto:durganshu.mishra@tum.de">durganshu.mishra@tum.de</a></li></ul>
+  <!-- ═══ Footer ═══ -->
+  <footer class="site-footer">
+    <div class="footer-wrapper">
+      <div class="footer-prompt">
+        <span class="green">durganshu@dev:~$</span> cat contact.txt
       </div>
-
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/durganshu"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">durganshu</span></a></li><li><a href="https://www.linkedin.com/in/durganshu"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">durganshu</span></a></li><li><a href="https://www.twitter.com/mdurganshu"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">mdurganshu</span></a></li><li><a href="https://medium.com/@durganshu"><svg class="svg-icon"><use xlink:href="/attachments/medium-svgrepo-com_resized.svg#surface1"></use></svg> <span class="username">@durganshu</span></a></li><li><a href="https://hackernoon.com/about/durganshu"><svg class="svg-icon"><use xlink:href="/attachments/HackerNoon-Rounded-Logo.svg#surface1"></use></svg> <span class="username">durganshu</span></a></li></ul>
-</div>
-
-      <div class="footer-col footer-col-3">
-        <p>I'm Durganshu, a C++ Software Developer at SevenCs GmbH (Teledyne) in Hamburg. 
-          Explore my academic and professional journey, my projects and blogs here! I am always open to new opportunities and collaborations. Don't forget to contact me if you have any questions or just want to say hi!</p>
+      <div class="footer-grid">
+        <div>
+          <div class="footer-section-title">Contact</div>
+          <a class="footer-link" href="mailto:durganshu.mishra@tum.de">
+            <span class="link-icon">📧</span> durganshu.mishra@tum.de
+          </a>
+        </div>
+        <div>
+          <div class="footer-section-title">Profiles</div>
+          <a class="footer-link" href="https://github.com/durganshu" target="_blank">
+            <span class="link-icon">⚡</span> GitHub
+          </a>
+          <a class="footer-link" href="https://www.linkedin.com/in/durganshu" target="_blank">
+            <span class="link-icon">🔗</span> LinkedIn
+          </a>
+          <a class="footer-link" href="https://medium.com/@durganshu" target="_blank">
+            <span class="link-icon">📰</span> Medium
+          </a>
+          <a class="footer-link" href="https://hackernoon.com/about/durganshu" target="_blank">
+            <span class="link-icon">💚</span> HackerNoon
+          </a>
+        </div>
+        <div>
+          <div class="footer-section-title">About</div>
+          <p class="footer-desc">C++ Software Developer at SevenCs GmbH (Teledyne) in Hamburg. Passionate about High-Performance Computing, HPC-QC integration, GPU programming, and scientific computing.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Durganshu Mishra</span>
+        <span>Built with ☕ and too many compiler flags</span>
       </div>
     </div>
+  </footer>
 
-  </div>
-
-</footer>
+  <script src="/assets/js/terminal.js"></script>
 </body>
 
 </html>
