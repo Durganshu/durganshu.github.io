@@ -5,307 +5,308 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Durganshu Mishra | C++ Software Developer</title>
-  <meta name="description" content="I'm Durganshu, a C++ Software Developer at SevenCs GmbH (Teledyne) in Hamburg. Explore my academic and professional journey, my projects and blogs here!">
-  <meta property="og:title" content="Durganshu Mishra">
-  <meta property="og:description" content="C++ Software Developer | HPC • GPU Programming • Scientific Computing">
-  <meta property="og:url" content="https://durganshu.github.io/">
-  <meta property="og:site_name" content="Durganshu Mishra">
+  <meta name="description"
+    content="Portfolio of Durganshu Mishra — C++ Software Developer at SevenCs GmbH. Specializing in High-Performance Computing, GPU Programming, and Scientific Computing.">
+  <meta property="og:title" content="Durganshu Mishra | Portfolio">
+  <meta property="og:description" content="C++ Software Developer | HPC | Parallel Computing | OpenGL/Vulkan">
+  <meta property="og:url" content="https://durganshu.com/">
   <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary">
-  <meta property="twitter:title" content="Durganshu Mishra">
-  <link rel="canonical" href="https://durganshu.github.io/">
+  <link rel="canonical" href="https://durganshu.com/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/theme.css">
 </head>
 
 <body>
-  <!-- ═══ Navigation ═══ -->
-  <header class="site-header">
-    <nav class="nav-wrapper">
-      <a class="nav-brand" href="/">
-        <span class="brand-icon">⌘</span> durganshu
-      </a>
-      <div class="nav-tabs" id="nav-tabs">
-        <a class="nav-tab active" href="/">
-          <span class="tab-icon">📄</span> index.cpp <span class="tab-close">×</span>
-        </a>
-        <a class="nav-tab" href="about-me.html">
-          <span class="tab-icon">📋</span> about.h <span class="tab-close">×</span>
-        </a>
-        <a class="nav-tab" href="blogs.html">
-          <span class="tab-icon">📝</span> blogs.md <span class="tab-close">×</span>
-        </a>
-        <a class="nav-tab" href="projects.html">
-          <span class="tab-icon">🔧</span> projects.cpp <span class="tab-close">×</span>
-        </a>
-      </div>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">☰</button>
-    </nav>
-  </header>
-
-  <main class="workspace-container">
-    <!-- ═══ VS Code Sidebar Explorer ═══ -->
-    <aside class="workspace-sidebar">
-      <div class="sidebar-header">EXPLORER</div>
-      <div class="sidebar-title">durganshu.github.io</div>
-      <ul class="file-tree">
-        <li class="tree-item folder open">
-          <span class="tree-icon">📂</span> src
-          <ul class="file-tree" style="margin-top:0">
-            <li class="tree-item file active-file" onclick="location.href='/'">
-              <span class="tree-icon" style="color:var(--accent-cyan)">📄</span> index.cpp
-            </li>
-            <li class="tree-item file" onclick="location.href='about-me.html'">
-              <span class="tree-icon" style="color:var(--accent-orange)">📋</span> about.h
-            </li>
-            <li class="tree-item file" onclick="location.href='projects.html'">
-              <span class="tree-icon" style="color:var(--accent-cyan)">🔧</span> projects.cpp
-            </li>
-          </ul>
-        </li>
-        <li class="tree-item folder open">
-          <span class="tree-icon">📂</span> content
-          <ul class="file-tree" style="margin-top:0">
-            <li class="tree-item file" onclick="location.href='blogs.html'">
-              <span class="tree-icon" style="color:var(--accent-purple)">📝</span> blogs.md
-            </li>
-          </ul>
-        </li>
-        <li class="tree-item file muted">
-          <span class="tree-icon">⚙️</span> CMakeLists.txt
-        </li>
-        <li class="tree-item file muted">
-          <span class="tree-icon">📖</span> README.md
-        </li>
-      </ul>
-    </aside>
-
-    <!-- ═══ VS Code Editor Frame ═══ -->
-    <div class="workspace-main">
-      <div class="editor-tabs-header">
-        <div class="active-editor-tabs-list">
-          <div class="active-editor-tab" onclick="location.href='/'" style="cursor:pointer">
-            <span class="tab-icon" style="color:var(--accent-cyan)">📄</span> index.cpp <span class="tab-close-btn" style="margin-left: 8px;">×</span>
-          </div>
-          <div class="nav-tab" href="about-me.html" onclick="location.href='about-me.html'" style="display:flex;align-items:center;height:100%;border-right:1px solid var(--border-color);padding:0 16px;font-family:var(--font-mono);font-size:13px;color:var(--text-secondary);cursor:pointer">
-            <span class="tab-icon" style="color:var(--accent-orange);margin-right:6px">📋</span> about.h
-          </div>
-        </div>
-        <div class="editor-actions">
-          <button class="editor-action-btn active" id="btn-split">
-            <span>🗖</span> Split
-          </button>
-          <button class="editor-action-btn" id="btn-code">
-            <span>💻</span> Code
-          </button>
-          <button class="editor-action-btn" id="btn-preview">
-            <span>👁️</span> Preview
-          </button>
-        </div>
-      </div>
-
-      <!-- IDE Workspace split views -->
-      <div class="editor-workspace split-layout" id="editor-workspace">
-        
-        <!-- PANE 1: Raw Code Source (index.cpp style) -->
-        <div class="editor-pane pane-code">
-          <div class="pane-header"><span class="pane-title">src / index.cpp</span></div>
-          <div class="code-editor-content">
-            <div class="line-numbers">
-              <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span>
-            </div>
-            <pre class="code-viewport"><code><span class="pre">#include</span> <span class="str">&lt;iostream&gt;</span>
-<span class="pre">#include</span> <span class="str">&lt;vector&gt;</span>
-<span class="pre">#include</span> <span class="str">&lt;string&gt;</span>
-<span class="pre">#include</span> <span class="str">"about.h"</span>
-
-<span class="kw">class</span> <span class="typ">Developer</span> {
-<span class="kw">public</span>:
-    <span class="typ">std::string</span> name = <span class="str">"Durganshu Mishra"</span>;
-    <span class="typ">std::string</span> role = <span class="str">"C++ Software Developer @ SevenCs"</span>;
-    <span class="typ">std::string</span> location = <span class="str">"Hamburg, Germany 🇩🇪"</span>;
-    <span class="typ">std::string</span> degree = <span class="str">"M.Sc Computational Science &amp; Engineering, TUM"</span>;
-    <span class="typ">std::vector</span>&lt;<span class="typ">std::string</span>&gt; languages = {<span class="str">"C++"</span>, <span class="str">"Python"</span>, <span class="str">"Julia"</span>, <span class="str">"MATLAB"</span>};
-    <span class="typ">std::vector</span>&lt;<span class="typ">std::string</span>&gt; parallel_computing = {<span class="str">"MPI"</span>, <span class="str">"OpenMP"</span>, <span class="str">"CUDA"</span>, <span class="str">"SIMD"</span>};
-    <span class="typ">std::vector</span>&lt;<span class="typ">std::string</span>&gt; graphics_apis = {<span class="str">"OpenGL"</span>, <span class="str">"Vulkan"</span>};
-};
-
-<span class="kw">int</span> <span class="fn">main</span>() {
-    <span class="typ">Developer</span> dev;
-    <span class="typ">std::cout</span> &lt;&lt; <span class="str">"Portfolio initialized for "</span> &lt;&lt; dev.name &lt;&lt; <span class="typ">std::endl</span>;
-
-    <span class="com">// Recent Achievements / Updates</span>
-    <span class="typ">std::vector</span>&lt;<span class="typ">std::string</span>&gt; updates = {
-        <span class="str">"🎙️ Podcast Out Now &amp; Paper Published in ISC 2025"</span>,
-        <span class="str">"🏆 Paper Accepted at ISC 2025 &amp; Honored with Hans Meuer Award!"</span>,
-        <span class="str">"🎓 Milestone: Master's Thesis Completed &amp; New Role at SevenCs!"</span>
-    };
-
-    <span class="kw">return</span> <span class="num">0</span>;
-}</code></pre>
-          </div>
-        </div>
-
-        <!-- PANE 2: Rendered Visual Output -->
-        <div class="editor-pane pane-render">
-          <div class="pane-header"><span class="pane-title">Interactive Terminal & Dashboard</span></div>
-          <div class="render-viewport">
-            
-            <!-- Terminal Hero -->
-            <div class="terminal-window">
-              <div class="terminal-titlebar">
-                <div class="terminal-dots">
-                  <span class="terminal-dot red"></span>
-                  <span class="terminal-dot yellow"></span>
-                  <span class="terminal-dot green"></span>
-                </div>
-                <span class="terminal-title">durganshu@dev ~ bash</span>
-              </div>
-              <div class="terminal-body" id="terminal-body">
-                <div class="terminal-line">
-                  <span class="terminal-prompt">durganshu@dev:~$ </span><span class="type-char" style="opacity:0">w</span><span class="type-char" style="opacity:0">h</span><span class="type-char" style="opacity:0">o</span><span class="type-char" style="opacity:0">a</span><span class="type-char" style="opacity:0">m</span><span class="type-char" style="opacity:0">i</span>
-                </div>
-                <div class="terminal-line">
-                  <span class="terminal-output">C++ Software Developer @ SevenCs GmbH (Teledyne), Hamburg 🇩🇪</span>
-                </div>
-                <div class="terminal-line">&nbsp;</div>
-                <div class="terminal-line">
-                  <span class="terminal-prompt">durganshu@dev:~$ </span><span class="type-char" style="opacity:0">c</span><span class="type-char" style="opacity:0">a</span><span class="type-char" style="opacity:0">t</span><span class="type-char" style="opacity:0"> </span><span class="type-char" style="opacity:0">s</span><span class="type-char" style="opacity:0">k</span><span class="type-char" style="opacity:0">i</span><span class="type-char" style="opacity:0">l</span><span class="type-char" style="opacity:0">l</span><span class="type-char" style="opacity:0">s</span><span class="type-char" style="opacity:0">.</span><span class="type-char" style="opacity:0">t</span><span class="type-char" style="opacity:0">x</span><span class="type-char" style="opacity:0">t</span>
-                </div>
-                <div class="terminal-line">
-                  <span class="terminal-output">C++ · HPC · GPU Programming · MPI · OpenMP · OpenGL · Vulkan</span>
-                </div>
-                <div class="terminal-line">&nbsp;</div>
-                <div class="terminal-line">
-                  <span class="terminal-prompt">durganshu@dev:~$ </span><span class="type-char" style="opacity:0">c</span><span class="type-char" style="opacity:0">a</span><span class="type-char" style="opacity:0">t</span><span class="type-char" style="opacity:0"> </span><span class="type-char" style="opacity:0">i</span><span class="type-char" style="opacity:0">n</span><span class="type-char" style="opacity:0">t</span><span class="type-char" style="opacity:0">e</span><span class="type-char" style="opacity:0">r</span><span class="type-char" style="opacity:0">e</span><span class="type-char" style="opacity:0">s</span><span class="type-char" style="opacity:0">t</span><span class="type-char" style="opacity:0">s</span><span class="type-char" style="opacity:0">.</span><span class="type-char" style="opacity:0">t</span><span class="type-char" style="opacity:0">x</span><span class="type-char" style="opacity:0">t</span>
-                </div>
-                <div class="terminal-line">
-                  <span class="terminal-output">High-Performance Computing · HPC-QC Integration · Scientific Computing</span>
-                </div>
-                <div class="terminal-line">&nbsp;</div>
-                <div class="terminal-line">
-                  <span class="terminal-prompt">durganshu@dev:~$ </span><span class="type-char" style="opacity:0">e</span><span class="type-char" style="opacity:0">c</span><span class="type-char" style="opacity:0">h</span><span class="type-char" style="opacity:0">o</span><span class="type-char" style="opacity:0"> </span><span class="type-char" style="opacity:0">"</span><span class="type-char" style="opacity:0">W</span><span class="type-char" style="opacity:0">e</span><span class="type-char" style="opacity:0">l</span><span class="type-char" style="opacity:0">c</span><span class="type-char" style="opacity:0">o</span><span class="type-char" style="opacity:0">m</span><span class="type-char" style="opacity:0">e</span><span class="type-char" style="opacity:0">!</span><span class="type-char" style="opacity:0">"</span>
-                </div>
-                <div class="terminal-line">
-                  <span class="terminal-output">Welcome to my digital playground — explore my projects, research, and blogs!</span>
-                </div>
-                <div class="terminal-line terminal-input-line" id="terminal-input-line" style="opacity:0">
-                  <span class="terminal-prompt">durganshu@dev:~$ </span><input type="text" class="terminal-input" id="terminal-input" autocomplete="off" spellcheck="false" autofocus aria-label="Terminal command input">
-                </div>
-              </div>
-            </div>
-            <div class="terminal-hint" id="terminal-hint" style="opacity:0;margin-top:-36px;margin-bottom:32px">
-              <span>💡 Type <code>help</code> for available commands</span>
-            </div>
-
-            <!-- neofetch Panel -->
-            <div class="neofetch-panel fade-in">
-              <div class="neofetch-ascii">
-     ____  __  __ 
-    / __ \/ |/  / 
-   / / / / /|_/ /  
-  / /_/ / /  / /   
- /_____/_/  /_/    
-                   
-  Durganshu Mishra</div>
-              <div class="neofetch-info">
-                <div class="neofetch-header">durganshu@portfolio</div>
-                <div class="neofetch-separator">─────────────────────────</div>
-                <div><span class="neofetch-label">OS: </span><span class="neofetch-value">Linux & Windows</span></div>
-                <div><span class="neofetch-label">Role: </span><span class="neofetch-value">C++ Software Developer @ SevenCs (Teledyne)</span></div>
-                <div><span class="neofetch-label">Degree: </span><span class="neofetch-value">MSc Computational Science & Engineering, TU Munich</span></div>
-                <div><span class="neofetch-label">Languages: </span><span class="neofetch-value">C++, Python, Julia, MATLAB</span></div>
-                <div><span class="neofetch-label">Parallel: </span><span class="neofetch-value">MPI, OpenMP, CUDA, SIMD</span></div>
-                <div><span class="neofetch-label">Graphics: </span><span class="neofetch-value">OpenGL, Vulkan</span></div>
-                <div><span class="neofetch-label">Tools: </span><span class="neofetch-value">Git, Valgrind, Intel VTune, CMake, CI/CD</span></div>
-                <div><span class="neofetch-label">Uptime: </span><span class="neofetch-value">4+ years professional experience</span></div>
-                <div class="neofetch-colors">
-                  <span class="neofetch-color-block" style="background:#f85149"></span>
-                  <span class="neofetch-color-block" style="background:#d29922"></span>
-                  <span class="neofetch-color-block" style="background:#3fb950"></span>
-                  <span class="neofetch-color-block" style="background:#58a6ff"></span>
-                  <span class="neofetch-color-block" style="background:#bc8cff"></span>
-                  <span class="neofetch-color-block" style="background:#56d4dd"></span>
-                  <span class="neofetch-color-block" style="background:#f778ba"></span>
-                  <span class="neofetch-color-block" style="background:#e6edf3"></span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Updates -->
-            <div class="section-header fade-in">
-              <span class="comment">// </span><span class="keyword">recent</span> <span class="title">updates</span>
-            </div>
-
-            <div class="updates-list fade-in-stagger" style="margin-bottom:34px">
-              <a class="update-entry" href="/jekyll/update/2025/06/05/podcast.html">
-                <div class="update-date">Jun 05, 2025</div>
-                <div class="update-content">
-                  <div class="update-title">🎙️ Podcast Out Now & Paper Published in ISC 2025 Proceedings</div>
-                </div>
-              </a>
-              <a class="update-entry" href="/jekyll/update/2025/03/15/hans-meuer.html">
-                <div class="update-date">Mar 15, 2025</div>
-                <div class="update-content">
-                  <div class="update-title">🏆 Paper Accepted at ISC 2025 & Honored with Hans Meuer Award!</div>
-                </div>
-              </a>
-              <a class="update-entry" href="/jekyll/update/2024/08/15/masters-thesis.html">
-                <div class="update-date">Aug 15, 2024</div>
-                <div class="update-content">
-                  <div class="update-title">🎓 Milestone: Master's Thesis Completed & New Role at SevenCs!</div>
-                </div>
-              </a>
-            </div>
-
-          </div>
-        </div>
-
+  <div class="vscode-layout-wrapper">
+    <!-- VS Code Titlebar -->
+    <div class="vscode-titlebar">
+      <div></div>
+      <div class="titlebar-center">durganshu.com - index.cpp</div>
+      <div class="titlebar-actions">
+        <span class="titlebar-action-icon">🗕</span>
+        <span class="titlebar-action-icon">🗖</span>
+        <span class="titlebar-action-icon">✕</span>
       </div>
     </div>
-  </main>
 
-  <!-- ═══ Footer ═══ -->
-  <footer class="site-footer">
-    <div class="footer-wrapper">
-      <div class="footer-prompt">
-        <span class="green">durganshu@dev:~$</span> cat contact.txt
-      </div>
-      <div class="footer-grid">
-        <div>
-          <div class="footer-section-title">Contact</div>
-          <a class="footer-link" href="mailto:durganshu.mishra@tum.de">
-            <span class="link-icon">📧</span> durganshu.mishra@tum.de
-          </a>
-        </div>
-        <div>
-          <div class="footer-section-title">Profiles</div>
-          <a class="footer-link" href="https://github.com/durganshu" target="_blank">
-            <span class="link-icon">⚡</span> GitHub
-          </a>
-          <a class="footer-link" href="https://www.linkedin.com/in/durganshu" target="_blank">
-            <span class="link-icon">🔗</span> LinkedIn
-          </a>
-          <a class="footer-link" href="https://medium.com/@durganshu" target="_blank">
-            <span class="link-icon">📰</span> Medium
-          </a>
-          <a class="footer-link" href="https://hackernoon.com/about/durganshu" target="_blank">
-            <span class="link-icon">💚</span> HackerNoon
-          </a>
-        </div>
-        <div>
-          <div class="footer-section-title">About</div>
-          <p class="footer-desc">C++ Software Developer at SevenCs GmbH (Teledyne) in Hamburg. Passionate about High-Performance Computing, HPC-QC integration, GPU programming, and scientific computing.</p>
+    <!-- Main Workspace -->
+    <div class="vscode-workspace">
+      <!-- Activity Bar -->
+      <div class="vscode-activity-bar">
+        <div class="activity-bar-top">
+          <div class="activity-btn active" title="Explorer" id="activity-explorer-btn">
+            <span>📑</span>
+          </div>
+          <div class="activity-btn active" title="Terminal" id="activity-terminal-btn">
+            <span>💻</span>
+          </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <span>© 2025 Durganshu Mishra</span>
-        <span>Built with ☕ and too many compiler flags</span>
+
+      <!-- Explorer Sidebar -->
+      <div class="vscode-sidebar" id="vscode-sidebar">
+        <div class="sidebar-section-header">Explorer</div>
+        <div class="sidebar-folder-title">
+          <span>▼</span> durganshu.com
+        </div>
+        <ul class="sidebar-file-list">
+          <li class="sidebar-file-item active" onclick="location.href='/'">
+            <span class="sidebar-file-icon">📄</span> home
+          </li>
+          <li class="sidebar-file-item" onclick="location.href='about-me.html'">
+            <span class="sidebar-file-icon">📋</span> about
+          </li>
+          <li class="sidebar-file-item" onclick="location.href='projects.html'">
+            <span class="sidebar-file-icon">🔧</span> projects
+          </li>
+          <li class="sidebar-file-item" onclick="location.href='blogs.html'">
+            <span class="sidebar-file-icon">📝</span> blogs
+          </li>
+        </ul>
+      </div>
+
+      <!-- Editor Panel Pane -->
+      <div class="vscode-editor-pane">
+        <!-- Editor Tabs -->
+        <div class="vscode-tabs-bar">
+          <div class="vscode-tab active" onclick="location.href='/'">
+            <span class="sidebar-file-icon" style="color:var(--accent-cyan)">📄</span> index.cpp
+            <span class="vscode-tab-pin-icon" title="Pinned" style="margin-left: 6px;">📌</span>
+          </div>
+        </div>
+
+        <!-- Editor Breadcrumbs -->
+        <div class="vscode-breadcrumbs">
+          <div class="vscode-breadcrumbs-item">durganshu.com</div>
+          <div class="vscode-breadcrumbs-separator">&gt;</div>
+          <div class="vscode-breadcrumbs-item">src</div>
+          <div class="vscode-breadcrumbs-separator">&gt;</div>
+          <div class="vscode-breadcrumbs-item" style="color: var(--text-primary)">index.cpp</div>
+        </div>
+
+        <!-- Editor Content (Dashboard) -->
+        <div class="vscode-editor-content">
+          <!-- neofetch Panel -->
+          <div class="neofetch-panel fade-in">
+            <div class="neofetch-ascii">
+              ____ __ __
+              / __ \/ |/ /
+              / / / / /|_/ /
+              / /_/ / / / /
+              /_____/_/ /_/
+
+              Durganshu Mishra</div>
+            <div class="neofetch-info">
+              <div class="neofetch-header">durganshu@portfolio</div>
+              <div class="neofetch-separator">─────────────────────────</div>
+              <div><span class="neofetch-label">OS: </span><span class="neofetch-value">Linux & Windows</span></div>
+              <div><span class="neofetch-label">Role: </span><span class="neofetch-value">C++ Software Developer @
+                  SevenCs (Teledyne)</span></div>
+              <div><span class="neofetch-label">Degree: </span><span class="neofetch-value">MSc Computation Science &
+                  Engineering, TU Munich</span></div>
+              <div><span class="neofetch-label">Languages: </span><span class="neofetch-value">C++, Python, Julia,
+                  MATLAB</span></div>
+              <div><span class="neofetch-label">Parallel: </span><span class="neofetch-value">MPI, OpenMP, CUDA,
+                  SIMD</span></div>
+              <div><span class="neofetch-label">Graphics: </span><span class="neofetch-value">OpenGL, Vulkan</span>
+              </div>
+              <div><span class="neofetch-label">Tools: </span><span class="neofetch-value">Git, Valgrind, Intel VTune,
+                  CMake, CI/CD</span></div>
+              <div><span class="neofetch-label">Uptime: </span><span class="neofetch-value">4+ years professional
+                  experience</span></div>
+              <div class="neofetch-colors">
+                <span class="neofetch-color-block" style="background:#f85149"></span>
+                <span class="neofetch-color-block" style="background:#d29922"></span>
+                <span class="neofetch-color-block" style="background:#3fb950"></span>
+                <span class="neofetch-color-block" style="background:#58a6ff"></span>
+                <span class="neofetch-color-block" style="background:#bc8cff"></span>
+                <span class="neofetch-color-block" style="background:#56d4dd"></span>
+                <span class="neofetch-color-block" style="background:#f778ba"></span>
+                <span class="neofetch-color-block" style="background:#e6edf3"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Updates -->
+          <div class="section-header fade-in">
+            <span class="comment">// </span><span class="keyword">recent</span> <span class="title">updates</span>
+          </div>
+
+          <div class="updates-list fade-in-stagger" style="margin-bottom:34px">
+            <a class="update-entry" href="/jekyll/update/2025/06/05/podcast.html">
+              <div class="update-date">Jun 05, 2025</div>
+              <div class="update-content">
+                <div class="update-title">🎙️ Podcast Out Now & Paper Published in ISC 2025 Proceedings</div>
+              </div>
+            </a>
+            <a class="update-entry" href="/jekyll/update/2025/03/15/hans-meuer.html">
+              <div class="update-date">Mar 15, 2025</div>
+              <div class="update-content">
+                <div class="update-title">🏆 Paper Accepted at ISC 2025 & Honored with Hans Meuer Award!</div>
+              </div>
+            </a>
+            <a class="update-entry" href="/jekyll/update/2024/08/15/masters-thesis.html">
+              <div class="update-date">Aug 15, 2024</div>
+              <div class="update-content">
+                <div class="update-title">🎓 Milestone: Master's Thesis Completed & New Role at SevenCs!</div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Contact / Footer Section inside Content -->
+          <div class="section-header fade-in" style="margin-top: 40px;">
+            <span class="comment">// </span><span class="keyword">contact</span> <span class="title">info</span>
+          </div>
+          <div class="footer-grid fade-in" style="margin-bottom: 24px; padding-left: 4px;">
+            <div>
+              <div class="footer-section-title">Contact</div>
+              <a class="footer-link" href="mailto:durganshu.mishra@tum.de">
+                <span class="link-icon">📧</span> durganshu.mishra@tum.de
+              </a>
+            </div>
+            <div>
+              <div class="footer-section-title">Profiles</div>
+              <a class="footer-link" href="https://github.com/durganshu" target="_blank">
+                <span class="link-icon">⚡</span> GitHub
+              </a>
+              <a class="footer-link" href="https://www.linkedin.com/in/durganshu" target="_blank">
+                <span class="link-icon">🔗</span> LinkedIn
+              </a>
+              <a class="footer-link" href="https://medium.com/@durganshu" target="_blank">
+                <span class="link-icon">📰</span> Medium
+              </a>
+              <a class="footer-link" href="https://hackernoon.com/about/durganshu" target="_blank">
+                <span class="link-icon">💚</span> HackerNoon
+              </a>
+            </div>
+            <div>
+              <div class="footer-section-title">About</div>
+              <p class="footer-desc" style="color: var(--text-secondary)">C++ Software Developer at SevenCs GmbH
+                (Teledyne) in Hamburg. Passionate about High-Performance Computing, HPC-QC integration, GPU programming,
+                and scientific computing.</p>
+            </div>
+          </div>
+          <div
+            style="border-top: 1px solid var(--border-color); padding-top: 16px; margin-top: 32px; font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); display: flex; justify-content: space-between;">
+            <span>© 2025 Durganshu Mishra</span>
+            <span>Built with ☕ and too many compiler flags</span>
+          </div>
+        </div>
+
+        <!-- VS Code Bottom Panel -->
+        <div class="vscode-bottom-panel" id="vscode-bottom-panel">
+          <div class="vscode-bottom-header">
+            <div class="vscode-bottom-tabs">
+              <span class="vscode-bottom-tab active">Terminal</span>
+            </div>
+            <div class="vscode-bottom-actions">
+              <select name="shell" aria-label="Terminal Shell Selection">
+                <option value="bash">bash</option>
+                <option value="powershell">powershell</option>
+              </select>
+              <span class="bottom-action-btn" title="Split Screen">🗗</span>
+              <span class="bottom-action-btn" title="Kill Command">🗑️</span>
+              <span class="bottom-action-btn" title="Close Panel" id="close-terminal-btn">✕</span>
+            </div>
+          </div>
+          <div class="vscode-bottom-body">
+            <div class="terminal-body" id="terminal-body">
+              <div class="terminal-line">
+                <span class="terminal-prompt">durganshu@dev:~$ </span><span class="type-char"
+                  style="opacity:0">w</span><span class="type-char" style="opacity:0">h</span><span class="type-char"
+                  style="opacity:0">o</span><span class="type-char" style="opacity:0">a</span><span class="type-char"
+                  style="opacity:0">m</span><span class="type-char" style="opacity:0">i</span>
+              </div>
+              <div class="terminal-line">
+                <span class="terminal-output">C++ Software Developer @ SevenCs GmbH (Teledyne), Hamburg 🇩🇪</span>
+              </div>
+              <div class="terminal-line">&nbsp;</div>
+              <div class="terminal-line">
+                <span class="terminal-prompt">durganshu@dev:~$ </span><span class="type-char"
+                  style="opacity:0">c</span><span class="type-char" style="opacity:0">a</span><span class="type-char"
+                  style="opacity:0">t</span><span class="type-char" style="opacity:0"> </span><span class="type-char"
+                  style="opacity:0">s</span><span class="type-char" style="opacity:0">k</span><span class="type-char"
+                  style="opacity:0">i</span><span class="type-char" style="opacity:0">l</span><span class="type-char"
+                  style="opacity:0">l</span><span class="type-char" style="opacity:0">s</span><span class="type-char"
+                  style="opacity:0">.</span><span class="type-char" style="opacity:0">t</span><span class="type-char"
+                  style="opacity:0">x</span><span class="type-char" style="opacity:0">t</span>
+              </div>
+              <div class="terminal-line">
+                <span class="terminal-output">C++ · HPC · GPU Programming · MPI · OpenMP · OpenGL · Vulkan</span>
+              </div>
+              <div class="terminal-line">&nbsp;</div>
+              <div class="terminal-line">
+                <span class="terminal-prompt">durganshu@dev:~$ </span><span class="type-char"
+                  style="opacity:0">c</span><span class="type-char" style="opacity:0">a</span><span class="type-char"
+                  style="opacity:0">t</span><span class="type-char" style="opacity:0"> </span><span class="type-char"
+                  style="opacity:0">i</span><span class="type-char" style="opacity:0">n</span><span class="type-char"
+                  style="opacity:0">t</span><span class="type-char" style="opacity:0">e</span><span class="type-char"
+                  style="opacity:0">r</span><span class="type-char" style="opacity:0">e</span><span class="type-char"
+                  style="opacity:0">s</span><span class="type-char" style="opacity:0">t</span><span class="type-char"
+                  style="opacity:0">s</span><span class="type-char" style="opacity:0">.</span><span class="type-char"
+                  style="opacity:0">t</span><span class="type-char" style="opacity:0">x</span><span class="type-char"
+                  style="opacity:0">t</span>
+              </div>
+              <div class="terminal-line">
+                <span class="terminal-output">High-Performance Computing · HPC-QC Integration · Scientific
+                  Computing</span>
+              </div>
+              <div class="terminal-line">&nbsp;</div>
+              <div class="terminal-line">
+                <span class="terminal-prompt">durganshu@dev:~$ </span><span class="type-char"
+                  style="opacity:0">e</span><span class="type-char" style="opacity:0">c</span><span class="type-char"
+                  style="opacity:0">h</span><span class="type-char" style="opacity:0">o</span><span class="type-char"
+                  style="opacity:0"> </span><span class="type-char" style="opacity:0">"</span><span class="type-char"
+                  style="opacity:0">W</span><span class="type-char" style="opacity:0">e</span><span class="type-char"
+                  style="opacity:0">l</span><span class="type-char" style="opacity:0">c</span><span class="type-char"
+                  style="opacity:0">o</span><span class="type-char" style="opacity:0">m</span><span class="type-char"
+                  style="opacity:0">e</span><span class="type-char" style="opacity:0">!</span><span class="type-char"
+                  style="opacity:0">"</span>
+              </div>
+              <div class="terminal-line">
+                <span class="terminal-output">Welcome to my digital playground — explore my projects, research, and
+                  blogs!</span>
+              </div>
+              <div class="terminal-line terminal-input-line" id="terminal-input-line" style="opacity:0">
+                <span class="terminal-prompt">durganshu@dev:~$ </span><input type="text" class="terminal-input"
+                  id="terminal-input" autocomplete="off" spellcheck="false" autofocus
+                  aria-label="Terminal command input">
+              </div>
+            </div>
+          </div>
+          <!-- Terminal Hint hidden inside panel content to work with terminal.js animations -->
+          <div class="terminal-hint" id="terminal-hint" style="opacity:0; display:none;">
+            <span>💡 Type <code>help</code> for available commands</span>
+          </div>
+        </div>
       </div>
     </div>
-  </footer>
+
+    <!-- Status Bar -->
+    <div class="vscode-statusbar">
+      <div class="statusbar-section">
+        <div class="statusbar-item" title="Cursor Position">
+          Ln 1, Col 1
+        </div>
+        <div class="statusbar-item" title="Tab Spacing">
+          Spaces: 4
+        </div>
+        <div class="statusbar-item" title="File Encoding">
+          UTF-8
+        </div>
+        <div class="statusbar-item" title="Language Mode">
+          C++
+        </div>
+        <div class="statusbar-item" title="Feedback">
+          <span>☺</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="/assets/js/terminal.js"></script>
 </body>

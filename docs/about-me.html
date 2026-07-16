@@ -5,566 +5,580 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About Me | Durganshu Mishra</title>
-  <meta name="description" content="Explore my academic and professional journey — Work Experience, Education, and Research Publications.">
+  <meta name="description"
+    content="Explore my academic and professional journey — Work Experience, Education, and Research Publications.">
   <meta property="og:title" content="About Me — Durganshu Mishra">
   <meta property="og:description" content="C++ Software Developer | Work Experience, Education, Research Publications">
-  <meta property="og:url" content="https://durganshu.github.io/about-me.html">
+  <meta property="og:url" content="https://durganshu.com/about-me.html">
   <meta property="og:type" content="website">
-  <link rel="canonical" href="https://durganshu.github.io/about-me.html">
+  <link rel="canonical" href="https://durganshu.com/about-me.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/theme.css">
 </head>
 
 <body>
-  <!-- ═══ Navigation ═══ -->
-  <header class="site-header">
-    <nav class="nav-wrapper">
-      <a class="nav-brand" href="/">
-        <span class="brand-icon">⌘</span> durganshu
-      </a>
-      <div class="nav-tabs" id="nav-tabs">
-        <a class="nav-tab" href="/">
-          <span class="tab-icon">📄</span> index.cpp <span class="tab-close">×</span>
-        </a>
-        <a class="nav-tab active" href="about-me.html">
-          <span class="tab-icon">📋</span> about.h <span class="tab-close">×</span>
-        </a>
-        <a class="nav-tab" href="blogs.html">
-          <span class="tab-icon">📝</span> blogs.md <span class="tab-close">×</span>
-        </a>
-        <a class="nav-tab" href="projects.html">
-          <span class="tab-icon">🔧</span> projects.cpp <span class="tab-close">×</span>
-        </a>
-      </div>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">☰</button>
-    </nav>
-  </header>
-
-  <main class="workspace-container">
-    <!-- ═══ VS Code Sidebar Explorer ═══ -->
-    <aside class="workspace-sidebar">
-      <div class="sidebar-header">EXPLORER</div>
-      <div class="sidebar-title">durganshu.github.io</div>
-      <ul class="file-tree">
-        <li class="tree-item folder open">
-          <span class="tree-icon">📂</span> src
-          <ul class="file-tree" style="margin-top:0">
-            <li class="tree-item file" onclick="location.href='/'">
-              <span class="tree-icon" style="color:var(--accent-cyan)">📄</span> index.cpp
-            </li>
-            <li class="tree-item file active-file" onclick="location.href='about-me.html'">
-              <span class="tree-icon" style="color:var(--accent-orange)">📋</span> about.h
-            </li>
-            <li class="tree-item file" onclick="location.href='projects.html'">
-              <span class="tree-icon" style="color:var(--accent-cyan)">🔧</span> projects.cpp
-            </li>
-          </ul>
-        </li>
-        <li class="tree-item folder open">
-          <span class="tree-icon">📂</span> content
-          <ul class="file-tree" style="margin-top:0">
-            <li class="tree-item file" onclick="location.href='blogs.html'">
-              <span class="tree-icon" style="color:var(--accent-purple)">📝</span> blogs.md
-            </li>
-          </ul>
-        </li>
-        <li class="tree-item file muted">
-          <span class="tree-icon">⚙️</span> CMakeLists.txt
-        </li>
-        <li class="tree-item file muted">
-          <span class="tree-icon">📖</span> README.md
-        </li>
-      </ul>
-    </aside>
-
-    <!-- ═══ VS Code Editor Frame ═══ -->
-    <div class="workspace-main">
-      <div class="editor-tabs-header">
-        <div class="active-editor-tabs-list">
-          <div class="nav-tab" href="/" onclick="location.href='/'" style="display:flex;align-items:center;height:100%;border-right:1px solid var(--border-color);padding:0 16px;font-family:var(--font-mono);font-size:13px;color:var(--text-secondary);cursor:pointer">
-            <span class="tab-icon" style="color:var(--accent-cyan);margin-right:6px">📄</span> index.cpp
-          </div>
-          <div class="active-editor-tab" onclick="location.href='about-me.html'" style="cursor:pointer">
-            <span class="tab-icon" style="color:var(--accent-orange)">📋</span> about.h <span class="tab-close-btn" style="margin-left: 8px;">×</span>
-          </div>
-        </div>
-        <div class="editor-actions">
-          <button class="editor-action-btn active" id="btn-split">
-            <span>🗖</span> Split
-          </button>
-          <button class="editor-action-btn" id="btn-code">
-            <span>💻</span> Code
-          </button>
-          <button class="editor-action-btn" id="btn-preview">
-            <span>👁️</span> Preview
-          </button>
-        </div>
-      </div>
-
-      <!-- IDE Workspace split views -->
-      <div class="editor-workspace split-layout" id="editor-workspace">
-        
-        <!-- PANE 1: Raw Code Source (about.h style) -->
-        <div class="editor-pane pane-code">
-          <div class="pane-header"><span class="pane-title">src / about.h</span></div>
-          <div class="code-editor-content">
-            <div class="line-numbers">
-              <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span><span>32</span><span>33</span><span>34</span><span>35</span><span>36</span><span>37</span><span>38</span><span>39</span><span>40</span><span>41</span><span>42</span><span>43</span><span>44</span><span>45</span><span>46</span><span>47</span><span>48</span><span>49</span><span>50</span>
-            </div>
-            <pre class="code-viewport"><code><span class="pre">#ifndef</span> <span class="str">ABOUT_H</span>
-<span class="pre">#define</span> <span class="str">ABOUT_H</span>
-
-<span class="pre">#include</span> <span class="str">&lt;string&gt;</span>
-<span class="pre">#include</span> <span class="str">&lt;vector&gt;</span>
-
-<span class="kw">struct</span> <span class="typ">Job</span> {
-    <span class="typ">std::string</span> role;
-    <span class="typ">std::string</span> company;
-    <span class="typ">std::string</span> duration;
-    <span class="typ">std::string</span> location;
-};
-
-<span class="kw">struct</span> <span class="typ">Education</span> {
-    <span class="typ">std::string</span> degree;
-    <span class="typ">std::string</span> school;
-    <span class="typ">std::string</span> duration;
-    <span class="typ">std::string</span> grade;
-};
-
-<span class="kw">class</span> <span class="typ">DeveloperProfile</span> {
-<span class="kw">public</span>:
-    <span class="typ">std::string</span> getFullName() { <span class="kw">return</span> <span class="str">"Durganshu Mishra"</span>; }
-    
-    <span class="typ">std::vector</span>&lt;<span class="typ">Job</span>&gt; getExperience() {
-        <span class="kw">return</span> {
-            {<span class="str">"C++ Developer"</span>, <span class="str">"SevenCs GmbH"</span>, <span class="str">"Aug 2024 - Present"</span>},
-            {<span class="str">"Research Assistant"</span>, <span class="str">"TU Munich"</span>, <span class="str">"Jul 2023 - Jul 2024"</span>},
-            {<span class="str">"Student Assistant"</span>, <span class="str">"TUM Chairs"</span>, <span class="str">"Jun 2022 - Aug 2023"</span>}
-        };
-    }
-
-    <span class="typ">std::vector</span>&lt;<span class="typ">Education</span>&gt; getEducation() {
-        <span class="kw">return</span> {
-            {<span class="str">"M.Sc Computational Science &amp; Eng"</span>, <span class="str">"TUM"</span>, <span class="str">"2021 - 2024"</span>},
-            {<span class="str">"B.Tech Mechanical Engineering"</span>, <span class="str">"IIITDMJ"</span>, <span class="str">"2016 - 2020"</span>}
-        };
-    }
-
-    <span class="typ">std::vector</span>&lt;<span class="typ">std::string</span>&gt; getResearch() {
-        <span class="kw">return</span> {
-            <span class="str">"Towards a Unified Architectural Representation in HPCQC: Extending Sys-Sage"</span>,
-            <span class="str">"Analysis of Heat Flux Quenching using Nanofluids"</span>
-        };
-    }
-};
-
-<span class="pre">#endif</span> <span class="com">// ABOUT_H</span></code></pre>
-          </div>
-        </div>
-
-        <!-- PANE 2: Rendered Visual Output -->
-        <div class="editor-pane pane-render">
-          <div class="pane-header"><span class="pane-title">Compilation Timeline Preview</span></div>
-          <div class="render-viewport">
-            
-            <h1 class="page-title fade-in" style="margin-top:0"><span class="prompt">~/</span>about-me</h1>
-            <p class="page-subtitle fade-in" style="margin-bottom:20px">// exploring my academic and professional journey</p>
-
-            <a class="resume-btn fade-in" href="./attachments/CV_Mishra.pdf" download="Resume_Mishra.pdf">
-              <span>📥</span> $ wget resume.pdf
-            </a>
-
-            <!-- Work Experience -->
-            <div class="build-section-title fade-in">make -j$(nproc) work_experience</div>
-
-            <div class="build-timeline fade-in-stagger">
-<div class="build-entry">
-          <div class="build-status">
-            <span class="build-progress">[100%]</span>
-            <span class="build-action">Linking</span>
-            <span class="build-target">work/sevencs.so</span>
-            <span class="build-check">✅ ACTIVE</span>
-          </div>
-          <div class="build-details">
-            <div class="build-role">Software Developer</div>
-            <div class="build-company"><a href="https://www.sevencs.com/">SevenCs GmbH (A Teledyne Company), Hamburg</a></div>
-            <div class="build-duration">Aug 2024 — Present</div>
-            <div class="build-desc">
-              Contributing towards the development of Nautilus SDK and <a href="https://commercial.raymarine.com/products/ecdis" target="_blank">Pathfinder ECDIS</a>.
-            </div>
-            <div class="build-tags">
-              <span class="tech-badge">C++</span>
-              <span class="tech-badge">Windows</span>
-              <span class="tech-badge">Linux</span>
-              <span class="tech-badge">Android</span>
-              <span class="tech-badge">OpenGL</span>
-              <span class="tech-badge">CI/CD</span>
-              <span class="tech-badge">Gerrit</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="build-entry">
-          <div class="build-status">
-            <span class="build-progress">[ 80%]</span>
-            <span class="build-action">Building</span>
-            <span class="build-target">research/tum_caps.o</span>
-            <span class="build-check">✅</span>
-          </div>
-          <div class="build-details">
-            <div class="build-role">Research Assistant — Chair of Computer Architecture and Parallel Systems</div>
-            <div class="build-company"><a href="https://www.ce.cit.tum.de/en/caps/homepage/">TU Munich</a> · Under <a href="https://www.professoren.tum.de/schulz-martin" target="_blank">Prof. Martin Schulz</a></div>
-            <div class="build-duration">Jul 2023 — Jul 2024</div>
-            <div class="build-desc">
-              Contributed to the <a href="https://deep-projects.eu/" target="_blank">Deep-Sea projects</a>, mainly <a href="https://github.com/caps-tum/sys-sage" target="_blank">sys-sage</a> and <a href="https://github.com/caps-tum/mitos" target="_blank">mitos</a>:
-              <ul>
-                <li>Performance optimization and memory leak identification in sys-sage</li>
-                <li>Reduced valgrind-reported memory leaks by ~99%</li>
-                <li>Improving portability of mitos for Intel-based systems</li>
-              </ul>
-            </div>
-            <div class="build-tags">
-              <span class="tech-badge">C++</span>
-              <span class="tech-badge">Linux</span>
-              <span class="tech-badge">MPI</span>
-              <span class="tech-badge">OpenMP</span>
-              <span class="tech-badge">Valgrind</span>
-              <span class="tech-badge">CI/CD</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="build-entry">
-          <div class="build-status">
-            <span class="build-progress">[ 75%]</span>
-            <span class="build-action">Building</span>
-            <span class="build-target">research/tum_aero.o</span>
-            <span class="build-check">✅</span>
-          </div>
-          <div class="build-details">
-            <div class="build-role">Research Assistant — Chair of Aerodynamics and Fluid Mechanics</div>
-            <div class="build-company"><a href="https://www.epc.ed.tum.de/en/aer/home/">TU Munich</a> · Under <a href="https://www.epc.ed.tum.de/aer/mitarbeiter-innen/cv/pd-dr-ing-habil-xiangyu-hu/" target="_blank">Prof. Xiangyu Hu</a></div>
-            <div class="build-duration">Jul 2023 — Sep 2023</div>
-            <div class="build-desc">
-              Developed a Python interface using pybind11 for <a href="https://www.sphinxsys.org/" target="_blank">SPHinXsys</a>, an open-source SPH library, enabling seamless integration into Python-based workflows.
-            </div>
-            <div class="build-tags">
-              <span class="tech-badge">C++</span>
-              <span class="tech-badge">Python</span>
-              <span class="tech-badge">Pybind11</span>
-              <span class="tech-badge">Linux</span>
-              <span class="tech-badge">CI/CD</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="build-entry">
-          <div class="build-status">
-            <span class="build-progress">[ 60%]</span>
-            <span class="build-action">Linking</span>
-            <span class="build-target">work/awi_precice.so</span>
-            <span class="build-check">✅</span>
-          </div>
-          <div class="build-details">
-            <div class="build-role">Research Assistant</div>
-            <div class="build-company"><a href="https://www.awi.de/en/">Alfred Wegener Institute, Helmholtz Centre for Polar and Marine Research, Bremerhaven</a></div>
-            <div class="build-duration">Aug 2023 — Oct 2023</div>
-            <div class="build-desc">
-              Contributed towards <a href="https://www.precice.org/" target="_blank">preCICE 3.0</a>:
-              <ul>
-                <li>Removed deprecated features including MPI-single tags, VTK Support, and Master/Slave tags</li>
-                <li>Migrated mesh-to-mesh mapping tests to use samples (preCICE 3.0 feature)</li>
-              </ul>
-            </div>
-            <div class="build-tags">
-              <span class="tech-badge">C++</span>
-              <span class="tech-badge">Linux</span>
-              <span class="tech-badge">MPI</span>
-              <span class="tech-badge">CI/CD</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="build-entry">
-          <div class="build-status">
-            <span class="build-progress">[ 40%]</span>
-            <span class="build-action">Linking</span>
-            <span class="build-target">work/intel.so</span>
-            <span class="build-check">✅</span>
-          </div>
-          <div class="build-details">
-            <div class="build-role">Working Student — Cloud Graphics and Gaming</div>
-            <div class="build-company"><a href="https://www.intel.com">Intel Deutschland GmbH, Munich</a></div>
-            <div class="build-duration">May 2022 — May 2023</div>
-            <div class="build-desc">
-              Part of the Visual Cloud Engineering team:
-              <ul>
-                <li>Performance analysis and benchmarking of Vulkan/OpenGL-based graphics applications on Intel dGPUs and Xeon Processors</li>
-                <li>Extended OpenGL/Vulkan-based 'gears' graphics application for cross-OS and cross-API compatibilities</li>
-                <li>Linux troubleshooting and bash scripting for lab infrastructure</li>
-              </ul>
-            </div>
-            <div class="build-tags">
-              <span class="tech-badge">C++</span>
-              <span class="tech-badge">OpenGL</span>
-              <span class="tech-badge">Vulkan</span>
-              <span class="tech-badge">Intel VTune</span>
-              <span class="tech-badge">Linux</span>
-              <span class="tech-badge">Python</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="build-entry">
-          <div class="build-status">
-            <span class="build-progress">[ 20%]</span>
-            <span class="build-action">Building</span>
-            <span class="build-target">work/zeus_numerix.o</span>
-            <span class="build-check">✅</span>
-          </div>
-          <div class="build-details">
-            <div class="build-role">CAE Engineer — Development</div>
-            <div class="build-company"><a href="https://zeusnumerix.com/">Zeus Numerix Pvt. Ltd., Pune (India)</a></div>
-            <div class="build-duration">Aug 2020 — Aug 2021</div>
-            <div class="build-desc">
-              Rigorous problem-solving and software development in Computational Electromagnetism, Radar signature prediction, and target detection:
-              <ul>
-                <li>C++ software for Radar Cross Section prediction using SBR method</li>
-                <li>Algorithm for 2D/3D ISAR image construction of far-field targets</li>
-                <li>Hotspot identification and scattering center extraction</li>
-                <li>Structural analysis of Plume Dissipation Mechanism</li>
-              </ul>
-            </div>
-            <div class="build-tags">
-              <span class="tech-badge">C++</span>
-              <span class="tech-badge">Linux</span>
-              <span class="tech-badge">MATLAB</span>
-              <span class="tech-badge">Python</span>
-              <span class="tech-badge">Ansys</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="build-entry">
-          <div class="build-status">
-            <span class="build-progress">[ 10%]</span>
-            <span class="build-action">Building</span>
-            <span class="build-target">intern/iit_bhu.o</span>
-            <span class="build-check">✅</span>
-          </div>
-          <div class="build-details">
-            <div class="build-role">Research Intern</div>
-            <div class="build-company"><a href="https://iitbhu.ac.in/">IIT (BHU) Varanasi, India</a></div>
-            <div class="build-duration">May 2019 — Dec 2019</div>
-            <div class="build-desc">
-              Department of Mechanical Engineering:
-              <ul>
-                <li>Regression model for predicting heat transfer coefficient variation during jet impingement quenching</li>
-                <li>1D and 2D numerical models for temperature gradient prediction on nuclear fuel rods</li>
-              </ul>
-            </div>
-            <div class="build-tags">
-              <span class="tech-badge">C++</span>
-              <span class="tech-badge">MATLAB</span>
-              <span class="tech-badge">Python</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="build-entry">
-          <div class="build-status">
-            <span class="build-progress">[  5%]</span>
-            <span class="build-action">Building</span>
-            <span class="build-target">intern/iit_kgp.o</span>
-            <span class="build-check">✅</span>
-          </div>
-          <div class="build-details">
-            <div class="build-role">Research Intern</div>
-            <div class="build-company"><a href="https://www.iitkgp.ac.in/">IIT Kharagpur, India</a></div>
-            <div class="build-duration">Nov 2018 — Dec 2018</div>
-            <div class="build-desc">
-              Department of Aerospace Engineering:
-              <ul>
-                <li>Designed and fabricated a paper plane launching mechanism for MAVs</li>
-                <li>Simulated flight path for all possible flight regimes using MATLAB</li>
-              </ul>
-            </div>
-            <div class="build-tags">
-              <span class="tech-badge">MATLAB</span>
-              <span class="tech-badge">Python</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-            <!-- Education -->
-            <div class="build-section-title fade-in">make -j$(nproc) education</div>
-
-            <div class="build-timeline fade-in-stagger">
-<div class="build-entry">
-          <div class="build-status">
-            <span class="build-progress">[100%]</span>
-            <span class="build-action">Building</span>
-            <span class="build-target">edu/msc_tum.o</span>
-            <span class="build-check">✅</span>
-          </div>
-          <div class="build-details">
-            <div class="build-role">MSc in Computational Science and Engineering</div>
-            <div class="build-company"><a href="https://www.tum.de/">Technical University of Munich (Germany)</a></div>
-            <div class="build-duration">Oct 2021 — Aug 2024</div>
-            <div class="build-desc">
-              <strong>Coursework:</strong> Advanced Programming, Scientific Computing, Computer Architectures, Parallel Programming, Numerical Algorithms for HPC, CFD.
-            </div>
-          </div>
-        </div>
-
-        <div class="build-entry">
-          <div class="build-status">
-            <span class="build-progress">[ 75%]</span>
-            <span class="build-action">Building</span>
-            <span class="build-target">edu/exchange_polytechnique.o</span>
-            <span class="build-check">✅</span>
-          </div>
-          <div class="build-details">
-            <div class="build-role">Visiting Student — EuroTeQ</div>
-            <div class="build-company"><a href="https://www.polytechnique.edu/">École Polytechnique, Paris (France)</a></div>
-            <div class="build-duration">Jan 2023 — Jun 2023</div>
-            <div class="build-desc">
-              <strong>Coursework:</strong> Distributed Systems, Computer Networks.
-            </div>
-          </div>
-        </div>
-
-        <div class="build-entry">
-          <div class="build-status">
-            <span class="build-progress">[ 70%]</span>
-            <span class="build-action">Building</span>
-            <span class="build-target">edu/exchange_upm.o</span>
-            <span class="build-check">✅</span>
-          </div>
-          <div class="build-details">
-            <div class="build-role">Exchange Student — ATHENS Program</div>
-            <div class="build-company"><a href="https://www.upm.es/">Universidad Politécnica de Madrid (Spain)</a></div>
-            <div class="build-duration">Mar 2023</div>
-            <div class="build-desc">
-              <strong>Coursework:</strong> Spanish economy and navigation in the 15th–18th centuries by ETSI Navales.
-            </div>
-          </div>
-        </div>
-
-        <div class="build-entry">
-          <div class="build-status">
-            <span class="build-progress">[ 25%]</span>
-            <span class="build-action">Building</span>
-            <span class="build-target">edu/btech_iiitdm.o</span>
-            <span class="build-check">✅</span>
-          </div>
-          <div class="build-details">
-            <div class="build-role">B.Tech in Mechanical Engineering</div>
-            <div class="build-company"><a href="https://iiitdmj.ac.in/">IIITDM Jabalpur (India)</a></div>
-            <div class="build-duration">Aug 2016 — Jul 2020</div>
-            <div class="build-desc">
-              <strong>Bachelor's thesis:</strong> Numerical Investigation of Jet Impingement Quenching.
-            </div>
-          </div>
-        </div>
-      
-            </div>
-
-            <!-- Publications -->
-            <div class="build-section-title fade-in">make -j$(nproc) publications</div>
-
-            <div class="fade-in-stagger" style="display:flex;flex-direction:column;gap:16px">
-<div class="pub-entry">
-          <div class="pub-venue">
-            <img class="pub-venue-logo" src="images/logos/ISC-High-Performance-logo.jpg" alt="ISC">
-            <span class="pub-venue-name">ISC High Performance 2025 • 40th International Conference</span>
-          </div>
-          <div class="pub-title">
-            <a href="https://ieeexplore.ieee.org/document/11017506">Towards a Unified Architectural Representation in HPCQC: Extending Sys-Sage for Quantum Technologies</a>
-          </div>
-          <div class="pub-authors"><strong>D. Mishra</strong> et al., ISC High Performance 2025 Research Paper Proceedings, Hamburg, Germany, 2025, pp. 1-12.</div>
-        </div>
-
-        <div class="pub-entry">
-          <div class="pub-venue">
-            <img class="pub-venue-logo" src="images/logos/heat_transfer_engineering.jpg" alt="HTE">
-            <span class="pub-venue-name">Heat Transfer Engineering • Volume 45, Issue 4-5 (2024)</span>
-          </div>
-          <div class="pub-title">
-            <a href="https://doi.org/10.1080/01457632.2023.2301157">Analysis of Heat Flux Quenching of a SS-316L Rod Using Nanofluids</a>
-          </div>
-          <div class="pub-authors">Vivek Gupta, Prerna Mishra, <strong>Durganshu Mishra</strong> & Pradyumna Ghosh (2024).</div>
-        </div>
-
-        <div class="pub-entry">
-          <div class="pub-venue">
-            <img class="pub-venue-logo" src="images/logos/journal.webp" alt="FMFP">
-            <span class="pub-venue-name">Fluid Mechanics and Fluid Power (Vol. 3) • FMFP 2021</span>
-          </div>
-          <div class="pub-title">
-            <a href="https://doi.org/10.1007/978-981-19-6270-7_56">Analysis of Heat Flux Quenching of a Cylindrical Rod Using Oxide Based Nanofluids</a>
-          </div>
-          <div class="pub-authors">Gupta, V., Mishra, P., <strong>Mishra, D.</strong>, Ghosh, P. (2023). Springer, Lecture Notes in Mechanical Engineering.</div>
-        </div>
-      </div>
-
-      
-            </div>
-
-            <div class="build-complete fade-in" style="margin-top:24px;margin-bottom:32px">
-              [100%] Build complete. 0 errors, 0 warnings. 🎉
-            </div>
-
-          </div>
-        </div>
-
+  <div class="vscode-layout-wrapper">
+    <!-- VS Code Titlebar -->
+    <div class="vscode-titlebar">
+      <div></div>
+      <div class="titlebar-center">durganshu.com - about</div>
+      <div class="titlebar-actions">
+        <span class="titlebar-action-icon">🗕</span>
+        <span class="titlebar-action-icon">🗖</span>
+        <span class="titlebar-action-icon">✕</span>
       </div>
     </div>
-  </main>
 
-  <!-- ═══ Footer ═══ -->
-  <footer class="site-footer">
-    <div class="footer-wrapper">
-      <div class="footer-prompt">
-        <span class="green">durganshu@dev:~$</span> cat contact.txt
-      </div>
-      <div class="footer-grid">
-        <div>
-          <div class="footer-section-title">Contact</div>
-          <a class="footer-link" href="mailto:durganshu.mishra@tum.de">
-            <span class="link-icon">📧</span> durganshu.mishra@tum.de
-          </a>
-        </div>
-        <div>
-          <div class="footer-section-title">Profiles</div>
-          <a class="footer-link" href="https://github.com/durganshu" target="_blank">
-            <span class="link-icon">⚡</span> GitHub
-          </a>
-          <a class="footer-link" href="https://www.linkedin.com/in/durganshu" target="_blank">
-            <span class="link-icon">🔗</span> LinkedIn
-          </a>
-          <a class="footer-link" href="https://medium.com/@durganshu" target="_blank">
-            <span class="link-icon">📰</span> Medium
-          </a>
-          <a class="footer-link" href="https://hackernoon.com/about/durganshu" target="_blank">
-            <span class="link-icon">💚</span> HackerNoon
-          </a>
-        </div>
-        <div>
-          <div class="footer-section-title">About</div>
-          <p class="footer-desc">C++ Software Developer at SevenCs GmbH (Teledyne) in Hamburg. Passionate about High-Performance Computing, HPC-QC integration, GPU programming, and scientific computing.</p>
+    <!-- Main Workspace -->
+    <div class="vscode-workspace">
+      <!-- Activity Bar -->
+      <div class="vscode-activity-bar">
+        <div class="activity-bar-top">
+          <div class="activity-btn active" title="Explorer" id="activity-explorer-btn">
+            <span>📑</span>
+          </div>
+          <div class="activity-btn active" title="Terminal" id="activity-terminal-btn">
+            <span>💻</span>
+          </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <span>© 2025 Durganshu Mishra</span>
-        <span>Built with ☕ and too many compiler flags</span>
+
+      <!-- Explorer Sidebar -->
+      <div class="vscode-sidebar" id="vscode-sidebar">
+        <div class="sidebar-section-header">Explorer</div>
+        <div class="sidebar-folder-title">
+          <span>▼</span> durganshu.com
+        </div>
+        <ul class="sidebar-file-list">
+          <li class="sidebar-file-item" onclick="location.href='/'">
+            <span class="sidebar-file-icon">📄</span> home
+          </li>
+          <li class="sidebar-file-item active" onclick="location.href='about-me.html'">
+            <span class="sidebar-file-icon">📋</span> about
+          </li>
+          <li class="sidebar-file-item" onclick="location.href='projects.html'">
+            <span class="sidebar-file-icon">🔧</span> projects
+          </li>
+          <li class="sidebar-file-item" onclick="location.href='blogs.html'">
+            <span class="sidebar-file-icon">📝</span> blogs
+          </li>
+        </ul>
+      </div>
+
+      <!-- Editor Panel Pane -->
+      <div class="vscode-editor-pane">
+        <!-- Editor Tabs -->
+        <div class="vscode-tabs-bar">
+          <div class="vscode-tab" onclick="location.href='/'">
+            <span class="sidebar-file-icon" style="color:var(--accent-cyan)">📄</span> index.cpp
+            <span class="vscode-tab-pin-icon" title="Pinned" style="margin-left: 6px;">📌</span>
+          </div>
+          <div class="vscode-tab active" onclick="location.href='about-me.html'">
+            <span class="sidebar-file-icon" style="color:var(--accent-orange)">📋</span> about
+            <span class="vscode-tab-close-btn" style="margin-left: 8px;"
+              onclick="e = arguments[0] || window.event; e.stopPropagation(); location.href='/'">×</span>
+          </div>
+        </div>
+
+        <!-- Editor Breadcrumbs -->
+        <div class="vscode-breadcrumbs">
+          <div class="vscode-breadcrumbs-item">durganshu.com</div>
+          <div class="vscode-breadcrumbs-separator">&gt;</div>
+          <div class="vscode-breadcrumbs-item">src</div>
+          <div class="vscode-breadcrumbs-separator">&gt;</div>
+          <div class="vscode-breadcrumbs-item" style="color: var(--text-primary)">about</div>
+        </div>
+
+        <!-- Editor Content (About Me Render) -->
+        <div class="vscode-editor-content">
+          <h1 class="page-title fade-in" style="margin-top:0"><span class="prompt">~/</span>about-me</h1>
+          <p class="page-subtitle fade-in" style="margin-bottom:20px">// exploring my academic and professional journey
+          </p>
+
+          <a class="resume-btn fade-in" href="./attachments/CV_Mishra.pdf" download="Resume_Mishra.pdf">
+            <span>📥</span> $ wget resume.pdf
+          </a>
+
+          <!-- Work Experience -->
+          <div class="build-section-title fade-in">make -j$(nproc) work_experience</div>
+
+          <div class="build-timeline fade-in-stagger">
+            <div class="build-entry">
+              <div class="build-status">
+                <span class="build-progress">[100%]</span>
+                <span class="build-action">Linking</span>
+                <span class="build-target">work/sevencs.so</span>
+                <span class="build-check">✅ ACTIVE</span>
+              </div>
+              <div class="build-details">
+                <div class="build-role">Software Developer</div>
+                <div class="build-company"><a href="https://www.sevencs.com/">SevenCs GmbH (A Teledyne Company),
+                    Hamburg</a></div>
+                <div class="build-duration">Aug 2024 — Present</div>
+                <div class="build-desc">
+                  Contributing towards the development of Nautilus SDK and <a
+                    href="https://commercial.raymarine.com/products/ecdis" target="_blank">Pathfinder ECDIS</a>.
+                </div>
+                <div class="build-tags">
+                  <span class="tech-badge">C++</span>
+                  <span class="tech-badge">Windows</span>
+                  <span class="tech-badge">Linux</span>
+                  <span class="tech-badge">Android</span>
+                  <span class="tech-badge">OpenGL</span>
+                  <span class="tech-badge">CI/CD</span>
+                  <span class="tech-badge">Gerrit</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="build-entry">
+              <div class="build-status">
+                <span class="build-progress">[ 80%]</span>
+                <span class="build-action">Building</span>
+                <span class="build-target">research/tum_caps.o</span>
+                <span class="build-check">✅</span>
+              </div>
+              <div class="build-details">
+                <div class="build-role">Research Assistant — Chair of Computer Architecture and Parallel Systems</div>
+                <div class="build-company"><a href="https://www.ce.cit.tum.de/en/caps/homepage/">TU Munich</a> · Under
+                  <a href="https://www.professoren.tum.de/schulz-martin" target="_blank">Prof. Martin Schulz</a></div>
+                <div class="build-duration">Jul 2023 — Jul 2024</div>
+                <div class="build-desc">
+                  Contributed to the <a href="https://deep-projects.eu/" target="_blank">Deep-Sea projects</a>, mainly
+                  <a href="https://github.com/caps-tum/sys-sage" target="_blank">sys-sage</a> and <a
+                    href="https://github.com/caps-tum/mitos" target="_blank">mitos</a>:
+                  <ul>
+                    <li>Performance optimization and memory leak identification in sys-sage</li>
+                    <li>Reduced valgrind-reported memory leaks by ~99%</li>
+                    <li>Improving portability of mitos for Intel-based systems</li>
+                  </ul>
+                </div>
+                <div class="build-tags">
+                  <span class="tech-badge">C++</span>
+                  <span class="tech-badge">Linux</span>
+                  <span class="tech-badge">MPI</span>
+                  <span class="tech-badge">OpenMP</span>
+                  <span class="tech-badge">Valgrind</span>
+                  <span class="tech-badge">CI/CD</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="build-entry">
+              <div class="build-status">
+                <span class="build-progress">[ 75%]</span>
+                <span class="build-action">Building</span>
+                <span class="build-target">research/tum_aero.o</span>
+                <span class="build-check">✅</span>
+              </div>
+              <div class="build-details">
+                <div class="build-role">Research Assistant — Chair of Aerodynamics and Fluid Mechanics</div>
+                <div class="build-company"><a href="https://www.epc.ed.tum.de/en/aer/home/">TU Munich</a> · Under <a
+                    href="https://www.epc.ed.tum.de/aer/mitarbeiter-innen/cv/pd-dr-ing-habil-xiangyu-hu/"
+                    target="_blank">Prof. Xiangyu Hu</a></div>
+                <div class="build-duration">Jul 2023 — Sep 2023</div>
+                <div class="build-desc">
+                  Developed a Python interface using pybind11 for <a href="https://www.sphinxsys.org/"
+                    target="_blank">SPHinXsys</a>, an open-source SPH library, enabling seamless integration into
+                  Python-based workflows.
+                </div>
+                <div class="build-tags">
+                  <span class="tech-badge">C++</span>
+                  <span class="tech-badge">Python</span>
+                  <span class="tech-badge">Pybind11</span>
+                  <span class="tech-badge">Linux</span>
+                  <span class="tech-badge">CI/CD</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="build-entry">
+              <div class="build-status">
+                <span class="build-progress">[ 60%]</span>
+                <span class="build-action">Linking</span>
+                <span class="build-target">work/awi_precice.so</span>
+                <span class="build-check">✅</span>
+              </div>
+              <div class="build-details">
+                <div class="build-role">Research Assistant</div>
+                <div class="build-company"><a href="https://www.awi.de/en/">Alfred Wegener Institute, Helmholtz Centre
+                    for Polar and Marine Research, Bremerhaven</a></div>
+                <div class="build-duration">Aug 2023 — Oct 2023</div>
+                <div class="build-desc">
+                  Contributed towards <a href="https://www.precice.org/" target="_blank">preCICE 3.0</a>:
+                  <ul>
+                    <li>Removed deprecated features including MPI-single tags, VTK Support, and Master/Slave tags</li>
+                    <li>Migrated mesh-to-mesh mapping tests to use samples (preCICE 3.0 feature)</li>
+                  </ul>
+                </div>
+                <div class="build-tags">
+                  <span class="tech-badge">C++</span>
+                  <span class="tech-badge">Linux</span>
+                  <span class="tech-badge">MPI</span>
+                  <span class="tech-badge">CI/CD</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="build-entry">
+              <div class="build-status">
+                <span class="build-progress">[ 40%]</span>
+                <span class="build-action">Linking</span>
+                <span class="build-target">work/intel.so</span>
+                <span class="build-check">✅</span>
+              </div>
+              <div class="build-details">
+                <div class="build-role">Working Student — Cloud Graphics and Gaming</div>
+                <div class="build-company"><a href="https://www.intel.com">Intel Deutschland GmbH, Munich</a></div>
+                <div class="build-duration">May 2022 — May 2023</div>
+                <div class="build-desc">
+                  Part of the Visual Cloud Engineering team:
+                  <ul>
+                    <li>Performance analysis and benchmarking of Vulkan/OpenGL-based graphics applications on Intel
+                      dGPUs and Xeon Processors</li>
+                    <li>Extended OpenGL/Vulkan-based 'gears' graphics application for cross-OS and cross-API
+                      compatibilities</li>
+                    <li>Linux troubleshooting and bash scripting for lab infrastructure</li>
+                  </ul>
+                </div>
+                <div class="build-tags">
+                  <span class="tech-badge">C++</span>
+                  <span class="tech-badge">OpenGL</span>
+                  <span class="tech-badge">Vulkan</span>
+                  <span class="tech-badge">Intel VTune</span>
+                  <span class="tech-badge">Linux</span>
+                  <span class="tech-badge">Python</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="build-entry">
+              <div class="build-status">
+                <span class="build-progress">[ 20%]</span>
+                <span class="build-action">Building</span>
+                <span class="build-target">work/zeus_numerix.o</span>
+                <span class="build-check">✅</span>
+              </div>
+              <div class="build-details">
+                <div class="build-role">CAE Engineer — Development</div>
+                <div class="build-company"><a href="https://zeusnumerix.com/">Zeus Numerix Pvt. Ltd., Pune (India)</a>
+                </div>
+                <div class="build-duration">Aug 2020 — Aug 2021</div>
+                <div class="build-desc">
+                  Rigorous problem-solving and software development in Computational Electromagnetism, Radar signature
+                  prediction, and target detection:
+                  <ul>
+                    <li>C++ software for Radar Cross Section prediction using SBR method</li>
+                    <li>Algorithm for 2D/3D ISAR image construction of far-field targets</li>
+                    <li>Hotspot identification and scattering center extraction</li>
+                    <li>Structural analysis of Plume Dissipation Mechanism</li>
+                  </ul>
+                </div>
+                <div class="build-tags">
+                  <span class="tech-badge">C++</span>
+                  <span class="tech-badge">Linux</span>
+                  <span class="tech-badge">MATLAB</span>
+                  <span class="tech-badge">Python</span>
+                  <span class="tech-badge">Ansys</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="build-entry">
+              <div class="build-status">
+                <span class="build-progress">[ 10%]</span>
+                <span class="build-action">Building</span>
+                <span class="build-target">intern/iit_bhu.o</span>
+                <span class="build-check">✅</span>
+              </div>
+              <div class="build-details">
+                <div class="build-role">Research Intern</div>
+                <div class="build-company"><a href="https://iitbhu.ac.in/">IIT (BHU) Varanasi, India</a></div>
+                <div class="build-duration">May 2019 — Dec 2019</div>
+                <div class="build-desc">
+                  Department of Mechanical Engineering:
+                  <ul>
+                    <li>Regression model for predicting heat transfer coefficient variation during jet impingement
+                      quenching</li>
+                    <li>1D and 2D numerical models for temperature gradient prediction on nuclear fuel rods</li>
+                  </ul>
+                </div>
+                <div class="build-tags">
+                  <span class="tech-badge">C++</span>
+                  <span class="tech-badge">MATLAB</span>
+                  <span class="tech-badge">Python</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="build-entry">
+              <div class="build-status">
+                <span class="build-progress">[ 5%]</span>
+                <span class="build-action">Building</span>
+                <span class="build-target">intern/iit_kgp.o</span>
+                <span class="build-check">✅</span>
+              </div>
+              <div class="build-details">
+                <div class="build-role">Research Intern</div>
+                <div class="build-company"><a href="https://www.iitkgp.ac.in/">IIT Kharagpur, India</a></div>
+                <div class="build-duration">Nov 2018 — Dec 2018</div>
+                <div class="build-desc">
+                  Designed and fabricated a paper plane launching mechanism for MAVs:
+                  <ul>
+                    <li>Simulated flight path for all possible flight regimes using MATLAB</li>
+                  </ul>
+                </div>
+                <div class="build-tags">
+                  <span class="tech-badge">MATLAB</span>
+                  <span class="tech-badge">Python</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Education -->
+          <div class="build-section-title fade-in">make -j$(nproc) education</div>
+
+          <div class="build-timeline fade-in-stagger">
+            <div class="build-entry">
+              <div class="build-status">
+                <span class="build-progress">[100%]</span>
+                <span class="build-action">Building</span>
+                <span class="build-target">edu/msc_tum.o</span>
+                <span class="build-check">✅</span>
+              </div>
+              <div class="build-details">
+                <div class="build-role">MSc in Computational Science and Engineering</div>
+                <div class="build-company"><a href="https://www.tum.de/">Technical University of Munich (Germany)</a>
+                </div>
+                <div class="build-duration">Oct 2021 — Aug 2024</div>
+                <div class="build-desc">
+                  <strong>Coursework:</strong> Advanced Programming, Scientific Computing, Computer Architectures,
+                  Parallel Programming, Numerical Algorithms for HPC, CFD.
+                </div>
+              </div>
+            </div>
+
+            <div class="build-entry">
+              <div class="build-status">
+                <span class="build-progress">[ 75%]</span>
+                <span class="build-action">Building</span>
+                <span class="build-target">edu/exchange_polytechnique.o</span>
+                <span class="build-check">✅</span>
+              </div>
+              <div class="build-details">
+                <div class="build-role">Visiting Student — EuroTeQ</div>
+                <div class="build-company"><a href="https://www.polytechnique.edu/">École Polytechnique, Paris
+                    (France)</a></div>
+                <div class="build-duration">Jan 2023 — Jun 2023</div>
+                <div class="build-desc">
+                  <strong>Coursework:</strong> Distributed Systems, Computer Networks.
+                </div>
+              </div>
+            </div>
+
+            <div class="build-entry">
+              <div class="build-status">
+                <span class="build-progress">[ 70%]</span>
+                <span class="build-action">Building</span>
+                <span class="build-target">edu/exchange_upm.o</span>
+                <span class="build-check">✅</span>
+              </div>
+              <div class="build-details">
+                <div class="build-role">Exchange Student — ATHENS Program</div>
+                <div class="build-company"><a href="https://www.upm.es/">Universidad Politécnica de Madrid (Spain)</a>
+                </div>
+                <div class="build-duration">Mar 2023</div>
+                <div class="build-desc">
+                  <strong>Coursework:</strong> Spanish economy and navigation in the 15th–18th centuries by ETSI
+                  Navales.
+                </div>
+              </div>
+            </div>
+
+            <div class="build-entry">
+              <div class="build-status">
+                <span class="build-progress">[ 25%]</span>
+                <span class="build-action">Building</span>
+                <span class="build-target">edu/btech_iiitdm.o</span>
+                <span class="build-check">✅</span>
+              </div>
+              <div class="build-details">
+                <div class="build-role">B.Tech in Mechanical Engineering</div>
+                <div class="build-company"><a href="https://iiitdmj.ac.in/">IIITDM Jabalpur (India)</a></div>
+                <div class="build-duration">Aug 2016 — Jul 2020</div>
+                <div class="build-desc">
+                  <strong>Bachelor's thesis:</strong> Numerical Investigation of Jet Impingement Quenching.
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Publications -->
+          <div class="build-section-title fade-in">make -j$(nproc) publications</div>
+
+          <div class="fade-in-stagger" style="display:flex;flex-direction:column;gap:16px">
+            <div class="pub-entry">
+              <div class="pub-venue">
+                <img class="pub-venue-logo" src="images/logos/ISC-High-Performance-logo.jpg" alt="ISC">
+                <span class="pub-venue-name">ISC High Performance 2025 • 40th International Conference</span>
+              </div>
+              <div class="pub-title">
+                <a href="https://ieeexplore.ieee.org/document/11017506">Towards a Unified Architectural Representation
+                  in HPCQC: Extending Sys-Sage for Quantum Technologies</a>
+              </div>
+              <div class="pub-authors"><strong>D. Mishra</strong> et al., ISC High Performance 2025 Research Paper
+                Proceedings, Hamburg, Germany, 2025, pp. 1-12.</div>
+            </div>
+
+            <div class="pub-entry">
+              <div class="pub-venue">
+                <img class="pub-venue-logo" src="images/logos/heat_transfer_engineering.jpg" alt="HTE">
+                <span class="pub-venue-name">Heat Transfer Engineering • Volume 45, Issue 4-5 (2024)</span>
+              </div>
+              <div class="pub-title">
+                <a href="https://doi.org/10.1080/01457632.2023.2301157">Analysis of Heat Flux Quenching of a SS-316L Rod
+                  Using Nanofluids</a>
+              </div>
+              <div class="pub-authors">Vivek Gupta, Prerna Mishra, <strong>Durganshu Mishra</strong> & Pradyumna Ghosh
+                (2024).</div>
+            </div>
+
+            <div class="pub-entry">
+              <div class="pub-venue">
+                <img class="pub-venue-logo" src="images/logos/journal.webp" alt="FMFP">
+                <span class="pub-venue-name">Fluid Mechanics and Fluid Power (Vol. 3) • FMFP 2021</span>
+              </div>
+              <div class="pub-title">
+                <a href="https://doi.org/10.1007/978-981-19-6270-7_56">Analysis of Heat Flux Quenching of a Cylindrical
+                  Rod Using Oxide Based Nanofluids</a>
+              </div>
+              <div class="pub-authors">Gupta, V., Mishra, P., <strong>Mishra, D.</strong>, Ghosh, P. (2023). Springer,
+                Lecture Notes in Mechanical Engineering.</div>
+            </div>
+          </div>
+
+          <div class="build-complete fade-in" style="margin-top:24px;margin-bottom:32px">
+            [100%] Build complete. 0 errors, 0 warnings. 🎉
+          </div>
+        </div>
+
+        <!-- VS Code Bottom Panel -->
+        <div class="vscode-bottom-panel" id="vscode-bottom-panel">
+          <div class="vscode-bottom-header">
+            <div class="vscode-bottom-tabs">
+              <span class="vscode-bottom-tab active">Terminal</span>
+            </div>
+            <div class="vscode-bottom-actions">
+              <select name="shell" aria-label="Terminal Shell Selection">
+                <option value="bash">bash</option>
+                <option value="powershell">powershell</option>
+              </select>
+              <span class="bottom-action-btn" title="Split Screen">🗗</span>
+              <span class="bottom-action-btn" title="Kill Command">🗑️</span>
+              <span class="bottom-action-btn" title="Close Panel" id="close-terminal-btn">✕</span>
+            </div>
+          </div>
+          <div class="vscode-bottom-body">
+            <div class="terminal-body" id="terminal-body">
+              <div class="terminal-line">
+                <span class="terminal-prompt">durganshu@dev:~$ </span><span class="type-char"
+                  style="opacity:0">w</span><span class="type-char" style="opacity:0">h</span><span class="type-char"
+                  style="opacity:0">o</span><span class="type-char" style="opacity:0">a</span><span class="type-char"
+                  style="opacity:0">m</span><span class="type-char" style="opacity:0">i</span>
+              </div>
+              <div class="terminal-line">
+                <span class="terminal-output">C++ Software Developer @ SevenCs GmbH (Teledyne), Hamburg 🇩🇪</span>
+              </div>
+              <div class="terminal-line">&nbsp;</div>
+              <div class="terminal-line">
+                <span class="terminal-prompt">durganshu@dev:~$ </span><span class="type-char"
+                  style="opacity:0">c</span><span class="type-char" style="opacity:0">a</span><span class="type-char"
+                  style="opacity:0">t</span><span class="type-char" style="opacity:0"> </span><span class="type-char"
+                  style="opacity:0">s</span><span class="type-char" style="opacity:0">k</span><span class="type-char"
+                  style="opacity:0">i</span><span class="type-char" style="opacity:0">l</span><span class="type-char"
+                  style="opacity:0">l</span><span class="type-char" style="opacity:0">s</span><span class="type-char"
+                  style="opacity:0">.</span><span class="type-char" style="opacity:0">t</span><span class="type-char"
+                  style="opacity:0">x</span><span class="type-char" style="opacity:0">t</span>
+              </div>
+              <div class="terminal-line">
+                <span class="terminal-output">C++ · HPC · GPU Programming · MPI · OpenMP · OpenGL · Vulkan</span>
+              </div>
+              <div class="terminal-line">&nbsp;</div>
+              <div class="terminal-line">
+                <span class="terminal-prompt">durganshu@dev:~$ </span><span class="type-char"
+                  style="opacity:0">c</span><span class="type-char" style="opacity:0">a</span><span class="type-char"
+                  style="opacity:0">t</span><span class="type-char" style="opacity:0"> </span><span class="type-char"
+                  style="opacity:0">i</span><span class="type-char" style="opacity:0">n</span><span class="type-char"
+                  style="opacity:0">t</span><span class="type-char" style="opacity:0">e</span><span class="type-char"
+                  style="opacity:0">r</span><span class="type-char" style="opacity:0">i</span><span class="type-char"
+                  style="opacity:0">s</span><span class="type-char" style="opacity:0">t</span><span class="type-char"
+                  style="opacity:0">s</span><span class="type-char" style="opacity:0">.</span><span class="type-char"
+                  style="opacity:0">t</span><span class="type-char" style="opacity:0">x</span><span class="type-char"
+                  style="opacity:0">t</span>
+              </div>
+              <div class="terminal-line">
+                <span class="terminal-output">High-Performance Computing · HPC-QC Integration · Scientific
+                  Computing</span>
+              </div>
+              <div class="terminal-line">&nbsp;</div>
+              <div class="terminal-line">
+                <span class="terminal-prompt">durganshu@dev:~$ </span><span class="type-char"
+                  style="opacity:0">e</span><span class="type-char" style="opacity:0">c</span><span class="type-char"
+                  style="opacity:0">h</span><span class="type-char" style="opacity:0">o</span><span class="type-char"
+                  style="opacity:0"> </span><span class="type-char" style="opacity:0">"</span><span class="type-char"
+                  style="opacity:0">W</span><span class="type-char" style="opacity:0">e</span><span class="type-char"
+                  style="opacity:0">l</span><span class="type-char" style="opacity:0">c</span><span class="type-char"
+                  style="opacity:0">o</span><span class="type-char" style="opacity:0">m</span><span class="type-char"
+                  style="opacity:0">e</span><span class="type-char" style="opacity:0">!</span><span class="type-char"
+                  style="opacity:0">"</span>
+              </div>
+              <div class="terminal-line">
+                <span class="terminal-output">Welcome to my digital playground — explore my projects, research, and
+                  blogs!</span>
+              </div>
+              <div class="terminal-line terminal-input-line" id="terminal-input-line" style="opacity:0">
+                <span class="terminal-prompt">durganshu@dev:~$ </span><input type="text" class="terminal-input"
+                  id="terminal-input" autocomplete="off" spellcheck="false" autofocus
+                  aria-label="Terminal command input">
+              </div>
+            </div>
+          </div>
+          <!-- Terminal Hint hidden inside panel content to work with terminal.js animations -->
+          <div class="terminal-hint" id="terminal-hint" style="opacity:0; display:none;">
+            <span>💡 Type <code>help</code> for available commands</span>
+          </div>
+        </div>
       </div>
     </div>
-  </footer>
+
+    <!-- Status Bar -->
+    <div class="vscode-statusbar">
+      <div class="statusbar-section">
+        <div class="statusbar-item" title="Cursor Position">
+          Ln 1, Col 1
+        </div>
+        <div class="statusbar-item" title="Tab Spacing">
+          Spaces: 4
+        </div>
+        <div class="statusbar-item" title="File Encoding">
+          UTF-8
+        </div>
+        <div class="statusbar-item" title="Language Mode">
+          C++
+        </div>
+        <div class="statusbar-item" title="Feedback">
+          <span>☺</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="/assets/js/terminal.js"></script>
 </body>

@@ -5,379 +5,358 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Projects | Durganshu Mishra</title>
-  <meta name="description" content="Academic and hobby projects — CFD solvers, board game AI, C++ performance benchmarks, MPI tools, and more.">
+  <meta name="description"
+    content="Chronological history of academic, research, and hobby projects in C++, HPC, Parallel Systems, and Computer Graphics.">
   <meta property="og:title" content="Projects — Durganshu Mishra">
-  <meta property="og:description" content="C++ & HPC Projects — CFD, AI, Networking, Performance Benchmarks">
-  <meta property="og:url" content="https://durganshu.github.io/projects.html">
+  <meta property="og:description" content="Technical project list: C++, HPC, Parallel Computing, OpenGL/Vulkan">
+  <meta property="og:url" content="https://durganshu.com/projects.html">
   <meta property="og:type" content="website">
-  <link rel="canonical" href="https://durganshu.github.io/projects.html">
+  <link rel="canonical" href="https://durganshu.com/projects.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/theme.css">
 </head>
 
 <body>
-  <!-- ═══ Navigation ═══ -->
-  <header class="site-header">
-    <nav class="nav-wrapper">
-      <a class="nav-brand" href="/">
-        <span class="brand-icon">⌘</span> durganshu
-      </a>
-      <div class="nav-tabs" id="nav-tabs">
-        <a class="nav-tab" href="/">
-          <span class="tab-icon">📄</span> index.cpp <span class="tab-close">×</span>
-        </a>
-        <a class="nav-tab" href="about-me.html">
-          <span class="tab-icon">📋</span> about.h <span class="tab-close">×</span>
-        </a>
-        <a class="nav-tab" href="blogs.html">
-          <span class="tab-icon">📝</span> blogs.md <span class="tab-close">×</span>
-        </a>
-        <a class="nav-tab active" href="projects.html">
-          <span class="tab-icon">🔧</span> projects.cpp <span class="tab-close">×</span>
-        </a>
+  <div class="vscode-layout-wrapper">
+    <!-- VS Code Titlebar -->
+    <div class="vscode-titlebar">
+      <div></div>
+      <div class="titlebar-center">durganshu.com - projects</div>
+      <div class="titlebar-actions">
+        <span class="titlebar-action-icon">🗕</span>
+        <span class="titlebar-action-icon">🗖</span>
+        <span class="titlebar-action-icon">✕</span>
       </div>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">☰</button>
-    </nav>
-  </header>
+    </div>
 
-  <main class="workspace-container">
-    <!-- ═══ VS Code Sidebar Explorer ═══ -->
-    <aside class="workspace-sidebar">
-      <div class="sidebar-header">EXPLORER</div>
-      <div class="sidebar-title">durganshu.github.io</div>
-      <ul class="file-tree">
-        <li class="tree-item folder open">
-          <span class="tree-icon">📂</span> src
-          <ul class="file-tree" style="margin-top:0">
-            <li class="tree-item file" onclick="location.href='/'">
-              <span class="tree-icon" style="color:var(--accent-cyan)">📄</span> index.cpp
-            </li>
-            <li class="tree-item file" onclick="location.href='about-me.html'">
-              <span class="tree-icon" style="color:var(--accent-orange)">📋</span> about.h
-            </li>
-            <li class="tree-item file active-file" onclick="location.href='projects.html'">
-              <span class="tree-icon" style="color:var(--accent-cyan)">🔧</span> projects.cpp
-            </li>
-          </ul>
-        </li>
-        <li class="tree-item folder open">
-          <span class="tree-icon">📂</span> content
-          <ul class="file-tree" style="margin-top:0">
-            <li class="tree-item file" onclick="location.href='blogs.html'">
-              <span class="tree-icon" style="color:var(--accent-purple)">📝</span> blogs.md
-            </li>
-          </ul>
-        </li>
-        <li class="tree-item file muted">
-          <span class="tree-icon">⚙️</span> CMakeLists.txt
-        </li>
-        <li class="tree-item file muted">
-          <span class="tree-icon">📖</span> README.md
-        </li>
-      </ul>
-    </aside>
-
-    <!-- ═══ VS Code Editor Frame ═══ -->
-    <div class="workspace-main">
-      <div class="editor-tabs-header">
-        <div class="active-editor-tabs-list">
-          <div class="nav-tab" href="/" onclick="location.href='/'" style="display:flex;align-items:center;height:100%;border-right:1px solid var(--border-color);padding:0 16px;font-family:var(--font-mono);font-size:13px;color:var(--text-secondary);cursor:pointer">
-            <span class="tab-icon" style="color:var(--accent-cyan);margin-right:6px">📄</span> index.cpp
+    <!-- Main Workspace -->
+    <div class="vscode-workspace">
+      <!-- Activity Bar -->
+      <div class="vscode-activity-bar">
+        <div class="activity-bar-top">
+          <div class="activity-btn active" title="Explorer" id="activity-explorer-btn">
+            <span>📑</span>
           </div>
-          <div class="nav-tab" href="about-me.html" onclick="location.href='about-me.html'" style="display:flex;align-items:center;height:100%;border-right:1px solid var(--border-color);padding:0 16px;font-family:var(--font-mono);font-size:13px;color:var(--text-secondary);cursor:pointer">
-            <span class="tab-icon" style="color:var(--accent-orange);margin-right:6px">📋</span> about.h
+          <div class="activity-btn active" title="Terminal" id="activity-terminal-btn">
+            <span>💻</span>
           </div>
-          <div class="active-editor-tab" onclick="location.href='projects.html'" style="cursor:pointer">
-            <span class="tab-icon" style="color:var(--accent-cyan)">🔧</span> projects.cpp <span class="tab-close-btn" style="margin-left: 8px;">×</span>
-          </div>
-        </div>
-        <div class="editor-actions">
-          <button class="editor-action-btn active" id="btn-split">
-            <span>🗖</span> Split
-          </button>
-          <button class="editor-action-btn" id="btn-code">
-            <span>💻</span> Code
-          </button>
-          <button class="editor-action-btn" id="btn-preview">
-            <span>👁️</span> Preview
-          </button>
         </div>
       </div>
 
-      <!-- IDE Workspace split views -->
-      <div class="editor-workspace split-layout" id="editor-workspace">
-        
-        <!-- PANE 1: Raw Code Source (projects.cpp style) -->
-        <div class="editor-pane pane-code">
-          <div class="pane-header"><span class="pane-title">src / projects.cpp</span></div>
-          <div class="code-editor-content">
-            <div class="line-numbers">
-              <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span><span>32</span><span>33</span><span>34</span><span>35</span><span>36</span><span>37</span><span>38</span><span>39</span><span>40</span><span>41</span><span>42</span><span>43</span><span>44</span><span>45</span><span>46</span><span>47</span><span>48</span><span>49</span><span>50</span><span>51</span><span>52</span><span>53</span><span>54</span><span>55</span><span>56</span><span>57</span><span>58</span><span>59</span><span>60</span><span>61</span><span>62</span><span>63</span><span>64</span>
+      <!-- Explorer Sidebar -->
+      <div class="vscode-sidebar" id="vscode-sidebar">
+        <div class="sidebar-section-header">Explorer</div>
+        <div class="sidebar-folder-title">
+          <span>▼</span> durganshu.com
+        </div>
+        <ul class="sidebar-file-list">
+          <li class="sidebar-file-item" onclick="location.href='/'">
+            <span class="sidebar-file-icon">📄</span> home
+          </li>
+          <li class="sidebar-file-item" onclick="location.href='about-me.html'">
+            <span class="sidebar-file-icon">📋</span> about
+          </li>
+          <li class="sidebar-file-item active" onclick="location.href='projects.html'">
+            <span class="sidebar-file-icon">🔧</span> projects
+          </li>
+          <li class="sidebar-file-item" onclick="location.href='blogs.html'">
+            <span class="sidebar-file-icon">📝</span> blogs
+          </li>
+        </ul>
+      </div>
+
+      <!-- Editor Panel Pane -->
+      <div class="vscode-editor-pane">
+        <!-- Editor Tabs -->
+        <div class="vscode-tabs-bar">
+          <div class="vscode-tab" onclick="location.href='/'">
+            <span class="sidebar-file-icon" style="color:var(--accent-cyan)">📄</span> index.cpp
+            <span class="vscode-tab-pin-icon" title="Pinned" style="margin-left: 6px;">📌</span>
+          </div>
+          <div class="vscode-tab active" onclick="location.href='projects.html'">
+            <span class="sidebar-file-icon" style="color:var(--accent-green)">🔧</span> projects
+            <span class="vscode-tab-close-btn" style="margin-left: 8px;"
+              onclick="e = arguments[0] || window.event; e.stopPropagation(); location.href='/'">×</span>
+          </div>
+        </div>
+
+        <!-- Editor Breadcrumbs -->
+        <div class="vscode-breadcrumbs">
+          <div class="vscode-breadcrumbs-item">durganshu.com</div>
+          <div class="vscode-breadcrumbs-separator">&gt;</div>
+          <div class="vscode-breadcrumbs-item">src</div>
+          <div class="vscode-breadcrumbs-separator">&gt;</div>
+          <div class="vscode-breadcrumbs-item" style="color: var(--text-primary)">projects</div>
+        </div>
+
+        <!-- Editor Content -->
+        <div class="vscode-editor-content">
+          <h1 class="page-title fade-in" style="margin-top:0"><span class="prompt">~/</span>projects</h1>
+          <p class="page-subtitle fade-in" style="margin-bottom:20px">// git log --oneline --all — academic and hobby
+            projects (<a href="https://github.com/durganshu" target="_blank" class="text-link">view all on GitHub</a>)
+          </p>
+
+          <div class="git-timeline fade-in-stagger" style="margin-bottom: 32px">
+
+            <div class="git-commit">
+              <div class="git-commit-header">
+                <span class="git-sha">commit e7a3f1d</span>
+                <span class="git-branches">
+                  <span class="git-branch-tag head">HEAD</span> →
+                  <span class="git-branch-tag main">main</span>
+                </span>
+                <span class="git-author">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</span>
+              </div>
+              <div class="git-commit-body">
+                <div class="git-subject">feat: Abalone-Game — competitive board game AI</div>
+                <div class="git-desc">
+                  Abalone is a board game of class "2-Person Zero-Sum Game with Complete Information". This repository
+                  contains 4 different search strategies for a competitive Abalone gameplay.
+                </div>
+                <div class="git-tags">
+                  <span class="tech-badge">C++</span>
+                  <span class="tech-badge">Game AI</span>
+                  <span class="tech-badge">Search Algorithms</span>
+                </div>
+                <div class="git-links">
+                  <a class="git-link-btn" href="https://github.com/durganshu/Abalone-Game" target="_blank">💻 Source
+                    Code</a>
+                </div>
+              </div>
             </div>
-            <pre class="code-viewport"><code><span class="pre">#include</span> <span class="str">&lt;iostream&gt;</span>
-<span class="pre">#include</span> <span class="str">&lt;vector&gt;</span>
-<span class="pre">#include</span> <span class="str">&lt;string&gt;</span>
 
-<span class="kw">struct</span> <span class="typ">Project</span> {
-    <span class="typ">std::string</span> title;
-    <span class="typ">std::string</span> icon;
-    <span class="typ">std::string</span> description;
-    <span class="typ">std::vector</span>&lt;<span class="typ">std::string</span>&gt; tech_stack;
-    <span class="typ">std::string</span> repo_link;
-};
+            <div class="git-commit">
+              <div class="git-commit-header">
+                <span class="git-sha">commit a9d0421</span>
+                <span class="git-author">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</span>
+              </div>
+              <div class="git-commit-body">
+                <div class="git-subject">feat: sys-sage — system's data intelligence and optimization library</div>
+                <div class="git-desc">
+                  Contributed to developing sys-sage, a resource model library capable of representing HW topologies,
+                  memory hierarchies, and data paths to help runtimes optimize parallel applications on heterogeneous
+                  platforms.
+                </div>
+                <div class="git-tags">
+                  <span class="tech-badge">C++</span>
+                  <span class="tech-badge">Heterogeneous Architectures</span>
+                  <span class="tech-badge">HPC</span>
+                </div>
+                <div class="git-links">
+                  <a class="git-link-btn" href="https://github.com/caps-tum/sys-sage" target="_blank">💻 Source Code</a>
+                </div>
+              </div>
+            </div>
 
-<span class="typ">std::vector</span>&lt;<span class="typ">Project</span>&gt; <span class="fn">getProjects</span>() {
-    <span class="kw">return</span> {
-        {
-            <span class="str">"Abalone Board Game AI"</span>, <span class="str">"♟️"</span>,
-            <span class="str">"Competitive AI playing Abalone board game with 4 search strategies."</span>,
-            {<span class="str">"C++"</span>, <span class="str">"Minimax"</span>, <span class="str">"Alpha-Beta Pruning"</span>, <span class="str">"Heuristic Search"</span>},
-            <span class="str">"https://github.com/Durganshu/Abalone-Game"</span>
-        },
-        {
-            <span class="str">"Fluidchen-EM"</span>, <span class="str">"🌊"</span>,
-            <span class="str">"MPI-parallelized CFD solver supporting preCICE multi-physics coupling."</span>,
-            {<span class="str">"C++"</span>, <span class="str">"MPI"</span>, <span class="str">"Parallel Computing"</span>, <span class="str">"Fluid Dynamics"</span>, <span class="str">"preCICE"</span>},
-            <span class="str">"https://github.com/Durganshu/Fluidchen-EM"</span>
-        },
-        {
-            <span class="str">"Modern C++ Performance"</span>, <span class="str">"⚙️"</span>,
-            <span class="str">"Evaluates Modern C++ (C++11+) programming practices and their hardware resource impact."</span>,
-            {<span class="str">"C++11/14/17"</span>, <span class="str">"Benchmarking"</span>, <span class="str">"Performance"</span>},
-            <span class="str">"https://github.com/Durganshu/Modern-Cpp-Performance"</span>
-        },
-        {
-            <span class="str">"Parallelized Jacobi Method"</span>, <span class="str">"🧮"</span>,
-            <span class="str">"5-point stencil Jacobi solver with shared, distributed, and hybrid memory parallelism."</span>,
-            {<span class="str">"C++"</span>, <span class="str">"OpenMP"</span>, <span class="str">"MPI"</span>, <span class="str">"HPC"</span>},
-            <span class="str">"https://github.com/Durganshu/Parallelized-Jacobi-Method"</span>
-        },
-        {
-            <span class="str">"DeepBio"</span>, <span class="str">"🤖"</span>,
-            <span class="str">"GPT-3 powered biography generator, built at the TUM.ai Makeathon 2022."</span>,
-            {<span class="str">"Python"</span>, <span class="str">"GPT-3"</span>, <span class="str">"Hackathon"</span>},
-            <span class="str">"https://github.com/Durganshu/DeepBio"</span>
-        },
-        {
-            <span class="str">"MPI Ping Pong"</span>, <span class="str">"🏓"</span>,
-            <span class="str">"Visualizes an MPI connection with blocking send/receive between two nodes."</span>,
-            {<span class="str">"C++"</span>, <span class="str">"MPI"</span>},
-            <span class="str">"https://github.com/Durganshu/MPI-Ping-Pong"</span>
-        },
-        {
-            <span class="str">"wgetD"</span>, <span class="str">"🌐"</span>,
-            <span class="str">"A simplified, TCP-based HTTP client — a minimal wget clone."</span>,
-            {<span class="str">"C++"</span>, <span class="str">"Networking"</span>, <span class="str">"TCP/IP"</span>},
-            <span class="str">"https://github.com/Durganshu/wgetD"</span>
-        },
-        {
-            <span class="str">"Multi-threaded UDP Server-Client"</span>, <span class="str">"📡"</span>,
-            <span class="str">"High performance UDP server with POSIX threads & select API."</span>,
-            {<span class="str">"C++"</span>, <span class="str">"pthreads"</span>, <span class="str">"Socket Programming"</span>, <span class="str">"UDP"</span>},
-            <span class="str">"https://github.com/Durganshu/UDP-Server-Client"</span>
-        }
-    };
-}</code></pre>
-          </div>
-        </div>
+            <div class="git-commit">
+              <div class="git-commit-header">
+                <span class="git-sha">commit 8da6f91</span>
+                <span class="git-author">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</span>
+              </div>
+              <div class="git-commit-body">
+                <div class="git-subject">feat: CudaFluids — CUDA-accelerated 2D Fluid Simulation</div>
+                <div class="git-desc">
+                  A CUDA-accelerated 2D Euler equations solver using the MacCormack finite difference scheme. Simulates
+                  fluid dynamics around various shapes in real-time, utilizing custom GPU kernels for spatial
+                  discretizations and boundaries.
+                </div>
+                <div class="git-tags">
+                  <span class="tech-badge">C++</span>
+                  <span class="tech-badge">CUDA</span>
+                  <span class="tech-badge">Fluid Dynamics</span>
+                  <span class="tech-badge">GPGPU</span>
+                </div>
+                <div class="git-links">
+                  <a class="git-link-btn" href="https://github.com/durganshu/CudaFluids" target="_blank">💻 Source
+                    Code</a>
+                </div>
+              </div>
+            </div>
 
-        <!-- PANE 2: Rendered Visual Output -->
-        <div class="editor-pane pane-render">
-          <div class="pane-header"><span class="pane-title">Git log Cards Preview</span></div>
-          <div class="render-viewport">
-            
-            <h1 class="page-title fade-in" style="margin-top:0"><span class="prompt">~/</span>projects</h1>
-            <p class="page-subtitle fade-in" style="margin-bottom:20px">// git log --oneline --all — academic and hobby projects (<a href="https://github.com/Durganshu/" target="_blank">view all on GitHub</a>)</p>
+            <div class="git-commit">
+              <div class="git-commit-header">
+                <span class="git-sha">commit d89e210</span>
+                <span class="git-author">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</span>
+              </div>
+              <div class="git-commit-body">
+                <div class="git-subject">feat: pybind-sphinxsys — SPHinXsys Python bindings</div>
+                <div class="git-desc">
+                  Wrote the complete pybind11 wrapping interface for SPHinXsys, an acronym for Smoothed Particle
+                  Hydrodynamics (SPH) multi-physics simulation library, enabling Python workflows for CFD simulations.
+                </div>
+                <div class="git-tags">
+                  <span class="tech-badge">C++</span>
+                  <span class="tech-badge">Python</span>
+                  <span class="tech-badge">Pybind11</span>
+                  <span class="tech-badge">CFD</span>
+                </div>
+                <div class="git-links">
+                  <a class="git-link-btn" href="https://github.com/durganshu/pybind-sphinxsys" target="_blank">💻 Source
+                    Code</a>
+                </div>
+              </div>
+            </div>
 
-            <div class="git-log-container fade-in-stagger">
+            <div class="git-commit">
+              <div class="git-commit-header">
+                <span class="git-sha">commit c9b142f</span>
+                <span class="git-author">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</span>
+              </div>
+              <div class="git-commit-body">
+                <div class="git-subject">feat: preCICE 3.0 — coupling library contribution</div>
+                <div class="git-desc">
+                  Assisted in cleanup and refactoring in preparation for the preCICE 3.0 release, removing legacy VTK
+                  file output adapters, redundant FSI test cases, and obsolete MPI communication channels.
+                </div>
+                <div class="git-tags">
+                  <span class="tech-badge">C++</span>
+                  <span class="tech-badge">MPI</span>
+                  <span class="tech-badge">Refactoring</span>
+                  <span class="tech-badge">FSI</span>
+                </div>
+                <div class="git-links">
+                  <a class="git-link-btn" href="https://github.com/precice/precice" target="_blank">💻 Source Code</a>
+                </div>
+              </div>
+            </div>
 
-              <a class="git-commit" href="https://github.com/Durganshu/Abalone-Game" target="_blank">
-                <div class="git-commit-header">
-                  <span class="git-hash">commit e7a3f1d</span>
-                  <span class="git-refs"><span class="git-ref">HEAD → main</span></span>
+            <div class="git-commit">
+              <div class="git-commit-header">
+                <span class="git-sha">commit f5e061b</span>
+                <span class="git-author">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</span>
+              </div>
+              <div class="git-commit-body">
+                <div class="git-subject">feat: Electromagnetics-RCS — Radar Cross Section analysis system</div>
+                <div class="git-desc">
+                  Industrial-grade solver developed at Zeus Numerix Pvt. Ltd. (Pune, India) to calculate Radar Cross
+                  Section signatures on arbitrary 3D triangular CAD meshes utilizing shooting and bouncing ray
+                  algorithms.
                 </div>
-                <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
-                <div class="git-commit-message">feat: Abalone-Game — competitive board game AI</div>
-                <div class="git-commit-body">Abalone is a board game of class "2-Person Zero-Sum Game with Complete Information". This repository contains 4 different search strategies for a competitive Abalone gameplay.</div>
-                <div class="git-commit-stats">
-                  <span class="git-stat-tech">
-                    <span class="tech-badge">C++</span>
-                    <span class="tech-badge">Game AI</span>
-                    <span class="tech-badge">Search Algorithms</span>
-                  </span>
+                <div class="git-tags">
+                  <span class="tech-badge">C++</span>
+                  <span class="tech-badge">CAD Meshes</span>
+                  <span class="tech-badge">Computational Electromagnetics</span>
                 </div>
-              </a>
-
-              <a class="git-commit" href="https://github.com/Durganshu/Fluidchen-EM" target="_blank">
-                <div class="git-commit-header">
-                  <span class="git-hash">commit b4c9e2c</span>
-                  <span class="git-refs"><span class="git-ref">origin/main</span></span>
-                </div>
-                <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
-                <div class="git-commit-message">feat: Fluidchen-EM — MPI-parallelized CFD Solver</div>
-                <div class="git-commit-body">A Computational Fluid Dynamics Solver capable of solving a wide range of problems. The whole code is parallelized using MPI and is compatible with preCICE for coupling with other solvers.</div>
-                <div class="git-commit-stats">
-                  <span class="git-stat-tech">
-                    <span class="tech-badge">C++</span>
-                    <span class="tech-badge">MPI</span>
-                    <span class="tech-badge">CFD</span>
-                    <span class="tech-badge">preCICE</span>
-                  </span>
-                </div>
-              </a>
-
-              <a class="git-commit" href="https://github.com/Durganshu/Modern-Cpp-Performance" target="_blank">
-                <div class="git-commit-header">
-                  <span class="git-hash">commit a1b2c3d</span>
-                  <span class="git-refs"><span class="git-ref">origin/main</span></span>
-                </div>
-                <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
-                <div class="git-commit-message">feat: C++ Performance Benchmarks — modern C++ evaluation</div>
-                <div class="git-commit-body">Comprehensively evaluates the performance aspects of Modern C++ (C++11 and later), particularly focusing on programming practices and their impact on hardware resource utilization.</div>
-                <div class="git-commit-stats">
-                  <span class="git-stat-tech">
-                    <span class="tech-badge">C++11/14/17</span>
-                    <span class="tech-badge">Benchmarking</span>
-                    <span class="tech-badge">Performance</span>
-                  </span>
-                </div>
-              </a>
-
-              <a class="git-commit" href="https://github.com/Durganshu/Parallelized-Jacobi-Method" target="_blank">
-                <div class="git-commit-header">
-                  <span class="git-hash">commit 5d8f9a2</span>
-                  <span class="git-refs"><span class="git-ref">origin/main</span></span>
-                </div>
-                <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
-                <div class="git-commit-message">feat: Parallelized Jacobi Solver — shared + distributed memory</div>
-                <div class="git-commit-body">Implements the Jacobi method on a discretized 5-point stencil with shared, distributed, and hybrid memory parallelism. Supports OpenMP and MPI.</div>
-                <div class="git-commit-stats">
-                  <span class="git-stat-tech">
-                    <span class="tech-badge">C++</span>
-                    <span class="tech-badge">OpenMP</span>
-                    <span class="tech-badge">MPI</span>
-                    <span class="tech-badge">HPC</span>
-                  </span>
-                </div>
-              </a>
-
-              <a class="git-commit" href="https://github.com/Durganshu/DeepBio" target="_blank">
-                <div class="git-commit-header">
-                  <span class="git-hash">commit c8d3e7f</span>
-                  <span class="git-refs"><span class="git-ref">origin/main</span></span>
-                </div>
-                <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
-                <div class="git-commit-message">feat: DeepBio — GPT-3 powered biography generator</div>
-                <div class="git-commit-body">A tool that helps create biographies for older people. The app generates a biography based on a list of questions using GPT-3 from OpenAI. Created during the TUM.ai Makeathon in April 2022.</div>
-                <div class="git-commit-stats">
-                  <span class="git-stat-tech">
-                    <span class="tech-badge">Python</span>
-                    <span class="tech-badge">GPT-3</span>
-                    <span class="tech-badge">Hackathon</span>
-                  </span>
-                </div>
-              </a>
-
-              <a class="git-commit" href="https://github.com/Durganshu/MPI-Ping-Pong" target="_blank">
-                <div class="git-commit-header">
-                  <span class="git-hash">commit 9f2e1b4</span>
-                  <span class="git-refs"><span class="git-ref">origin/main</span></span>
-                </div>
-                <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
-                <div class="git-commit-message">feat: MPI Ping Pong — message passing visualization</div>
-                <div class="git-commit-body">Visualizes an MPI connection by sending a message from node A to node B and back (ping-pong), using blocking send and receive constructs.</div>
-                <div class="git-commit-stats">
-                  <span class="git-stat-tech">
-                    <span class="tech-badge">C++</span>
-                    <span class="tech-badge">MPI</span>
-                  </span>
-                </div>
-              </a>
-
-              <a class="git-commit" href="https://github.com/Durganshu/wgetD" target="_blank">
-                <div class="git-commit-header">
-                  <span class="git-hash">commit 3a7b5c9</span>
-                  <span class="git-refs"><span class="git-ref">origin/main</span></span>
-                </div>
-                <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
-                <div class="git-commit-message">feat: wgetD — TCP-based HTTP client</div>
-                <div class="git-commit-body">A TCP-based application for sending and receiving HTTP requests. A simplified version of the Linux wget application.</div>
-                <div class="git-commit-stats">
-                  <span class="git-stat-tech">
-                    <span class="tech-badge">C++</span>
-                    <span class="tech-badge">Networking</span>
-                    <span class="tech-badge">TCP/IP</span>
-                  </span>
-                </div>
-              </a>
-
-              <a class="git-commit" href="https://github.com/Durganshu/UDP-Server-Client" target="_blank">
-                <div class="git-commit-header">
-                  <span class="git-hash">commit d6e8f0a</span>
-                  <span class="git-refs"><span class="git-ref">origin/main</span></span>
-                </div>
-                <div class="git-commit-meta">Author: Durganshu &lt;durganshu.mishra@tum.de&gt;</div>
-                <div class="git-commit-message">feat: UDP Server and Client — multithreaded messaging</div>
-                <div class="git-commit-body">UDP-based server and clients for communicating messages. Includes a sequential as well as a pthread-based multithreaded version.</div>
-                <div class="git-commit-stats">
-                  <span class="git-stat-tech">
-                    <span class="tech-badge">C++</span>
-                    <span class="tech-badge">UDP</span>
-                    <span class="tech-badge">pthreads</span>
-                  </span>
-                </div>
-              </a>
-
+              </div>
             </div>
 
           </div>
         </div>
 
+        <!-- VS Code Bottom Panel -->
+        <div class="vscode-bottom-panel" id="vscode-bottom-panel">
+          <div class="vscode-bottom-header">
+            <div class="vscode-bottom-tabs">
+              <span class="vscode-bottom-tab active">Terminal</span>
+            </div>
+            <div class="vscode-bottom-actions">
+              <select name="shell" aria-label="Terminal Shell Selection">
+                <option value="bash">bash</option>
+                <option value="powershell">powershell</option>
+              </select>
+              <span class="bottom-action-btn" title="Split Screen">🗗</span>
+              <span class="bottom-action-btn" title="Kill Command">🗑️</span>
+              <span class="bottom-action-btn" title="Close Panel" id="close-terminal-btn">✕</span>
+            </div>
+          </div>
+          <div class="vscode-bottom-body">
+            <div class="terminal-body" id="terminal-body">
+              <div class="terminal-line">
+                <span class="terminal-prompt">durganshu@dev:~$ </span><span class="type-char"
+                  style="opacity:0">w</span><span class="type-char" style="opacity:0">h</span><span class="type-char"
+                  style="opacity:0">o</span><span class="type-char" style="opacity:0">a</span><span class="type-char"
+                  style="opacity:0">m</span><span class="type-char" style="opacity:0">i</span>
+              </div>
+              <div class="terminal-line">
+                <span class="terminal-output">C++ Software Developer @ SevenCs GmbH (Teledyne), Hamburg 🇩🇪</span>
+              </div>
+              <div class="terminal-line">&nbsp;</div>
+              <div class="terminal-line">
+                <span class="terminal-prompt">durganshu@dev:~$ </span><span class="type-char"
+                  style="opacity:0">c</span><span class="type-char" style="opacity:0">a</span><span class="type-char"
+                  style="opacity:0">t</span><span class="type-char" style="opacity:0"> </span><span class="type-char"
+                  style="opacity:0">s</span><span class="type-char" style="opacity:0">k</span><span class="type-char"
+                  style="opacity:0">i</span><span class="type-char" style="opacity:0">l</span><span class="type-char"
+                  style="opacity:0">l</span><span class="type-char" style="opacity:0">s</span><span class="type-char"
+                  style="opacity:0">.</span><span class="type-char" style="opacity:0">t</span><span class="type-char"
+                  style="opacity:0">x</span><span class="type-char" style="opacity:0">t</span>
+              </div>
+              <div class="terminal-line">
+                <span class="terminal-output">C++ · HPC · GPU Programming · MPI · OpenMP · OpenGL · Vulkan</span>
+              </div>
+              <div class="terminal-line">&nbsp;</div>
+              <div class="terminal-line">
+                <span class="terminal-prompt">durganshu@dev:~$ </span><span class="type-char"
+                  style="opacity:0">c</span><span class="type-char" style="opacity:0">a</span><span class="type-char"
+                  style="opacity:0">t</span><span class="type-char" style="opacity:0"> </span><span class="type-char"
+                  style="opacity:0">i</span><span class="type-char" style="opacity:0">n</span><span class="type-char"
+                  style="opacity:0">t</span><span class="type-char" style="opacity:0">e</span><span class="type-char"
+                  style="opacity:0">r</span><span class="type-char" style="opacity:0">e</span><span class="type-char"
+                  style="opacity:0">s</span><span class="type-char" style="opacity:0">t</span><span class="type-char"
+                  style="opacity:0">s</span><span class="type-char" style="opacity:0">.</span><span class="type-char"
+                  style="opacity:0">t</span><span class="type-char" style="opacity:0">x</span><span class="type-char"
+                  style="opacity:0">t</span>
+              </div>
+              <div class="terminal-line">
+                <span class="terminal-output">High-Performance Computing · HPC-QC Integration · Scientific
+                  Computing</span>
+              </div>
+              <div class="terminal-line">&nbsp;</div>
+              <div class="terminal-line">
+                <span class="terminal-prompt">durganshu@dev:~$ </span><span class="type-char"
+                  style="opacity:0">e</span><span class="type-char" style="opacity:0">c</span><span class="type-char"
+                  style="opacity:0">h</span><span class="type-char" style="opacity:0">o</span><span class="type-char"
+                  style="opacity:0"> </span><span class="type-char" style="opacity:0">"</span><span class="type-char"
+                  style="opacity:0">W</span><span class="type-char" style="opacity:0">e</span><span class="type-char"
+                  style="opacity:0">l</span><span class="type-char" style="opacity:0">c</span><span class="type-char"
+                  style="opacity:0">o</span><span class="type-char" style="opacity:0">m</span><span class="type-char"
+                  style="opacity:0">e</span><span class="type-char" style="opacity:0">!</span><span class="type-char"
+                  style="opacity:0">"</span>
+              </div>
+              <div class="terminal-line">
+                <span class="terminal-output">Welcome to my digital playground — explore my projects, research, and
+                  blogs!</span>
+              </div>
+              <div class="terminal-line terminal-input-line" id="terminal-input-line" style="opacity:0">
+                <span class="terminal-prompt">durganshu@dev:~$ </span><input type="text" class="terminal-input"
+                  id="terminal-input" autocomplete="off" spellcheck="false" autofocus
+                  aria-label="Terminal command input">
+              </div>
+            </div>
+          </div>
+          <!-- Terminal Hint hidden inside panel content to work with terminal.js animations -->
+          <div class="terminal-hint" id="terminal-hint" style="opacity:0; display:none;">
+            <span>💡 Type <code>help</code> for available commands</span>
+          </div>
+        </div>
       </div>
     </div>
-  </main>
 
-  <!-- ═══ Footer ═══ -->
-  <footer class="site-footer">
-    <div class="footer-wrapper">
-      <div class="footer-prompt">
-        <span class="green">durganshu@dev:~$</span> cat contact.txt
-      </div>
-      <div class="footer-grid">
-        <div>
-          <div class="footer-section-title">Contact</div>
-          <a class="footer-link" href="mailto:durganshu.mishra@tum.de">
-            <span class="link-icon">📧</span> durganshu.mishra@tum.de
-          </a>
+    <!-- Status Bar -->
+    <div class="vscode-statusbar">
+      <div class="statusbar-section">
+        <div class="statusbar-item" title="Cursor Position">
+          Ln 1, Col 1
         </div>
-        <div>
-          <div class="footer-section-title">Profiles</div>
-          <a class="footer-link" href="https://github.com/durganshu" target="_blank">
-            <span class="link-icon">⚡</span> GitHub
-          </a>
-          <a class="footer-link" href="https://www.linkedin.com/in/durganshu" target="_blank">
-            <span class="link-icon">🔗</span> LinkedIn
-          </a>
-          <a class="footer-link" href="https://medium.com/@durganshu" target="_blank">
-            <span class="link-icon">📰</span> Medium
-          </a>
-          <a class="footer-link" href="https://hackernoon.com/about/durganshu" target="_blank">
-            <span class="link-icon">💚</span> HackerNoon
-          </a>
+        <div class="statusbar-item" title="Tab Spacing">
+          Spaces: 4
         </div>
-        <div>
-          <div class="footer-section-title">About</div>
-          <p class="footer-desc">C++ Software Developer at SevenCs GmbH (Teledyne) in Hamburg. Passionate about High-Performance Computing, HPC-QC integration, GPU programming, and scientific computing.</p>
+        <div class="statusbar-item" title="File Encoding">
+          UTF-8
         </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2025 Durganshu Mishra</span>
-        <span>Built with ☕ and too many compiler flags</span>
+        <div class="statusbar-item" title="Language Mode">
+          C++
+        </div>
+        <div class="statusbar-item" title="Feedback">
+          <span>☺</span>
+        </div>
       </div>
     </div>
-  </footer>
+  </div>
 
   <script src="/assets/js/terminal.js"></script>
 </body>

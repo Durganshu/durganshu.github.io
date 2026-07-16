@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initMobileNav();
   initEditorToggle();
+  initVSCodeToggles();
 });
 
 // ─── Command Definitions ────────────────────────────
@@ -458,4 +459,38 @@ function initMobileNav() {
       toggle.textContent = '☰';
     });
   });
+}
+
+// ─── VS Code Layout Panel Toggles ──────────────────
+function initVSCodeToggles() {
+  const explorerBtn = document.getElementById('activity-explorer-btn');
+  const terminalBtn = document.getElementById('activity-terminal-btn');
+  const sidebar = document.getElementById('vscode-sidebar');
+  const bottomPanel = document.getElementById('vscode-bottom-panel');
+  const closeTerminalBtn = document.getElementById('close-terminal-btn');
+
+  if (explorerBtn && sidebar) {
+    explorerBtn.addEventListener('click', () => {
+      if (window.innerWidth <= 768) {
+        sidebar.classList.toggle('open');
+      } else {
+        sidebar.classList.toggle('collapsed');
+      }
+      explorerBtn.classList.toggle('active');
+    });
+  }
+
+  if (terminalBtn && bottomPanel) {
+    terminalBtn.addEventListener('click', () => {
+      bottomPanel.classList.toggle('collapsed');
+      terminalBtn.classList.toggle('active');
+    });
+  }
+
+  if (closeTerminalBtn && bottomPanel && terminalBtn) {
+    closeTerminalBtn.addEventListener('click', () => {
+      bottomPanel.classList.add('collapsed');
+      terminalBtn.classList.remove('active');
+    });
+  }
 }
