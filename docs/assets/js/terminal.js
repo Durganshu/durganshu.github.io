@@ -5,6 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initTerminalTyping();
+  initClearTerminalButton();
   initScrollAnimations();
   initMobileNav();
   initEditorToggle();
@@ -30,15 +31,29 @@ const COMMANDS = {
     { type: 'muted', text: 'Tip: use ↑/↓ arrows to navigate command history' },
   ],
 
-  whoami: () => [
-    { type: 'output', text: "Hi! I'm Durganshu Mishra 👋" },
-    { type: 'output', text: 'C++ Software Developer at Teledeyne SevenCs (Teledyne), Hamburg 🇩🇪' },
-    { type: 'output', text: '' },
-    { type: 'output', text: "I hold a Master's in Computational Science & Engineering from TU Munich." },
-    { type: 'output', text: 'My work spans HPC, HPC-QC integration, GPU programming, and scientific computing.' },
-    { type: 'output', text: '' },
-    { type: 'muted', text: 'Type "about" to explore my full journey, or "skills" to see my tech stack.' },
-  ],
+  whoami: () => {
+    const activeShell = localStorage.getItem('vscode-active-shell') || 'bash';
+    const intro = [
+      { type: 'output', text: "Hi! I'm Durganshu Mishra 👋" },
+      { type: 'output', text: 'C++ Software Developer @ Teledeyne SevenCs (Teledyne), Hamburg 🇩🇪' },
+      { type: 'output', text: '' },
+      { type: 'output', text: "I hold a Master's in Computational Science & Engineering from TU Munich." },
+      { type: 'output', text: 'My work spans HPC, HPC-QC integration, GPU programming, and scientific computing.' },
+      { type: 'output', text: '' }
+    ];
+    if (activeShell === 'powershell') {
+      return [
+        { type: 'output', text: 'desktop-dev\\durganshu' },
+        { type: 'output', text: '' },
+        ...intro,
+        { type: 'muted', text: 'Type "about" to explore my full journey, or "skills" to see my tech stack.' }
+      ];
+    }
+    return [
+      ...intro,
+      { type: 'muted', text: 'Type "about" to explore my full journey, or "skills" to see my tech stack.' }
+    ];
+  },
 
   skills: () => [
     { type: 'output', text: '⚡ Technical Skills' },
@@ -94,18 +109,45 @@ const COMMANDS = {
     return [{ type: 'output', text: 'Command history:' }, { type: 'output', text: '' }, ...hist];
   },
 
-  ls: () => [
-    { type: 'highlight', label: 'index', value: '    about.h    blogs.md    projects.cpp' },
-    { type: 'muted', text: 'attachments/  images/  assets/' },
-  ],
+  ls: () => {
+    const activeShell = localStorage.getItem('vscode-active-shell') || 'bash';
+    if (activeShell === 'powershell') {
+      return [
+        { type: 'output', text: '    Directory: F:\\Projects\\durganshu.github.io' },
+        { type: 'output', text: '' },
+        { type: 'output', text: 'Mode                 LastWriteTime         Length Name' },
+        { type: 'output', text: '----                 -------------         ------ ----' },
+        { type: 'output', text: 'd----           7/16/2026  10:20 PM                assets' },
+        { type: 'output', text: 'd----           7/16/2026  10:20 PM                images' },
+        { type: 'output', text: 'd----           7/16/2026  10:20 PM                attachments' },
+        { type: 'output', text: '-a---           7/16/2026  10:20 PM         30248 about-me.html' },
+        { type: 'output', text: '-a---           7/16/2026  10:20 PM         18242 blogs.html' },
+        { type: 'output', text: '-a---           7/16/2026  10:20 PM         16604 index.html' },
+        { type: 'output', text: '-a---           7/16/2026  10:20 PM         18800 projects.html' }
+      ];
+    }
+    return [
+      { type: 'highlight', label: 'index', value: '    about.h    blogs.md    projects.cpp' },
+      { type: 'muted', text: 'attachments/  images/  assets/' },
+    ];
+  },
+
+  dir: () => COMMANDS.ls(),
+  'get-childitem': () => COMMANDS.ls(),
+  gci: () => COMMANDS.ls(),
 
   cd: () => [
     { type: 'muted', text: 'There\'s nowhere to go — you\'re already home! 🏡' },
   ],
 
-  pwd: () => [
-    { type: 'output', text: '/home/durganshu/portfolio' },
-  ],
+  pwd: () => {
+    const activeShell = localStorage.getItem('vscode-active-shell') || 'bash';
+    return activeShell === 'powershell'
+      ? [{ type: 'output', text: 'F:\\Projects\\durganshu.github.io' }]
+      : [{ type: 'output', text: '/home/durganshu/portfolio' }];
+  },
+  'get-location': () => COMMANDS.pwd(),
+  gl: () => COMMANDS.pwd(),
 
   sudo: () => [
     { type: 'error', text: 'Nice try 😏 — you don\'t have root privileges here!' },
@@ -139,6 +181,7 @@ const COMMANDS = {
     { type: 'output', text: 'SEE ALSO' },
     { type: 'output', text: '       about(1), projects(1), blogs(1), contact(1)' },
   ],
+  'get-help': () => COMMANDS.help(),
 
   cat: (args) => {
     const files = {
@@ -153,11 +196,57 @@ const COMMANDS = {
     if (files[file]) return files[file]();
     return [{ type: 'error', text: `cat: ${file}: No such file or directory` }];
   },
+  'get-content': (args) => COMMANDS.cat(args),
+  gc: (args) => COMMANDS.cat(args),
+  cls: () => COMMANDS.clear(),
 };
 
 // ─── State ──────────────────────────────────────────
 let commandHistory = [];
 let historyIndex = -1;
+
+const DEFAULT_LINES = [
+  { type: 'input', text: 'whoami' },
+  { type: 'output', text: 'C++ Software Developer @ Teledeyne SevenCs (Teledyne), Hamburg 🇩🇪' },
+  { type: 'empty' },
+  { type: 'input', text: 'cat skills.txt' },
+  { type: 'output', text: 'C++ · HPC · GPU Programming · MPI · OpenMP · OpenGL · Vulkan' },
+  { type: 'empty' },
+  { type: 'input', text: 'cat interests.txt' },
+  { type: 'output', text: 'High-Performance Computing · HPC-QC Integration · Scientific Computing' }
+];
+
+function generateTypingLineHTML(prompt, commandText) {
+  const charsHTML = Array.from(commandText).map(c => `<span class="type-char" style="opacity:0">${escapeHTML(c)}</span>`).join('');
+  return `<div class="terminal-line" style="opacity:0; transform:translateY(4px)"><span class="terminal-prompt">${escapeHTML(prompt)}</span>${charsHTML}</div>`;
+}
+
+function generateOutputLineHTML(text, prefixClass = 'terminal-output', style = '') {
+  return `<div class="terminal-line" style="opacity:0; transform:translateY(4px)"><span class="${prefixClass}" style="${style}">${escapeHTML(text)}</span></div>`;
+}
+
+function loadDefaultTerminalLines(terminalBody, inputLine) {
+  DEFAULT_LINES.forEach(item => {
+    if (item.type === 'input') {
+      const lineHTML = generateTypingLineHTML('durganshu@dev:~$ ', item.text);
+      const temp = document.createElement('div');
+      temp.innerHTML = lineHTML;
+      terminalBody.insertBefore(temp.firstElementChild, inputLine);
+    } else if (item.type === 'output') {
+      const lineHTML = generateOutputLineHTML(item.text, 'terminal-output');
+      const temp = document.createElement('div');
+      temp.innerHTML = lineHTML;
+      terminalBody.insertBefore(temp.firstElementChild, inputLine);
+    } else if (item.type === 'empty') {
+      const line = document.createElement('div');
+      line.className = 'terminal-line';
+      line.style.opacity = '0';
+      line.style.transform = 'translateY(4px)';
+      line.innerHTML = '&nbsp;';
+      terminalBody.insertBefore(line, inputLine);
+    }
+  });
+}
 
 // ─── neofetch Builder ───────────────────────────────
 function buildNeofetchHTML() {
@@ -287,6 +376,7 @@ function processCommand(raw) {
   echoLine.className = 'terminal-line';
   echoLine.style.opacity = '1';
   echoLine.style.transform = 'translateY(0)';
+  
   echoLine.innerHTML = `<span class="terminal-prompt">durganshu@dev:~$ </span><span class="terminal-command">${escapeHTML(trimmed)}</span>`;
   const inputLine = document.getElementById('terminal-input-line');
   terminalBody.insertBefore(echoLine, inputLine);
@@ -323,6 +413,57 @@ function processCommand(raw) {
 }
 
 // ─── Terminal Typing Animation ──────────────────────
+function animateTerminalLines() {
+  const terminalBody = document.getElementById('terminal-body');
+  const inputLine = document.getElementById('terminal-input-line');
+  const input = document.getElementById('terminal-input');
+  const hint = document.getElementById('terminal-hint');
+  
+  if (!terminalBody || !inputLine || !input) return;
+  
+  // hide input line and hint initially
+  inputLine.style.opacity = '0';
+  if (hint) {
+    hint.classList.remove('visible');
+    hint.style.opacity = '0';
+    hint.style.display = 'none';
+  }
+  
+  const lines = terminalBody.querySelectorAll('.terminal-line:not(.terminal-input-line)');
+  let delay = 400;
+  lines.forEach((line) => {
+    const chars = line.querySelectorAll('.type-char');
+    if (chars.length > 0) {
+      setTimeout(() => {
+        line.style.opacity = '1';
+        line.style.transform = 'translateY(0)';
+        typeChars(chars, 0, 30);
+      }, delay);
+      delay += chars.length * 30 + 200;
+    } else {
+      setTimeout(() => {
+        line.style.opacity = '1';
+        line.style.transform = 'translateY(0)';
+      }, delay);
+      delay += 120;
+    }
+  });
+
+  setTimeout(() => {
+    inputLine.style.opacity = '1';
+    inputLine.style.transform = 'translateY(0)';
+    input.focus();
+    if (hint) {
+      hint.style.display = 'block';
+      setTimeout(() => {
+        hint.classList.add('visible');
+        hint.style.opacity = '1';
+      }, 50);
+    }
+    saveTerminalHistory();
+  }, delay);
+}
+
 function initTerminalTyping() {
   const terminalBody = document.getElementById('terminal-body');
   if (!terminalBody) return;
@@ -339,17 +480,23 @@ function initTerminalTyping() {
     if (Array.isArray(savedCmdHist)) {
       commandHistory = savedCmdHist;
       historyIndex = commandHistory.length;
+    } else {
+      commandHistory = [];
+      historyIndex = -1;
     }
-  } catch (e) { }
+  } catch (e) {
+    commandHistory = [];
+    historyIndex = -1;
+  }
 
   // Check if terminal history HTML exists in localStorage
   const savedHistory = localStorage.getItem('vscode-terminal-history');
 
-  if (savedHistory !== null) {
-    // Clear default anim lines in the DOM
-    const defaultLines = terminalBody.querySelectorAll('.terminal-line:not(.terminal-input-line)');
-    defaultLines.forEach(line => line.remove());
+  // Clear whatever default lines came from HTML delivery
+  const defaultLines = terminalBody.querySelectorAll('.terminal-line:not(.terminal-input-line)');
+  defaultLines.forEach(line => line.remove());
 
+  if (savedHistory !== null) {
     // Insert saved lines
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = savedHistory;
@@ -360,39 +507,17 @@ function initTerminalTyping() {
     // Set input line and auto-scroll
     inputLine.style.opacity = '1';
     inputLine.style.transform = 'translateY(0)';
-    if (hint) hint.classList.add('visible');
+    if (hint) {
+      hint.style.display = 'block';
+      hint.style.opacity = '1';
+      hint.classList.add('visible');
+    }
     input.focus();
     terminalBody.scrollTop = terminalBody.scrollHeight;
   } else {
-    // No saved history, run normal default typing animation
-    const lines = terminalBody.querySelectorAll('.terminal-line:not(.terminal-input-line)');
-    let delay = 400;
-    lines.forEach((line) => {
-      const chars = line.querySelectorAll('.type-char');
-      if (chars.length > 0) {
-        setTimeout(() => {
-          line.style.opacity = '1';
-          line.style.transform = 'translateY(0)';
-          typeChars(chars, 0, 30);
-        }, delay);
-        delay += chars.length * 30 + 200;
-      } else {
-        setTimeout(() => {
-          line.style.opacity = '1';
-          line.style.transform = 'translateY(0)';
-        }, delay);
-        delay += 120;
-      }
-    });
-
-    // Show the input line after typing completes
-    setTimeout(() => {
-      inputLine.style.opacity = '1';
-      inputLine.style.transform = 'translateY(0)';
-      input.focus();
-      if (hint) hint.classList.add('visible');
-      saveTerminalHistory();
-    }, delay);
+    // No saved history, load default lines
+    loadDefaultTerminalLines(terminalBody, inputLine);
+    animateTerminalLines();
   }
 
   // Handle Enter key
@@ -432,6 +557,23 @@ function typeChars(chars, index, speed) {
   if (index >= chars.length) return;
   chars[index].style.opacity = '1';
   setTimeout(() => typeChars(chars, index + 1, speed), speed);
+}
+
+function initClearTerminalButton() {
+  const clearBtn = document.getElementById('clear-terminal-btn');
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      const terminalBody = document.getElementById('terminal-body');
+      const inputLine = document.getElementById('terminal-input-line');
+      if (terminalBody && inputLine) {
+        const defaultLines = terminalBody.querySelectorAll('.terminal-line:not(.terminal-input-line)');
+        defaultLines.forEach(line => line.remove());
+        saveTerminalHistory();
+        const input = document.getElementById('terminal-input');
+        if (input) input.focus();
+      }
+    });
+  }
 }
 
 // ─── Scroll Animations ─────────────────────────────

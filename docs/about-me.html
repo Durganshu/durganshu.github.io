@@ -42,7 +42,7 @@
             <span>📑</span>
           </div>
           <div class="activity-btn" title="Terminal" id="activity-terminal-btn">
-            <span>💻</span>
+            <span class="terminal-icon">&gt;_</span>
           </div>
         </div>
       </div>
@@ -473,12 +473,7 @@
               <span class="vscode-bottom-tab active">Terminal</span>
             </div>
             <div class="vscode-bottom-actions">
-              <select name="shell" aria-label="Terminal Shell Selection">
-                <option value="bash">bash</option>
-                <option value="powershell">powershell</option>
-              </select>
-              <span class="bottom-action-btn" title="Split Screen">🗗</span>
-              <span class="bottom-action-btn" title="Kill Command">🗑️</span>
+              <span class="bottom-action-btn" title="Clear Terminal" id="clear-terminal-btn">🗑️</span>
               <span class="bottom-action-btn" title="Close Panel" id="close-terminal-btn">✕</span>
             </div>
           </div>
@@ -555,26 +550,7 @@
       </div>
     </div>
 
-    <!-- Status Bar -->
-    <div class="vscode-statusbar">
-      <div class="statusbar-section">
-        <div class="statusbar-item" title="Cursor Position">
-          Ln 1, Col 1
-        </div>
-        <div class="statusbar-item" title="Tab Spacing">
-          Spaces: 4
-        </div>
-        <div class="statusbar-item" title="File Encoding">
-          UTF-8
-        </div>
-        <div class="statusbar-item" title="Language Mode">
-          C++
-        </div>
-        <div class="statusbar-item" title="Feedback">
-          <span>☺</span>
-        </div>
-      </div>
-    </div>
+
   </div>
 
   <script src="/assets/js/terminal.js"></script>

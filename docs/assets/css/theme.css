@@ -1953,10 +1953,16 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     left: 48px;
     top: 38px;
-    bottom: 22px;
+    bottom: 0;
     z-index: 100;
     box-shadow: 4px 0 16px rgba(0,0,0,0.5);
   }
+
+.activity-btn .terminal-icon {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: bold;
+}
 
   .vscode-bottom-panel {
     height: 220px;
