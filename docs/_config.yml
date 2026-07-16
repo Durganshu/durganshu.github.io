@@ -21,7 +21,7 @@
 title: Durganshu Mishra
 email: durganshu.mishra@tum.de
 description: >- # this means to ignore newlines until "baseurl:"
-  I'm Durganshu, a C++ Software Developer at SevenCs GmbH (Teledyne) in Hamburg. 
+  I'm Durganshu, a C++ Software Developer at Teledeyne SevenCs (Teledyne) in Hamburg. 
           Explore my academic and professional journey, my projects and blogs here! I am always open to new opportunities and collaborations. Don't forget to contact me if you have any questions or just want to say hi!
 baseurl: "" # the subpath of your site, e.g. /blog
 url: https://durganshu.com # the base hostname & protocol for your site, e.g. http://example.com

@@ -32,7 +32,7 @@ const COMMANDS = {
 
   whoami: () => [
     { type: 'output', text: "Hi! I'm Durganshu Mishra 👋" },
-    { type: 'output', text: 'C++ Software Developer at SevenCs GmbH (Teledyne), Hamburg 🇩🇪' },
+    { type: 'output', text: 'C++ Software Developer at Teledeyne SevenCs (Teledyne), Hamburg 🇩🇪' },
     { type: 'output', text: '' },
     { type: 'output', text: "I hold a Master's in Computational Science & Engineering from TU Munich." },
     { type: 'output', text: 'My work spans HPC, HPC-QC integration, GPU programming, and scientific computing.' },
@@ -272,6 +272,16 @@ function escapeHTML(str) {
   return div.innerHTML;
 }
 
+// ─── Help Functions for Terminal Persistence ────────
+function saveTerminalHistory() {
+  const terminalBody = document.getElementById('terminal-body');
+  if (!terminalBody) return;
+  const lines = Array.from(terminalBody.querySelectorAll('.terminal-line:not(.terminal-input-line)'));
+  const linesHTML = lines.map(line => line.outerHTML).join('\n');
+  localStorage.setItem('vscode-terminal-history', linesHTML);
+  localStorage.setItem('vscode-command-history', JSON.stringify(commandHistory));
+}
+
 // ─── Process Command ────────────────────────────────
 function processCommand(raw) {
   const terminalBody = document.getElementById('terminal-body');
@@ -286,7 +296,10 @@ function processCommand(raw) {
   const inputLine = document.getElementById('terminal-input-line');
   terminalBody.insertBefore(echoLine, inputLine);
 
-  if (!trimmed) return;
+  if (!trimmed) {
+    saveTerminalHistory();
+    return;
+  }
 
   // Add to history
   commandHistory.push(trimmed);
@@ -311,6 +324,7 @@ function processCommand(raw) {
 
   // Auto-scroll terminal to bottom
   terminalBody.scrollTop = terminalBody.scrollHeight;
+  saveTerminalHistory();
 }
 
 // ─── Terminal Typing Animation ──────────────────────
@@ -318,39 +332,73 @@ function initTerminalTyping() {
   const terminalBody = document.getElementById('terminal-body');
   if (!terminalBody) return;
 
-  const lines = terminalBody.querySelectorAll('.terminal-line:not(.terminal-input-line)');
   const inputLine = document.getElementById('terminal-input-line');
   const input = document.getElementById('terminal-input');
   const hint = document.getElementById('terminal-hint');
 
   if (!input) return;
 
-  let delay = 400;
-  lines.forEach((line) => {
-    const chars = line.querySelectorAll('.type-char');
-    if (chars.length > 0) {
-      setTimeout(() => {
-        line.style.opacity = '1';
-        line.style.transform = 'translateY(0)';
-        typeChars(chars, 0, 30);
-      }, delay);
-      delay += chars.length * 30 + 200;
-    } else {
-      setTimeout(() => {
-        line.style.opacity = '1';
-        line.style.transform = 'translateY(0)';
-      }, delay);
-      delay += 120;
+  // Restore command history array
+  try {
+    const savedCmdHist = JSON.parse(localStorage.getItem('vscode-command-history'));
+    if (Array.isArray(savedCmdHist)) {
+      commandHistory = savedCmdHist;
+      historyIndex = commandHistory.length;
     }
-  });
+  } catch (e) { }
 
-  // Show the input line after typing completes
-  setTimeout(() => {
+  // Check if terminal history HTML exists in localStorage
+  const savedHistory = localStorage.getItem('vscode-terminal-history');
+
+  if (savedHistory !== null) {
+    // Clear default anim lines in the DOM
+    const defaultLines = terminalBody.querySelectorAll('.terminal-line:not(.terminal-input-line)');
+    defaultLines.forEach(line => line.remove());
+
+    // Insert saved lines
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = savedHistory;
+    while (tempDiv.firstChild) {
+      terminalBody.insertBefore(tempDiv.firstChild, inputLine);
+    }
+
+    // Set input line and auto-scroll
     inputLine.style.opacity = '1';
     inputLine.style.transform = 'translateY(0)';
-    input.focus();
     if (hint) hint.classList.add('visible');
-  }, delay);
+    input.focus();
+    terminalBody.scrollTop = terminalBody.scrollHeight;
+  } else {
+    // No saved history, run normal default typing animation
+    const lines = terminalBody.querySelectorAll('.terminal-line:not(.terminal-input-line)');
+    let delay = 400;
+    lines.forEach((line) => {
+      const chars = line.querySelectorAll('.type-char');
+      if (chars.length > 0) {
+        setTimeout(() => {
+          line.style.opacity = '1';
+          line.style.transform = 'translateY(0)';
+          typeChars(chars, 0, 30);
+        }, delay);
+        delay += chars.length * 30 + 200;
+      } else {
+        setTimeout(() => {
+          line.style.opacity = '1';
+          line.style.transform = 'translateY(0)';
+        }, delay);
+        delay += 120;
+      }
+    });
+
+    // Show the input line after typing completes
+    setTimeout(() => {
+      inputLine.style.opacity = '1';
+      inputLine.style.transform = 'translateY(0)';
+      input.focus();
+      if (hint) hint.classList.add('visible');
+      saveTerminalHistory();
+    }, delay);
+  }
 
   // Handle Enter key
   input.addEventListener('keydown', (e) => {
@@ -576,7 +624,7 @@ function initVSCodeTabs() {
   if (!tabsBar) return;
 
   const currentKey = getCurrentPageKey();
-  
+
   // Load open tabs from localStorage
   let openTabs;
   try {
@@ -584,7 +632,7 @@ function initVSCodeTabs() {
   } catch (e) {
     openTabs = null;
   }
-  
+
   if (!Array.isArray(openTabs) || openTabs.length === 0) {
     openTabs = ['index'];
   }
@@ -604,9 +652,9 @@ function initVSCodeTabs() {
 
       const tabDiv = document.createElement('div');
       tabDiv.className = `vscode-tab ${key === currentKey ? 'active' : ''}`;
-      
+
       const iconSpan = `<span class="sidebar-file-icon" style="color:${config.iconColor}">${config.icon}</span>`;
-      
+
       const pinOrClose = config.pinned
         ? `<span class="vscode-tab-pin-icon" title="Pinned" style="margin-left: 6px;">📌</span>`
         : `<span class="vscode-tab-close-btn" style="margin-left: 8px;">×</span>`;
@@ -624,7 +672,7 @@ function initVSCodeTabs() {
       if (closeBtn) {
         closeBtn.addEventListener('click', (e) => {
           e.stopPropagation();
-          
+
           const idx = openTabs.indexOf(key);
           if (idx > -1) {
             openTabs.splice(idx, 1);
