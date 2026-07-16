@@ -86,10 +86,13 @@
           <div class="terminal-line">
             <span class="terminal-output">Welcome to my digital playground — explore my projects, research, and blogs!</span>
           </div>
-          <div class="terminal-line">
-            <span class="terminal-prompt">durganshu@dev:~$ </span><span class="terminal-cursor" id="terminal-cursor" style="opacity:0"></span>
+          <div class="terminal-line terminal-input-line" id="terminal-input-line" style="opacity:0">
+            <span class="terminal-prompt">durganshu@dev:~$ </span><input type="text" class="terminal-input" id="terminal-input" autocomplete="off" spellcheck="false" autofocus aria-label="Terminal command input">
           </div>
         </div>
+      </div>
+      <div class="terminal-hint fade-in" id="terminal-hint">
+        <span>💡 Type <code>help</code> for available commands</span>
       </div>
 
       <!-- ═══ neofetch Panel ═══ -->

@@ -291,6 +291,9 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 14px;
   line-height: 1.8;
   min-height: 260px;
+  max-height: 480px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 .terminal-line {
@@ -328,6 +331,42 @@ h1, h2, h3, h4, h5, h6 {
 
 .terminal-flag {
   color: var(--accent-cyan);
+}
+
+/* Interactive Input Styles */
+.terminal-input-line {
+  display: flex;
+  align-items: center;
+}
+
+.terminal-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--text-primary);
+  caret-color: var(--accent-green);
+  width: 100%;
+}
+
+.terminal-hint {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: right;
+  margin-top: -36px;
+  margin-bottom: 48px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  padding-right: 12px;
+}
+
+.terminal-hint.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .terminal-cursor {
@@ -788,6 +827,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.5;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

@@ -1,30 +1,331 @@
 /* ============================================
    Terminal-Themed Portfolio — terminal.js
-   Interactive terminal typing & scroll animations
+   Interactive terminal, typing & scroll animations
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // === Terminal Typing Animation ===
   initTerminalTyping();
-  // === Scroll-triggered fade-in ===
   initScrollAnimations();
-  // === Mobile nav toggle ===
   initMobileNav();
 });
 
-// ─── Terminal Typing Effect ─────────────────────────
+// ─── Command Definitions ────────────────────────────
+const COMMANDS = {
+  help: () => [
+    { type: 'output', text: 'Available commands:' },
+    { type: 'output', text: '' },
+    { type: 'highlight', label: '  whoami', value: '    — about me' },
+    { type: 'highlight', label: '  skills', value: '    — technical skills' },
+    { type: 'highlight', label: '  projects', value: '  — view my projects' },
+    { type: 'highlight', label: '  blogs', value: '     — read my articles' },
+    { type: 'highlight', label: '  about', value: '     — full background' },
+    { type: 'highlight', label: '  contact', value: '   — get in touch' },
+    { type: 'highlight', label: '  neofetch', value: '  — system info' },
+    { type: 'highlight', label: '  clear', value: '     — clear terminal' },
+    { type: 'highlight', label: '  history', value: '   — command history' },
+    { type: 'output', text: '' },
+    { type: 'muted', text: 'Tip: use ↑/↓ arrows to navigate command history' },
+  ],
+
+  whoami: () => [
+    { type: 'output', text: "Hi! I'm Durganshu Mishra 👋" },
+    { type: 'output', text: 'C++ Software Developer at SevenCs GmbH (Teledyne), Hamburg 🇩🇪' },
+    { type: 'output', text: '' },
+    { type: 'output', text: "I hold a Master's in Computational Science & Engineering from TU Munich." },
+    { type: 'output', text: 'My work spans HPC, HPC-QC integration, GPU programming, and scientific computing.' },
+    { type: 'output', text: '' },
+    { type: 'muted', text: 'Type "about" to explore my full journey, or "skills" to see my tech stack.' },
+  ],
+
+  skills: () => [
+    { type: 'output', text: '⚡ Technical Skills' },
+    { type: 'output', text: '' },
+    { type: 'bar', label: 'C++', pct: 95 },
+    { type: 'bar', label: 'MPI/OpenMP', pct: 85 },
+    { type: 'bar', label: 'Python', pct: 75 },
+    { type: 'bar', label: 'OpenGL/Vulkan', pct: 70 },
+    { type: 'bar', label: 'CUDA/SIMD', pct: 65 },
+    { type: 'bar', label: 'Julia', pct: 50 },
+    { type: 'output', text: '' },
+    { type: 'highlight', label: '  Tools', value: ': Git, Valgrind, Intel VTune, CMake, CI/CD' },
+    { type: 'highlight', label: '  OS', value: ':    Linux, Windows, Android' },
+  ],
+
+  projects: () => [
+    { type: 'output', text: '🔧 Navigating to projects...' },
+    { type: 'nav', url: 'projects.html', delay: 600 },
+  ],
+
+  blogs: () => [
+    { type: 'output', text: '📝 Opening blog posts...' },
+    { type: 'nav', url: 'blogs.html', delay: 600 },
+  ],
+  blog: () => COMMANDS.blogs(),
+
+  about: () => [
+    { type: 'output', text: '📋 Loading full profile...' },
+    { type: 'nav', url: 'about-me.html', delay: 600 },
+  ],
+
+  contact: () => [
+    { type: 'output', text: '📬 Contact Info' },
+    { type: 'output', text: '' },
+    { type: 'highlight', label: '  Email', value: ':    durganshu.mishra@tum.de' },
+    { type: 'link', label: '  GitHub', value: ':   github.com/durganshu', url: 'https://github.com/durganshu' },
+    { type: 'link', label: '  LinkedIn', value: ': linkedin.com/in/durganshu', url: 'https://www.linkedin.com/in/durganshu' },
+    { type: 'link', label: '  Medium', value: ':   medium.com/@durganshu', url: 'https://medium.com/@durganshu' },
+    { type: 'link', label: '  HackerNoon', value: ': hackernoon.com/about/durganshu', url: 'https://hackernoon.com/about/durganshu' },
+  ],
+
+  neofetch: () => [
+    { type: 'raw', html: buildNeofetchHTML() },
+  ],
+
+  clear: () => [
+    { type: 'clear' },
+  ],
+
+  history: () => {
+    const hist = commandHistory.length
+      ? commandHistory.map((cmd, i) => ({ type: 'output', text: `  ${i + 1}  ${cmd}` }))
+      : [{ type: 'muted', text: '  (no commands in history)' }];
+    return [{ type: 'output', text: 'Command history:' }, { type: 'output', text: '' }, ...hist];
+  },
+
+  ls: () => [
+    { type: 'highlight', label: 'index.cpp', value: '    about.h    blogs.md    projects.cpp' },
+    { type: 'muted', text: 'attachments/  images/  assets/' },
+  ],
+
+  cd: () => [
+    { type: 'muted', text: 'There\'s nowhere to go — you\'re already home! 🏡' },
+  ],
+
+  pwd: () => [
+    { type: 'output', text: '/home/durganshu/portfolio' },
+  ],
+
+  sudo: () => [
+    { type: 'error', text: 'Nice try 😏 — you don\'t have root privileges here!' },
+  ],
+
+  rm: () => [
+    { type: 'error', text: '🚫 Permission denied. This portfolio is read-only!' },
+  ],
+
+  date: () => [
+    { type: 'output', text: new Date().toString() },
+  ],
+
+  echo: (args) => [
+    { type: 'output', text: args || '' },
+  ],
+
+  man: () => [
+    { type: 'output', text: 'DURGANSHU(1)         Portfolio Manual         DURGANSHU(1)' },
+    { type: 'output', text: '' },
+    { type: 'output', text: 'NAME' },
+    { type: 'output', text: '       durganshu — C++ Software Developer' },
+    { type: 'output', text: '' },
+    { type: 'output', text: 'SYNOPSIS' },
+    { type: 'output', text: '       durganshu [--hpc] [--gpu] [--coffee]' },
+    { type: 'output', text: '' },
+    { type: 'output', text: 'DESCRIPTION' },
+    { type: 'output', text: '       Expert in High-Performance Computing, scientific' },
+    { type: 'output', text: '       computing, and GPU programming. Fueled by coffee.' },
+    { type: 'output', text: '' },
+    { type: 'output', text: 'SEE ALSO' },
+    { type: 'output', text: '       about(1), projects(1), blogs(1), contact(1)' },
+  ],
+
+  cat: (args) => {
+    const files = {
+      'skills.txt': () => COMMANDS.skills(),
+      'interests.txt': () => [
+        { type: 'output', text: 'High-Performance Computing · HPC-QC Integration · Scientific Computing' },
+      ],
+      'contact.txt': () => COMMANDS.contact(),
+      'resume.pdf': () => [
+        { type: 'output', text: '📄 Downloading resume...' },
+        { type: 'download', url: './attachments/CV_Mishra.pdf', delay: 400 },
+      ],
+    };
+    const file = args?.trim();
+    if (!file) return [{ type: 'error', text: 'cat: missing file operand' }];
+    if (files[file]) return files[file]();
+    return [{ type: 'error', text: `cat: ${file}: No such file or directory` }];
+  },
+};
+
+// ─── State ──────────────────────────────────────────
+let commandHistory = [];
+let historyIndex = -1;
+
+// ─── neofetch Builder ───────────────────────────────
+function buildNeofetchHTML() {
+  const ascii = `     ____  __  __
+    / __ \\/ |/  /
+   / / / / /|_/ /
+  / /_/ / /  / /
+ /_____/_/  /_/
+
+  Durganshu Mishra`;
+
+  const info = [
+    ['', 'durganshu@portfolio', 'neofetch-header'],
+    ['', '─────────────────────────', 'neofetch-separator'],
+    ['OS', 'Linux & Windows'],
+    ['Role', 'C++ Software Developer @ SevenCs (Teledyne)'],
+    ['Degree', 'MSc Computational Science & Engineering, TU Munich'],
+    ['Languages', 'C++, Python, Julia, MATLAB'],
+    ['Parallel', 'MPI, OpenMP, CUDA, SIMD'],
+    ['Graphics', 'OpenGL, Vulkan'],
+    ['Tools', 'Git, Valgrind, Intel VTune, CMake, CI/CD'],
+    ['Uptime', '4+ years professional experience'],
+  ];
+
+  let infoHTML = info.map(([label, value, cls]) => {
+    if (cls === 'neofetch-header') return `<span style="color:#3fb950;font-weight:700">${value}</span>`;
+    if (cls === 'neofetch-separator') return `<span style="color:#30363d">${value}</span>`;
+    return `<span style="color:#56d4dd;font-weight:600">${label}: </span><span style="color:#8b949e">${value}</span>`;
+  }).join('\n');
+
+  const colors = ['#f85149','#d29922','#3fb950','#58a6ff','#bc8cff','#56d4dd','#f778ba','#e6edf3'];
+  const colorBlocks = colors.map(c => `<span style="display:inline-block;width:20px;height:10px;background:${c};border-radius:2px;margin-right:3px"></span>`).join('');
+
+  return `<div style="display:flex;gap:24px;font-family:var(--font-mono);font-size:12px;line-height:1.5">
+    <pre style="color:#3fb950;margin:0;font-size:11px">${ascii}</pre>
+    <div style="white-space:pre">${infoHTML}\n\n${colorBlocks}</div>
+  </div>`;
+}
+
+// ─── Skill Bar Builder ──────────────────────────────
+function buildBar(label, pct) {
+  const total = 20;
+  const filled = Math.round(pct / 100 * total);
+  const empty = total - filled;
+  const bar = '█'.repeat(filled) + '░'.repeat(empty);
+  const paddedLabel = label.padEnd(14);
+  return `<span style="color:#8b949e">  ${paddedLabel}</span><span style="color:#3fb950">${bar}</span> <span style="color:#8b949e">${pct}%</span>`;
+}
+
+// ─── Render Output Lines ────────────────────────────
+function renderOutput(terminalBody, results) {
+  results.forEach((item, i) => {
+    if (item.type === 'clear') {
+      // Remove all lines except the input line
+      const inputLine = document.getElementById('terminal-input-line');
+      while (terminalBody.firstChild !== inputLine) {
+        terminalBody.removeChild(terminalBody.firstChild);
+      }
+      return;
+    }
+
+    if (item.type === 'nav') {
+      setTimeout(() => { window.location.href = item.url; }, item.delay || 500);
+      return;
+    }
+
+    if (item.type === 'download') {
+      setTimeout(() => {
+        const a = document.createElement('a');
+        a.href = item.url;
+        a.download = '';
+        a.click();
+      }, item.delay || 300);
+    }
+
+    const line = document.createElement('div');
+    line.className = 'terminal-line';
+    line.style.opacity = '1';
+    line.style.transform = 'translateY(0)';
+
+    if (item.type === 'output') {
+      line.innerHTML = `<span class="terminal-output">${escapeHTML(item.text)}</span>`;
+    } else if (item.type === 'muted') {
+      line.innerHTML = `<span style="color:var(--text-muted);font-style:italic">${escapeHTML(item.text)}</span>`;
+    } else if (item.type === 'error') {
+      line.innerHTML = `<span style="color:var(--accent-red)">${escapeHTML(item.text)}</span>`;
+    } else if (item.type === 'highlight') {
+      line.innerHTML = `<span style="color:var(--accent-cyan)">${escapeHTML(item.label)}</span><span class="terminal-output">${escapeHTML(item.value)}</span>`;
+    } else if (item.type === 'link') {
+      line.innerHTML = `<span style="color:var(--accent-cyan)">${escapeHTML(item.label)}</span><span class="terminal-output">${escapeHTML(item.value.split(':')[0])}:</span> <a href="${item.url}" target="_blank" style="color:var(--accent-blue)">${escapeHTML(item.url)}</a>`;
+    } else if (item.type === 'bar') {
+      line.innerHTML = buildBar(item.label, item.pct);
+    } else if (item.type === 'raw') {
+      line.innerHTML = item.html;
+    } else if (item.type === 'download') {
+      line.innerHTML = `<span class="terminal-output">${escapeHTML(item.text || 'Downloading...')}</span>`;
+    }
+
+    const inputLine = document.getElementById('terminal-input-line');
+    terminalBody.insertBefore(line, inputLine);
+  });
+}
+
+function escapeHTML(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+// ─── Process Command ────────────────────────────────
+function processCommand(raw) {
+  const terminalBody = document.getElementById('terminal-body');
+  const trimmed = raw.trim();
+
+  // Echo the typed command as a line
+  const echoLine = document.createElement('div');
+  echoLine.className = 'terminal-line';
+  echoLine.style.opacity = '1';
+  echoLine.style.transform = 'translateY(0)';
+  echoLine.innerHTML = `<span class="terminal-prompt">durganshu@dev:~$ </span><span class="terminal-command">${escapeHTML(trimmed)}</span>`;
+  const inputLine = document.getElementById('terminal-input-line');
+  terminalBody.insertBefore(echoLine, inputLine);
+
+  if (!trimmed) return;
+
+  // Add to history
+  commandHistory.push(trimmed);
+  historyIndex = commandHistory.length;
+
+  // Parse command and args
+  const parts = trimmed.split(/\s+/);
+  const cmd = parts[0].toLowerCase();
+  const args = parts.slice(1).join(' ');
+
+  // Look up command
+  const handler = COMMANDS[cmd];
+  if (handler) {
+    const results = handler(args);
+    renderOutput(terminalBody, results);
+  } else {
+    renderOutput(terminalBody, [
+      { type: 'error', text: `bash: ${cmd}: command not found` },
+      { type: 'muted', text: 'Type "help" for available commands.' },
+    ]);
+  }
+
+  // Auto-scroll terminal to bottom
+  terminalBody.scrollTop = terminalBody.scrollHeight;
+}
+
+// ─── Terminal Typing Animation ──────────────────────
 function initTerminalTyping() {
   const terminalBody = document.getElementById('terminal-body');
   if (!terminalBody) return;
 
-  const lines = terminalBody.querySelectorAll('.terminal-line');
-  const cursor = document.getElementById('terminal-cursor');
+  const lines = terminalBody.querySelectorAll('.terminal-line:not(.terminal-input-line)');
+  const inputLine = document.getElementById('terminal-input-line');
+  const input = document.getElementById('terminal-input');
+  const hint = document.getElementById('terminal-hint');
+
+  if (!input) return;
 
   let delay = 400;
-  lines.forEach((line, i) => {
+  lines.forEach((line) => {
     const chars = line.querySelectorAll('.type-char');
     if (chars.length > 0) {
-      // Char-by-char typing for command lines
       setTimeout(() => {
         line.style.opacity = '1';
         line.style.transform = 'translateY(0)';
@@ -32,7 +333,6 @@ function initTerminalTyping() {
       }, delay);
       delay += chars.length * 30 + 200;
     } else {
-      // Instant reveal for output lines
       setTimeout(() => {
         line.style.opacity = '1';
         line.style.transform = 'translateY(0)';
@@ -41,12 +341,45 @@ function initTerminalTyping() {
     }
   });
 
-  // Show cursor at the end
-  if (cursor) {
-    setTimeout(() => {
-      cursor.style.opacity = '1';
-    }, delay);
-  }
+  // Show the input line after typing completes
+  setTimeout(() => {
+    inputLine.style.opacity = '1';
+    inputLine.style.transform = 'translateY(0)';
+    input.focus();
+    if (hint) hint.classList.add('visible');
+  }, delay);
+
+  // Handle Enter key
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      processCommand(input.value);
+      input.value = '';
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (commandHistory.length > 0 && historyIndex > 0) {
+        historyIndex--;
+        input.value = commandHistory[historyIndex];
+      }
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (historyIndex < commandHistory.length - 1) {
+        historyIndex++;
+        input.value = commandHistory[historyIndex];
+      } else {
+        historyIndex = commandHistory.length;
+        input.value = '';
+      }
+    } else if (e.key === 'l' && e.ctrlKey) {
+      e.preventDefault();
+      processCommand('clear');
+    }
+  });
+
+  // Click anywhere in terminal to focus input
+  terminalBody.addEventListener('click', () => {
+    input.focus();
+  });
 }
 
 function typeChars(chars, index, speed) {
@@ -86,7 +419,6 @@ function initMobileNav() {
     toggle.textContent = tabs.classList.contains('open') ? '✕' : '☰';
   });
 
-  // Close on link click
   tabs.querySelectorAll('.nav-tab').forEach(tab => {
     tab.addEventListener('click', () => {
       tabs.classList.remove('open');
