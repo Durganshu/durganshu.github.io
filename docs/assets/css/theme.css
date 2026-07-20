@@ -384,66 +384,255 @@ h1, h2, h3, h4, h5, h6 {
   50% { opacity: 0; }
 }
 
-/* === neofetch Panel === */
-.neofetch-panel {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 32px;
+/* === README Hero Section === */
+.readme-hero {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: 32px;
-  font-family: var(--font-mono);
-  font-size: 13px;
   margin-bottom: 48px;
+  font-family: var(--font-mono);
 }
 
-.neofetch-ascii {
-  color: var(--accent-green);
-  white-space: pre;
-  line-height: 1.3;
-  font-size: 11px;
+.readme-greeting {
   display: flex;
   align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
-.neofetch-info {
+.readme-wave {
+  font-size: 32px;
+  display: inline-block;
+  animation: wave-hand 2.5s ease-in-out infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes wave-hand {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  10%, 30% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+}
+
+.readme-hello {
+  font-size: 22px;
+  color: var(--text-primary);
+  font-weight: 400;
+}
+
+.readme-hello strong {
+  color: var(--accent-green);
+  font-weight: 700;
+}
+
+.readme-tagline {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-family: var(--font-sans);
+}
+
+.readme-tagline-sub {
+  display: block;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+  font-style: italic;
+}
+
+/* Badges */
+.readme-badges {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.readme-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: 14px;
+  font-size: 12px;
+  font-family: var(--font-mono);
+  border: 1px solid var(--border-color);
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.readme-badge.badge-role {
+  border-color: rgba(63, 185, 80, 0.3);
+  color: var(--accent-green);
+}
+
+.readme-badge.badge-loc {
+  border-color: rgba(88, 166, 255, 0.3);
+  color: var(--accent-blue);
+}
+
+.readme-badge.badge-edu {
+  border-color: rgba(188, 140, 255, 0.3);
+  color: var(--accent-purple);
+}
+
+/* Sections */
+.readme-section {
+  margin-bottom: 20px;
+}
+
+.readme-section-title {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
   gap: 4px;
 }
 
-.neofetch-header {
-  color: var(--accent-green);
-  font-weight: 700;
-  font-size: 15px;
-  margin-bottom: 4px;
+.readme-body {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-family: var(--font-sans);
 }
 
-.neofetch-separator {
-  color: var(--border-color);
-  margin-bottom: 4px;
+.readme-body em {
+  color: var(--accent-cyan);
+  font-style: normal;
+  font-weight: 500;
 }
 
-.neofetch-label {
+.readme-body code {
+  background: var(--bg-tertiary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent-orange);
+  border: 1px solid var(--border-color);
+}
+
+/* Tech Stack Grid */
+.readme-stack-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.readme-stack-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 12px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+}
+
+.readme-stack-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
   color: var(--accent-cyan);
   font-weight: 600;
 }
 
-.neofetch-value {
+.readme-stack-value {
+  font-size: 13px;
   color: var(--text-secondary);
 }
 
-.neofetch-colors {
-  display: flex;
-  gap: 4px;
-  margin-top: 8px;
+/* Code Block */
+.readme-codeblock {
+  background: var(--bg-terminal);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  font-size: 13px;
+  line-height: 1.8;
+  overflow-x: auto;
 }
 
-.neofetch-color-block {
-  width: 24px;
-  height: 12px;
-  border-radius: 2px;
+.readme-codeblock code {
+  color: var(--text-secondary);
+}
+
+.code-kw {
+  color: var(--accent-purple);
+  font-weight: 600;
+}
+
+.code-var {
+  color: var(--accent-cyan);
+}
+
+.code-fn {
+  color: var(--accent-blue);
+}
+
+.code-str {
+  color: var(--accent-orange);
+}
+
+/* Quick Links */
+.readme-quicklinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+.readme-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all var(--transition-base);
+}
+
+.readme-link:hover {
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+  box-shadow: 0 0 12px var(--glow-green);
+  transform: translateY(-1px);
+}
+
+/* README responsive */
+@media (max-width: 768px) {
+  .readme-hero {
+    padding: 20px;
+  }
+
+  .readme-hello {
+    font-size: 18px;
+  }
+
+  .readme-wave {
+    font-size: 24px;
+  }
+
+  .readme-stack-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .readme-codeblock {
+    font-size: 12px;
+    padding: 12px 14px;
+  }
 }
 
 /* === Section Headers === */
