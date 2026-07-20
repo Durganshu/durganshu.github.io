@@ -660,17 +660,31 @@ function initVSCodeToggles() {
   const terminalState = localStorage.getItem('vscode-terminal-state') || 'collapsed';
 
   if (sidebar && explorerBtn) {
-    if (sidebarState === 'collapsed') {
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
       sidebar.classList.add('collapsed');
+      sidebar.classList.remove('open');
       explorerBtn.classList.remove('active');
     } else {
-      sidebar.classList.remove('collapsed');
-      explorerBtn.classList.add('active');
+      if (sidebarState === 'collapsed') {
+        sidebar.classList.add('collapsed');
+        explorerBtn.classList.remove('active');
+      } else {
+        sidebar.classList.remove('collapsed');
+        explorerBtn.classList.add('active');
+      }
     }
 
     explorerBtn.addEventListener('click', () => {
       if (window.innerWidth <= 768) {
-        sidebar.classList.toggle('open');
+        const isOpen = sidebar.classList.toggle('open');
+        if (isOpen) {
+          sidebar.classList.remove('collapsed');
+          explorerBtn.classList.add('active');
+        } else {
+          sidebar.classList.add('collapsed');
+          explorerBtn.classList.remove('active');
+        }
       } else {
         const isCollapsed = sidebar.classList.toggle('collapsed');
         localStorage.setItem('vscode-sidebar-state', isCollapsed ? 'collapsed' : 'expanded');
