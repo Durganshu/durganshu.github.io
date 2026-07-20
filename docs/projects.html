@@ -18,6 +18,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/theme.css">
+  <script src="/assets/js/theme-switcher.js"></script>
 </head>
 
 <body>
@@ -26,10 +27,16 @@
     <div class="vscode-titlebar">
       <div></div>
       <div class="titlebar-center">durganshu.com - projects</div>
-      <div class="titlebar-actions">
-        <span class="titlebar-action-icon">🗕</span>
-        <span class="titlebar-action-icon">🗖</span>
-        <span class="titlebar-action-icon">✕</span>
+      <div class="titlebar-theme-switcher" id="theme-switcher">
+        <button class="theme-btn active" data-theme="dark" title="Dark theme">
+          <span class="theme-icon">🌑</span> dark
+        </button>
+        <button class="theme-btn" data-theme="night" title="Night theme">
+          <span class="theme-icon">🌙</span> night
+        </button>
+        <button class="theme-btn" data-theme="system" title="System theme">
+          <span class="theme-icon">💻</span> system
+        </button>
       </div>
     </div>
 

@@ -1553,18 +1553,51 @@ h1, h2, h3, h4, h5, h6 {
   white-space: nowrap;
 }
 
-.titlebar-actions {
+/* Theme Switcher in Titlebar */
+.titlebar-theme-switcher {
   display: flex;
-  gap: 16px;
-  font-size: 14px;
+  align-items: center;
+  gap: 2px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 2px;
+  height: 26px;
 }
 
-.titlebar-action-icon {
+.theme-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
   cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  line-height: 1;
+  height: 20px;
 }
 
-.titlebar-action-icon:hover {
-  color: var(--text-primary);
+.theme-btn:hover {
+  color: var(--text-secondary);
+  background: var(--bg-hover);
+}
+
+.theme-btn.active {
+  background: var(--accent-blue);
+  color: #fff;
+  box-shadow: 0 1px 4px rgba(88, 166, 255, 0.3);
+}
+
+.theme-btn .theme-icon {
+  font-size: 12px;
+  line-height: 1;
 }
 
 /* Main workspace area */
@@ -1971,6 +2004,18 @@ h1, h2, h3, h4, h5, h6 {
   .titlebar-center {
     display: none;
   }
+
+  /* Theme switcher: icons only on mobile */
+  .titlebar-theme-switcher {
+    gap: 1px;
+  }
+  .theme-btn {
+    font-size: 0;
+    padding: 2px 8px;
+  }
+  .theme-btn .theme-icon {
+    font-size: 13px;
+  }
 }
 
 /* Collapsible state utilities */
@@ -1980,4 +2025,134 @@ h1, h2, h3, h4, h5, h6 {
 
 .vscode-bottom-panel.collapsed {
   display: none !important;
+}
+
+/* ====================================================
+   Theme Variants
+   ==================================================== */
+
+/* Night Theme — warm amber/sepia tones */
+[data-theme="night"] {
+  --bg-primary: #1a1410;
+  --bg-secondary: #211c15;
+  --bg-tertiary: #2a2318;
+  --bg-terminal: #15110c;
+  --bg-card: #211c15;
+  --bg-hover: #2e261c;
+
+  --text-primary: #e8dcc8;
+  --text-secondary: #a89880;
+  --text-muted: #6b5e4a;
+  --text-link: #e0a050;
+
+  --accent-green: #8abf5e;
+  --accent-blue: #e0a050;
+  --accent-purple: #c89bdf;
+  --accent-orange: #d4943a;
+  --accent-cyan: #7ec4a0;
+  --accent-red: #d46a5e;
+  --accent-pink: #d4889a;
+
+  --border-color: #3a3228;
+  --border-light: #2a2318;
+
+  --glow-green: rgba(138, 191, 94, 0.12);
+  --glow-blue: rgba(224, 160, 80, 0.12);
+}
+
+/* Light Theme */
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-tertiary: #e8e8e8;
+  --bg-terminal: #fafafa;
+  --bg-card: #f5f5f5;
+  --bg-hover: #ebebeb;
+
+  --text-primary: #1e1e1e;
+  --text-secondary: #555555;
+  --text-muted: #999999;
+  --text-link: #0070c9;
+
+  --accent-green: #2da44e;
+  --accent-blue: #0070c9;
+  --accent-purple: #8250df;
+  --accent-orange: #bf6a00;
+  --accent-cyan: #0891b2;
+  --accent-red: #cf222e;
+  --accent-pink: #bf3989;
+
+  --border-color: #d0d7de;
+  --border-light: #e8e8e8;
+
+  --glow-green: rgba(45, 164, 78, 0.1);
+  --glow-blue: rgba(0, 112, 201, 0.1);
+}
+
+[data-theme="light"] ::selection {
+  background: var(--accent-blue);
+  color: #fff;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+[data-theme="light"] .theme-btn.active {
+  background: var(--accent-blue);
+  color: #fff;
+}
+
+[data-theme="night"] .theme-btn.active {
+  background: var(--accent-blue);
+  color: #1a1410;
+}
+
+/* System theme: auto-select based on OS preference */
+@media (prefers-color-scheme: light) {
+  [data-theme="system"] {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f5;
+    --bg-tertiary: #e8e8e8;
+    --bg-terminal: #fafafa;
+    --bg-card: #f5f5f5;
+    --bg-hover: #ebebeb;
+
+    --text-primary: #1e1e1e;
+    --text-secondary: #555555;
+    --text-muted: #999999;
+    --text-link: #0070c9;
+
+    --accent-green: #2da44e;
+    --accent-blue: #0070c9;
+    --accent-purple: #8250df;
+    --accent-orange: #bf6a00;
+    --accent-cyan: #0891b2;
+    --accent-red: #cf222e;
+    --accent-pink: #bf3989;
+
+    --border-color: #d0d7de;
+    --border-light: #e8e8e8;
+
+    --glow-green: rgba(45, 164, 78, 0.1);
+    --glow-blue: rgba(0, 112, 201, 0.1);
+  }
+
+  [data-theme="system"] ::selection {
+    background: var(--accent-blue);
+    color: #fff;
+  }
+
+  [data-theme="system"] .theme-btn.active {
+    background: var(--accent-blue);
+    color: #fff;
+  }
 }
