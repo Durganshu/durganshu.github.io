@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+{%- assign nav_key = page.nav_key | default: "" -%}
+{%- assign nav_item = site.data.nav | where: "key", nav_key | first -%}
+{%- assign is_post = false -%}
+{%- if page.collection == "posts" -%}{%- assign is_post = true -%}{%- endif -%}
+
+{%- if is_post -%}
+  {%- assign current_label = page.slug -%}
+  {%- assign current_ext = ".md" -%}
+  {%- assign current_icon = "file-text" -%}
+  {%- assign current_class = "post" -%}
+{%- elsif nav_item -%}
+  {%- assign current_label = nav_item.label -%}
+  {%- assign current_ext = nav_item.ext -%}
+  {%- assign current_icon = nav_item.icon -%}
+  {%- assign current_class = nav_item.key -%}
+{%- else -%}
+  {%- assign current_label = page.tab_label | default: page.title | default: "untitled" -%}
+  {%- assign current_ext = page.tab_ext | default: "" -%}
+  {%- assign current_icon = page.tab_icon | default: "file-text" -%}
+  {%- assign current_class = page.tab_class | default: "post" -%}
+{%- endif -%}
+
+{%- assign show_extra_tab = true -%}
+{%- if nav_item and is_post == false -%}
+  {%- unless nav_item.tab == false -%}{%- assign show_extra_tab = false -%}{%- endunless -%}
+{%- endif -%}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <script src="{{ '/assets/js/theme-switcher.js' | relative_url }}"></script>
+  {% seo %}
+  {% feed_meta %}
+  <meta name="theme-color" content="#161b22">
+  <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="icon" href="{{ '/favicon-32.png' | relative_url }}" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="{{ '/assets/css/theme.css' | relative_url }}">
+</head>
+
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="titlebar">
+    <a class="titlebar-brand" href="{{ '/' | relative_url }}" aria-label="durganshu.com home">
+      <span class="brand-mark" aria-hidden="true">&gt;_</span><span class="brand-text">durganshu.com</span>
+    </a>
+    <div class="titlebar-title" aria-hidden="true">{{ current_label }}{{ current_ext }} — Durganshu Mishra</div>
+    <div class="theme-switcher needs-js" role="group" aria-label="Color theme">
+      <button type="button" class="theme-btn" data-theme-value="system" aria-pressed="false" aria-label="System theme" title="Match your system">{% include icon.html name="monitor" %}<span class="theme-label">system</span></button>
+      <button type="button" class="theme-btn" data-theme-value="light" aria-pressed="false" aria-label="Light theme" title="Light">{% include icon.html name="sun" %}<span class="theme-label">light</span></button>
+      <button type="button" class="theme-btn" data-theme-value="dark" aria-pressed="false" aria-label="Dark theme" title="Dark">{% include icon.html name="moon" %}<span class="theme-label">dark</span></button>
+      <button type="button" class="theme-btn" data-theme-value="night" aria-pressed="false" aria-label="Night theme (warm)" title="Night (warm)">{% include icon.html name="moon-star" %}<span class="theme-label">night</span></button>
+    </div>
+  </header>
+
+  <div class="workspace">
+    <div class="activity-col needs-js">
+      <div class="activity-bar">
+        <button type="button" class="activity-btn" id="explorer-toggle" aria-controls="explorer" aria-expanded="false" aria-label="Explorer" title="Explorer">{% include icon.html name="files" %}</button>
+        <button type="button" class="activity-btn" data-terminal-toggle aria-controls="terminal-panel" aria-expanded="false" aria-label="Terminal" title="Terminal">{% include icon.html name="square-terminal" %}</button>
+      </div>
+    </div>
+
+    <aside class="sidebar-col" id="explorer" aria-label="Explorer">
+      <div class="sidebar">
+        <p class="sidebar-section-header" aria-hidden="true">Explorer</p>
+        <nav aria-label="Site">
+          <p class="sidebar-folder-title">{% include icon.html name="chevron-down" %} durganshu.com</p>
+          <ul class="sidebar-file-list">
+            {%- for item in site.data.nav %}
+            <li><a class="sidebar-file-item file-{{ item.key }}" href="{{ item.url | relative_url }}"{% if item.key == nav_key %} aria-current="{% if is_post %}true{% else %}page{% endif %}"{% endif %}>{% include icon.html name=item.icon %}<span>{{ item.label }}</span><span class="ext" aria-hidden="true">{{ item.ext }}</span></a></li>
+            {%- endfor %}
+          </ul>
+        </nav>
+        <p class="sidebar-folder-title">{% include icon.html name="chevron-down" %} profiles</p>
+        <ul class="sidebar-file-list">
+          {%- for profile in site.data.profiles %}
+          <li><a class="sidebar-file-item" href="{{ profile.url }}" target="_blank" rel="noopener">{% include icon.html name=profile.icon %}<span>{{ profile.name }}</span><span class="ext">{% include icon.html name="external-link" %}<span class="visually-hidden">(opens in a new tab)</span></span></a></li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </aside>
+
+    <div class="editor">
+      <div class="editor-header">
+        <div class="tabs-bar">
+          <nav class="tabs-list" aria-label="Pages">
+            {%- for item in site.data.nav %}
+            {%- unless item.tab == false %}
+            <a class="tab file-{{ item.key }}" href="{{ item.url | relative_url }}"{% if item.key == nav_key and show_extra_tab == false %} aria-current="page"{% endif %}>{% include icon.html name=item.icon %}<span class="tab-label">{{ item.label }}</span></a>
+            {%- endunless %}
+            {%- endfor %}
+            {%- if show_extra_tab %}
+            <a class="tab is-preview file-{{ current_class }}" href="{{ page.url | relative_url }}" aria-current="page">{% include icon.html name=current_icon %}<span class="tab-label">{{ current_label }}{{ current_ext }}</span></a>
+            {%- endif %}
+          </nav>
+          <div class="tabs-actions needs-js">
+            <button type="button" class="icon-btn" data-terminal-toggle aria-controls="terminal-panel" aria-expanded="false" aria-label="Terminal" title="Terminal">{% include icon.html name="square-terminal" %}</button>
+          </div>
+        </div>
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="{{ '/' | relative_url }}">durganshu.com</a></li>
+            {%- if is_post %}
+            <li><a href="{{ '/updates/' | relative_url }}">updates</a></li>
+            {%- endif %}
+            <li><span aria-current="page">{{ current_label }}{{ current_ext }}</span></li>
+          </ol>
+        </nav>
+      </div>
+
+      <main id="content" class="editor-content" tabindex="-1">
+        <div class="content-inner">
+          {{ content }}
+        </div>
+      </main>
+
+      {% include site-footer.html %}
+      {% include terminal-panel.html %}
+    </div>
+  </div>
+
+  <script src="{{ '/assets/js/terminal.js' | relative_url }}" defer></script>
+</body>
+</html>

@@ -1,347 +1,137 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: default
+title: Projects
+nav_key: projects
+description: Academic, research and hobby projects by Durganshu Mishra in C++, CUDA, MPI and scientific computing.
+---
+<h1 class="page-title fade-in"><span class="prompt">~/</span>projects</h1>
+<p class="page-subtitle fade-in">// git log --oneline --all: academic and hobby projects (<a href="https://github.com/durganshu" target="_blank" rel="noopener">view all on GitHub</a>)</p>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Projects | Durganshu Mishra</title>
-  <meta name="description"
-    content="Chronological history of academic, research, and hobby projects in C++, HPC, Parallel Systems, and Computer Graphics.">
-  <meta property="og:title" content="Projects — Durganshu Mishra">
-  <meta property="og:description" content="Technical project list: C++, HPC, Parallel Computing, OpenGL/Vulkan">
-  <meta property="og:url" content="https://durganshu.com/projects.html">
-  <meta property="og:type" content="website">
-  <link rel="canonical" href="https://durganshu.com/projects.html">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/theme.css">
-  <script src="/assets/js/theme-switcher.js"></script>
-</head>
+<ol class="git-log fade-in-stagger">
+  <li class="git-commit">
+    <p class="git-commit-header">
+      <span class="git-sha">commit e7a3f1d</span>
+      <span class="git-branches">(<span class="git-branch-tag head">HEAD</span> → <span class="git-branch-tag main">main</span>)</span>
+    </p>
+    <h2 class="git-subject">
+      <a href="https://github.com/durganshu/Abalone-Game" target="_blank" rel="noopener"><span class="git-type">feat:</span> Abalone-Game</a>
+      <span class="git-summary">Competitive board game AI</span>
+    </h2>
+    <p class="git-desc">Abalone is a "2-person zero-sum game with complete information". This repository contains four search strategies for competitive Abalone gameplay, built on NegaMax with alpha-beta pruning and parallelized with OpenMP.</p>
+    <ul class="tags" aria-label="Technologies">
+      <li class="tech-badge">C++</li>
+      <li class="tech-badge">OpenMP</li>
+      <li class="tech-badge">Game AI</li>
+      <li class="tech-badge">Search Algorithms</li>
+    </ul>
+    <p class="git-links">
+      <a class="git-link-btn" href="https://github.com/durganshu/Abalone-Game" target="_blank" rel="noopener">{% include icon.html name="github" %} Source code</a>
+      <a class="git-link-btn" href="{{ '/attachments/Abalone.pdf' | relative_url }}">{% include icon.html name="file-text" %} Report (PDF)</a>
+    </p>
+  </li>
 
-<body>
-  <div class="vscode-layout-wrapper">
-    <!-- VS Code Titlebar -->
-    <div class="vscode-titlebar">
-      <div></div>
-      <div class="titlebar-center">durganshu.com - projects</div>
-      <div class="titlebar-theme-switcher" id="theme-switcher">
-        <button class="theme-btn active" data-theme="dark" title="Dark theme">
-          <span class="theme-icon">🌑</span> dark
-        </button>
-        <button class="theme-btn" data-theme="night" title="Night theme">
-          <span class="theme-icon">🌙</span> night
-        </button>
-        <button class="theme-btn" data-theme="system" title="System theme">
-          <span class="theme-icon">💻</span> system
-        </button>
-      </div>
-    </div>
+  <li class="git-commit">
+    <p class="git-commit-header"><span class="git-sha">commit a9d0421</span></p>
+    <h2 class="git-subject">
+      <a href="https://github.com/caps-tum/sys-sage" target="_blank" rel="noopener"><span class="git-type">feat:</span> sys-sage</a>
+      <span class="git-summary">System's data intelligence and optimization library</span>
+    </h2>
+    <p class="git-desc">Contributed to sys-sage, a resource model library that represents hardware topologies, memory hierarchies and data paths to help runtimes optimize parallel applications on heterogeneous platforms.</p>
+    <ul class="tags" aria-label="Technologies">
+      <li class="tech-badge">C++</li>
+      <li class="tech-badge">Heterogeneous Architectures</li>
+      <li class="tech-badge">HPC</li>
+    </ul>
+    <p class="git-links">
+      <a class="git-link-btn" href="https://github.com/caps-tum/sys-sage" target="_blank" rel="noopener">{% include icon.html name="github" %} Source code</a>
+    </p>
+  </li>
 
-    <!-- Main Workspace -->
-    <div class="vscode-workspace">
-      <!-- Activity Bar -->
-      <div class="vscode-activity-bar">
-        <div class="activity-bar-top">
-          <div class="activity-btn" title="Explorer" id="activity-explorer-btn">
-            <span>📑</span>
-          </div>
-          <div class="activity-btn" title="Terminal" id="activity-terminal-btn">
-            <span class="terminal-icon">&gt;_</span>
-          </div>
-        </div>
-      </div>
+  <li class="git-commit">
+    <p class="git-commit-header"><span class="git-sha">commit 8da6f91</span></p>
+    <h2 class="git-subject">
+      <a href="https://github.com/durganshu/CudaFluids" target="_blank" rel="noopener"><span class="git-type">feat:</span> CudaFluids</a>
+      <span class="git-summary">CUDA-accelerated 2D fluid simulation</span>
+    </h2>
+    <p class="git-desc">A CUDA-accelerated 2D Euler equations solver using the MacCormack finite difference scheme. It simulates flow around various shapes in real time, with custom GPU kernels for spatial discretization and boundaries.</p>
+    <ul class="tags" aria-label="Technologies">
+      <li class="tech-badge">C++</li>
+      <li class="tech-badge">CUDA</li>
+      <li class="tech-badge">Fluid Dynamics</li>
+      <li class="tech-badge">GPGPU</li>
+    </ul>
+    <p class="git-links">
+      <a class="git-link-btn" href="https://github.com/durganshu/CudaFluids" target="_blank" rel="noopener">{% include icon.html name="github" %} Source code</a>
+    </p>
+  </li>
 
-      <!-- Explorer Sidebar -->
-      <div class="vscode-sidebar collapsed" id="vscode-sidebar">
-        <div class="sidebar-section-header">Explorer</div>
-        <div class="sidebar-folder-title">
-          <span>▼</span> durganshu.com
-        </div>
-        <ul class="sidebar-file-list">
-          <li class="sidebar-file-item" onclick="location.href='/'">
-            <span class="sidebar-file-icon">📄</span> home
-          </li>
-          <li class="sidebar-file-item" onclick="location.href='about-me.html'">
-            <span class="sidebar-file-icon">📋</span> about
-          </li>
-          <li class="sidebar-file-item active" onclick="location.href='projects.html'">
-            <span class="sidebar-file-icon">🔧</span> projects
-          </li>
-          <li class="sidebar-file-item" onclick="location.href='blogs.html'">
-            <span class="sidebar-file-icon">📝</span> blogs
-          </li>
-        </ul>
-      </div>
+  <li class="git-commit">
+    <p class="git-commit-header"><span class="git-sha">commit d89e210</span></p>
+    <h2 class="git-subject">
+      <a href="https://github.com/durganshu/pybind-sphinxsys" target="_blank" rel="noopener"><span class="git-type">feat:</span> pybind-sphinxsys</a>
+      <span class="git-summary">SPHinXsys Python bindings</span>
+    </h2>
+    <p class="git-desc">Wrote the complete pybind11 interface for SPHinXsys, a Smoothed Particle Hydrodynamics (SPH) multi-physics simulation library, so CFD simulations can be driven from Python.</p>
+    <ul class="tags" aria-label="Technologies">
+      <li class="tech-badge">C++</li>
+      <li class="tech-badge">Python</li>
+      <li class="tech-badge">pybind11</li>
+      <li class="tech-badge">CFD</li>
+    </ul>
+    <p class="git-links">
+      <a class="git-link-btn" href="https://github.com/durganshu/pybind-sphinxsys" target="_blank" rel="noopener">{% include icon.html name="github" %} Source code</a>
+    </p>
+  </li>
 
-      <!-- Editor Panel Pane -->
-      <div class="vscode-editor-pane">
-        <!-- Editor Tabs -->
-        <div class="vscode-tabs-bar">
-          <div class="vscode-tab" onclick="location.href='/'">
-            <span class="sidebar-file-icon" style="color:var(--accent-cyan)">📄</span> index
-            <span class="vscode-tab-pin-icon" title="Pinned" style="margin-left: 6px;">📌</span>
-          </div>
-          <div class="vscode-tab active" onclick="location.href='projects.html'">
-            <span class="sidebar-file-icon" style="color:var(--accent-green)">🔧</span> projects
-            <span class="vscode-tab-close-btn" style="margin-left: 8px;"
-              onclick="e = arguments[0] || window.event; e.stopPropagation(); location.href='/'">×</span>
-          </div>
-        </div>
+  <li class="git-commit">
+    <p class="git-commit-header"><span class="git-sha">commit c9b142f</span></p>
+    <h2 class="git-subject">
+      <a href="https://github.com/precice/precice" target="_blank" rel="noopener"><span class="git-type">feat:</span> preCICE 3.0</a>
+      <span class="git-summary">Coupling library contribution</span>
+    </h2>
+    <p class="git-desc">Helped clean up and refactor preCICE for the 3.0 release, removing legacy VTK output adapters, redundant FSI test cases and obsolete MPI communication channels.</p>
+    <ul class="tags" aria-label="Technologies">
+      <li class="tech-badge">C++</li>
+      <li class="tech-badge">MPI</li>
+      <li class="tech-badge">Refactoring</li>
+      <li class="tech-badge">FSI</li>
+    </ul>
+    <p class="git-links">
+      <a class="git-link-btn" href="https://github.com/precice/precice" target="_blank" rel="noopener">{% include icon.html name="github" %} Source code</a>
+    </p>
+  </li>
 
-        <!-- Editor Breadcrumbs -->
-        <div class="vscode-breadcrumbs">
-          <div class="vscode-breadcrumbs-item">durganshu.com</div>
-          <div class="vscode-breadcrumbs-separator">&gt;</div>
-          <div class="vscode-breadcrumbs-item">src</div>
-          <div class="vscode-breadcrumbs-separator">&gt;</div>
-          <div class="vscode-breadcrumbs-item" style="color: var(--text-primary)">projects</div>
-        </div>
+  <li class="git-commit">
+    <p class="git-commit-header"><span class="git-sha">commit b4c9e2c</span></p>
+    <h2 class="git-subject">
+      <a href="https://github.com/Durganshu/Fluidchen-EM" target="_blank" rel="noopener"><span class="git-type">feat:</span> Fluidchen-EM</a>
+      <span class="git-summary">MPI-parallelized CFD solver</span>
+    </h2>
+    <p class="git-desc">A computational fluid dynamics solver for a wide range of problems, built in the TUM CFD Lab. The whole code is parallelized with MPI and can be coupled with other solvers through preCICE.</p>
+    <ul class="tags" aria-label="Technologies">
+      <li class="tech-badge">C++</li>
+      <li class="tech-badge">MPI</li>
+      <li class="tech-badge">CFD</li>
+      <li class="tech-badge">preCICE</li>
+    </ul>
+    <p class="git-links">
+      <a class="git-link-btn" href="https://github.com/Durganshu/Fluidchen-EM" target="_blank" rel="noopener">{% include icon.html name="github" %} Source code</a>
+      <a class="git-link-btn" href="{{ '/attachments/CFDReport.pdf' | relative_url }}">{% include icon.html name="file-text" %} Report (PDF)</a>
+    </p>
+  </li>
 
-        <!-- Editor Content -->
-        <div class="vscode-editor-content">
-          <h1 class="page-title fade-in" style="margin-top:0"><span class="prompt">~/</span>projects</h1>
-          <p class="page-subtitle fade-in" style="margin-bottom:20px">// git log --oneline --all — academic and hobby
-            projects (<a href="https://github.com/durganshu" target="_blank" class="text-link">view all on GitHub</a>)
-          </p>
-
-          <div class="git-timeline fade-in-stagger" style="margin-bottom: 32px">
-
-            <div class="git-commit">
-              <div class="git-commit-header">
-                <span class="git-sha">commit e7a3f1d</span>
-                <span class="git-branches">
-                  <span class="git-branch-tag head">HEAD</span> →
-                  <span class="git-branch-tag main">main</span>
-                </span>
-                <span class="git-author">Author: Durganshu</span>
-              </div>
-              <div class="git-commit-body">
-                <div class="git-subject">feat: Abalone-Game — competitive board game AI</div>
-                <div class="git-desc">
-                  Abalone is a board game of class "2-Person Zero-Sum Game with Complete Information". This repository
-                  contains 4 different search strategies for a competitive Abalone gameplay.
-                </div>
-                <div class="git-tags">
-                  <span class="tech-badge">C++</span>
-                  <span class="tech-badge">Game AI</span>
-                  <span class="tech-badge">Search Algorithms</span>
-                </div>
-                <div class="git-links">
-                  <a class="git-link-btn" href="https://github.com/durganshu/Abalone-Game" target="_blank">💻 Source
-                    Code</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="git-commit">
-              <div class="git-commit-header">
-                <span class="git-sha">commit a9d0421</span>
-                <span class="git-author">Author: Durganshu</span>
-              </div>
-              <div class="git-commit-body">
-                <div class="git-subject">feat: sys-sage — system's data intelligence and optimization library</div>
-                <div class="git-desc">
-                  Contributed to developing sys-sage, a resource model library capable of representing HW topologies,
-                  memory hierarchies, and data paths to help runtimes optimize parallel applications on heterogeneous
-                  platforms.
-                </div>
-                <div class="git-tags">
-                  <span class="tech-badge">C++</span>
-                  <span class="tech-badge">Heterogeneous Architectures</span>
-                  <span class="tech-badge">HPC</span>
-                </div>
-                <div class="git-links">
-                  <a class="git-link-btn" href="https://github.com/caps-tum/sys-sage" target="_blank">💻 Source Code</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="git-commit">
-              <div class="git-commit-header">
-                <span class="git-sha">commit 8da6f91</span>
-                <span class="git-author">Author: Durganshu</span>
-              </div>
-              <div class="git-commit-body">
-                <div class="git-subject">feat: CudaFluids — CUDA-accelerated 2D Fluid Simulation</div>
-                <div class="git-desc">
-                  A CUDA-accelerated 2D Euler equations solver using the MacCormack finite difference scheme. Simulates
-                  fluid dynamics around various shapes in real-time, utilizing custom GPU kernels for spatial
-                  discretizations and boundaries.
-                </div>
-                <div class="git-tags">
-                  <span class="tech-badge">C++</span>
-                  <span class="tech-badge">CUDA</span>
-                  <span class="tech-badge">Fluid Dynamics</span>
-                  <span class="tech-badge">GPGPU</span>
-                </div>
-                <div class="git-links">
-                  <a class="git-link-btn" href="https://github.com/durganshu/CudaFluids" target="_blank">💻 Source
-                    Code</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="git-commit">
-              <div class="git-commit-header">
-                <span class="git-sha">commit d89e210</span>
-                <span class="git-author">Author: Durganshu</span>
-              </div>
-              <div class="git-commit-body">
-                <div class="git-subject">feat: pybind-sphinxsys — SPHinXsys Python bindings</div>
-                <div class="git-desc">
-                  Wrote the complete pybind11 wrapping interface for SPHinXsys, an acronym for Smoothed Particle
-                  Hydrodynamics (SPH) multi-physics simulation library, enabling Python workflows for CFD simulations.
-                </div>
-                <div class="git-tags">
-                  <span class="tech-badge">C++</span>
-                  <span class="tech-badge">Python</span>
-                  <span class="tech-badge">Pybind11</span>
-                  <span class="tech-badge">CFD</span>
-                </div>
-                <div class="git-links">
-                  <a class="git-link-btn" href="https://github.com/durganshu/pybind-sphinxsys" target="_blank">💻 Source
-                    Code</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="git-commit">
-              <div class="git-commit-header">
-                <span class="git-sha">commit c9b142f</span>
-                <span class="git-author">Author: Durganshu</span>
-              </div>
-              <div class="git-commit-body">
-                <div class="git-subject">feat: preCICE 3.0 — coupling library contribution</div>
-                <div class="git-desc">
-                  Assisted in cleanup and refactoring in preparation for the preCICE 3.0 release, removing legacy VTK
-                  file output adapters, redundant FSI test cases, and obsolete MPI communication channels.
-                </div>
-                <div class="git-tags">
-                  <span class="tech-badge">C++</span>
-                  <span class="tech-badge">MPI</span>
-                  <span class="tech-badge">Refactoring</span>
-                  <span class="tech-badge">FSI</span>
-                </div>
-                <div class="git-links">
-                  <a class="git-link-btn" href="https://github.com/precice/precice" target="_blank">💻 Source Code</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="git-commit">
-              <div class="git-commit-header">
-                <span class="git-sha">commit f5e061b</span>
-                <span class="git-author">Author: Durganshu</span>
-              </div>
-              <div class="git-commit-body">
-                <div class="git-subject">feat: Electromagnetics-RCS — Radar Cross Section analysis system</div>
-                <div class="git-desc">
-                  Industrial-grade solver developed at Zeus Numerix Pvt. Ltd. (Pune, India) to calculate Radar Cross
-                  Section signatures on arbitrary 3D triangular CAD meshes utilizing shooting and bouncing ray
-                  algorithms.
-                </div>
-                <div class="git-tags">
-                  <span class="tech-badge">C++</span>
-                  <span class="tech-badge">CAD Meshes</span>
-                  <span class="tech-badge">Computational Electromagnetics</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- VS Code Bottom Panel -->
-        <div class="vscode-bottom-panel collapsed" id="vscode-bottom-panel">
-          <div class="vscode-bottom-header">
-            <div class="vscode-bottom-tabs">
-              <span class="vscode-bottom-tab active">Terminal</span>
-            </div>
-            <div class="vscode-bottom-actions">
-              <span class="bottom-action-btn" title="Clear Terminal" id="clear-terminal-btn">🗑️</span>
-              <span class="bottom-action-btn" title="Close Panel" id="close-terminal-btn">✕</span>
-            </div>
-          </div>
-          <div class="vscode-bottom-body">
-            <div class="terminal-body" id="terminal-body">
-              <div class="terminal-line">
-                <span class="terminal-prompt">durganshu@dev:~$ </span><span class="type-char"
-                  style="opacity:0">w</span><span class="type-char" style="opacity:0">h</span><span class="type-char"
-                  style="opacity:0">o</span><span class="type-char" style="opacity:0">a</span><span class="type-char"
-                  style="opacity:0">m</span><span class="type-char" style="opacity:0">i</span>
-              </div>
-              <div class="terminal-line">
-                <span class="terminal-output">C++ Software Developer @ Teledeyne SevenCs (Teledyne), Hamburg 🇩🇪</span>
-              </div>
-              <div class="terminal-line">&nbsp;</div>
-              <div class="terminal-line">
-                <span class="terminal-prompt">durganshu@dev:~$ </span><span class="type-char"
-                  style="opacity:0">c</span><span class="type-char" style="opacity:0">a</span><span class="type-char"
-                  style="opacity:0">t</span><span class="type-char" style="opacity:0"> </span><span class="type-char"
-                  style="opacity:0">s</span><span class="type-char" style="opacity:0">k</span><span class="type-char"
-                  style="opacity:0">i</span><span class="type-char" style="opacity:0">l</span><span class="type-char"
-                  style="opacity:0">l</span><span class="type-char" style="opacity:0">s</span><span class="type-char"
-                  style="opacity:0">.</span><span class="type-char" style="opacity:0">t</span><span class="type-char"
-                  style="opacity:0">x</span><span class="type-char" style="opacity:0">t</span>
-              </div>
-              <div class="terminal-line">
-                <span class="terminal-output">C++ · HPC · GPU Programming · MPI · OpenMP · OpenGL · Vulkan</span>
-              </div>
-              <div class="terminal-line">&nbsp;</div>
-              <div class="terminal-line">
-                <span class="terminal-prompt">durganshu@dev:~$ </span><span class="type-char"
-                  style="opacity:0">c</span><span class="type-char" style="opacity:0">a</span><span class="type-char"
-                  style="opacity:0">t</span><span class="type-char" style="opacity:0"> </span><span class="type-char"
-                  style="opacity:0">i</span><span class="type-char" style="opacity:0">n</span><span class="type-char"
-                  style="opacity:0">t</span><span class="type-char" style="opacity:0">e</span><span class="type-char"
-                  style="opacity:0">r</span><span class="type-char" style="opacity:0">e</span><span class="type-char"
-                  style="opacity:0">s</span><span class="type-char" style="opacity:0">t</span><span class="type-char"
-                  style="opacity:0">s</span><span class="type-char" style="opacity:0">.</span><span class="type-char"
-                  style="opacity:0">t</span><span class="type-char" style="opacity:0">x</span><span class="type-char"
-                  style="opacity:0">t</span>
-              </div>
-              <div class="terminal-line">
-                <span class="terminal-output">High-Performance Computing · HPC-QC Integration · Scientific
-                  Computing</span>
-              </div>
-              <div class="terminal-line">&nbsp;</div>
-              <div class="terminal-line">
-                <span class="terminal-prompt">durganshu@dev:~$ </span><span class="type-char"
-                  style="opacity:0">e</span><span class="type-char" style="opacity:0">c</span><span class="type-char"
-                  style="opacity:0">h</span><span class="type-char" style="opacity:0">o</span><span class="type-char"
-                  style="opacity:0"> </span><span class="type-char" style="opacity:0">"</span><span class="type-char"
-                  style="opacity:0">W</span><span class="type-char" style="opacity:0">e</span><span class="type-char"
-                  style="opacity:0">l</span><span class="type-char" style="opacity:0">c</span><span class="type-char"
-                  style="opacity:0">o</span><span class="type-char" style="opacity:0">m</span><span class="type-char"
-                  style="opacity:0">e</span><span class="type-char" style="opacity:0">!</span><span class="type-char"
-                  style="opacity:0">"</span>
-              </div>
-              <div class="terminal-line">
-                <span class="terminal-output">Welcome to my digital playground — explore my projects, research, and
-                  blogs!</span>
-              </div>
-              <div class="terminal-line terminal-input-line" id="terminal-input-line" style="opacity:0">
-                <span class="terminal-prompt">durganshu@dev:~$ </span><input type="text" class="terminal-input"
-                  id="terminal-input" autocomplete="off" spellcheck="false" autofocus
-                  aria-label="Terminal command input">
-              </div>
-            </div>
-          </div>
-          <!-- Terminal Hint hidden inside panel content to work with terminal.js animations -->
-          <div class="terminal-hint" id="terminal-hint" style="opacity:0; display:none;">
-            <span>💡 Type <code>help</code> for available commands</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-  </div>
-
-  <script src="/assets/js/terminal.js"></script>
-</body>
-
-</html>
+  <li class="git-commit">
+    <p class="git-commit-header"><span class="git-sha">commit f5e061b</span></p>
+    <h2 class="git-subject">
+      <span class="git-type">feat:</span> Electromagnetics-RCS
+      <span class="git-summary">Radar Cross Section analysis system</span>
+    </h2>
+    <p class="git-desc">An industrial solver developed at Zeus Numerix Pvt. Ltd. (Pune, India) that calculates Radar Cross Section signatures on arbitrary 3D triangular CAD meshes using shooting and bouncing ray algorithms.</p>
+    <ul class="tags" aria-label="Technologies">
+      <li class="tech-badge">C++</li>
+      <li class="tech-badge">CAD Meshes</li>
+      <li class="tech-badge">Computational Electromagnetics</li>
+    </ul>
+    <p class="git-note">Proprietary code: no public repository.</p>
+  </li>
+</ol>

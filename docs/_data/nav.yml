@@ -1,0 +1,28 @@
+# Pages shown in the editor tab bar and the Explorer.
+# `tab: false` keeps a page out of the tab bar (it still appears in the Explorer).
+- key: index
+  label: index
+  ext: .md
+  url: /
+  icon: house
+- key: about
+  label: about
+  ext: .md
+  url: /about-me.html
+  icon: user-round
+- key: projects
+  label: projects
+  ext: .cpp
+  url: /projects.html
+  icon: git-branch
+- key: blogs
+  label: blogs
+  ext: .md
+  url: /blogs.html
+  icon: pen-line
+- key: updates
+  label: updates
+  ext: /
+  url: /updates/
+  icon: megaphone
+  tab: false

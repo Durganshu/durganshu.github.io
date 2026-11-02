@@ -1,0 +1,13 @@
+# External profiles, used in the Explorer and the footer.
+- name: GitHub
+  url: https://github.com/durganshu
+  icon: github
+- name: LinkedIn
+  url: https://www.linkedin.com/in/durganshu
+  icon: linkedin
+- name: Medium
+  url: https://medium.com/@durganshu
+  icon: medium
+- name: HackerNoon
+  url: https://hackernoon.com/about/durganshu
+  icon: hackernoon
