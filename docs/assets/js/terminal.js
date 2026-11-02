@@ -58,7 +58,7 @@
         { type: 'output', text: "Hi! I'm Durganshu Mishra 👋" },
         { type: 'output', text: 'I write code that makes CPUs sweat.' },
         { type: 'output', text: 'C++ and HPC by day at Teledyne SevenCs, Hamburg 🇩🇪' },
-        { type: 'output', text: 'On-device AI agents by night, building Samosa AI 🤖' },
+        { type: 'output', text: 'Local-first AI by night, building Samosa AI 🤖' },
         { type: 'blank' },
         { type: 'output', text: "I hold a Master's in Computational Science & Engineering from TU Munich." },
         { type: 'blank' },
@@ -87,9 +87,10 @@
 
     samosa: function () {
       return [
-        { type: 'output', text: '🤖 Samosa AI: decentralised, on-device AI' },
+        { type: 'output', text: '🤖 Samosa AI: a taste of innovation' },
         { type: 'blank' },
-        { type: 'output', text: 'Open-source, privacy-first AI agents and tools that run locally on your own hardware.' },
+        { type: 'output', text: 'Open-source, privacy-first AI solutions for learning, productivity and health.' },
+        { type: 'output', text: 'Built local-first, so your data stays with you. No subscriptions, no cloud lock-in.' },
         { type: 'output', text: 'I build it in my free time, after the C++ day job.' },
         { type: 'blank' },
         { type: 'link', label: '  Website  ', url: 'https://samosa-ai.com' },
@@ -150,7 +151,7 @@
         '',
         'DESCRIPTION',
         '       Writes code that makes CPUs sweat. C++ and HPC by day,',
-        '       on-device AI agents (Samosa AI) by night. Fueled by coffee.',
+        '       local-first AI (Samosa AI) by night. Fueled by coffee.',
         '',
         'SEE ALSO',
         '       about(1), projects(1), blogs(1), samosa(1), contact(1)'
@@ -161,7 +162,7 @@
       var files = {
         'skills.txt': function () { return COMMANDS.skills(); },
         'interests.txt': function () {
-          return [{ type: 'output', text: 'High-Performance Computing · On-device AI Agents · Decentralised AI · Scientific Computing' }];
+          return [{ type: 'output', text: 'High-Performance Computing · Local-first AI · Decentralised AI · Scientific Computing' }];
         },
         'contact.txt': function () { return COMMANDS.contact(); }
       };
@@ -266,7 +267,7 @@
     [
       ['OS', 'Linux & Windows'],
       ['Day job', 'C++ Software Developer @ Teledyne SevenCs'],
-      ['Night job', 'Building Samosa AI (on-device AI agents)'],
+      ['Night job', 'Building Samosa AI (local-first AI solutions)'],
       ['Degree', 'MSc Computational Science & Engineering, TU Munich'],
       ['Languages', 'C++, Python, Julia, MATLAB'],
       ['Parallel', 'MPI, OpenMP, CUDA, SIMD'],
@@ -320,9 +321,9 @@
 
   function playIntro() {
     var steps = [
-      { cmd: 'whoami', out: 'C++ and HPC by day @ Teledyne SevenCs · on-device AI agents by night @ Samosa AI' },
+      { cmd: 'whoami', out: 'C++ and HPC by day @ Teledyne SevenCs · local-first AI by night @ Samosa AI' },
       { cmd: 'cat skills.txt', out: 'C++ · HPC · GPU Programming · MPI · OpenMP · OpenGL · Vulkan' },
-      { cmd: 'cat interests.txt', out: 'High-Performance Computing · On-device AI Agents · Decentralised AI · Scientific Computing' }
+      { cmd: 'cat interests.txt', out: 'High-Performance Computing · Local-first AI · Decentralised AI · Scientific Computing' }
     ];
     var outro = [{ type: 'muted', text: 'Type "help" to see what else you can run.' }];
 

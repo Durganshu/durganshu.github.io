@@ -843,6 +843,7 @@ html.is-resizing-panel * {
 }
 
 .readme-body { max-width: 68ch; color: var(--text-secondary); }
+.readme-body + .readme-body { margin-top: 12px; }
 .readme-body em { font-style: normal; font-weight: 500; color: var(--accent-cyan); }
 
 .readme-actions {
