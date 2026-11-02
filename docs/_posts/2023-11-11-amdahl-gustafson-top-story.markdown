@@ -9,5 +9,5 @@ In my latest blog post, I dive deep into the core, real-world applications, and 
 
 The blog post has been selected as one of the top stories on [HackerNoon.com](https://hackernoon.com/) and features on the home page of the popular website. It is available in 12 languages.
 
-Read the full story on [HackerNoon](https://hackernoon.com/a-deep-dive-into-amdahls-law-and-gustafsons-law) and [Medium](https://medium.com/@durganshumishra/a-deep-dive-into-amdahls-law-and-gustafson-s-law-33c6313020bc).
+Read the full story on [HackerNoon](https://hackernoon.com/a-deep-dive-into-amdahls-law-and-gustafsons-law) and [Medium](https://medium.com/@durganshu/a-deep-dive-into-amdahls-law-and-gustafson-s-law-33c6313020bc).
 

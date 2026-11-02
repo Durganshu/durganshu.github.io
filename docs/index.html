@@ -1,31 +1,52 @@
 ---
 layout: default
 nav_key: index
-description: Durganshu Mishra is a C++ Software Developer at Teledyne SevenCs in Hamburg, working on high-performance computing, GPU programming and scientific computing.
+description: Durganshu Mishra writes code that makes CPUs sweat. C++ and HPC by day at Teledyne SevenCs in Hamburg, local-first AI by night while building Samosa AI.
 ---
 <section class="readme-hero fade-in" aria-labelledby="hero-name">
   <p class="readme-greeting"><span class="readme-wave" aria-hidden="true">👋</span> Hi, I'm</p>
   <h1 class="readme-name" id="hero-name">Durganshu Mishra</h1>
   <p class="readme-tagline">I write code that makes CPUs sweat.</p>
-  <p class="readme-tagline-sub">C++ developer by day, compiler-flag hoarder by night.</p>
+  <p class="readme-tagline-sub">C++ and HPC by day, local-first AI by night.</p>
 
   <ul class="readme-badges" aria-label="At a glance">
     <li class="readme-badge badge-role">{% include icon.html name="briefcase" %} Software Developer @ Teledyne SevenCs</li>
+    <li class="readme-badge badge-side">{% include icon.html name="bot" %} Building Samosa AI</li>
     <li class="readme-badge badge-loc">{% include icon.html name="map-pin" %} Hamburg, Germany</li>
     <li class="readme-badge badge-edu">{% include icon.html name="graduation-cap" %} MSc CSE, TU Munich</li>
   </ul>
 
   <h2 class="readme-section-title">// what I do</h2>
   <p class="readme-body">
-    I build high-performance software at the intersection of <em>parallel computing</em>,
-    <em>computer graphics</em>, and <em>scientific simulation</em>. My happy place is somewhere between
-    a <code>-O3 -march=native</code> flag and a perfectly vectorized loop.
+    By day I'm a C++ software developer at Teledyne SevenCs, writing high-performance software at the
+    intersection of <em>parallel computing</em>, <em>computer graphics</em> and <em>scientific simulation</em>.
+    My happy place is somewhere between a <code>-O3 -march=native</code> flag and a perfectly vectorized loop.
+  </p>
+  <p class="readme-body">
+    After hours, I'm building <em>Samosa AI</em>: open-source, privacy-first AI solutions, built local-first
+    so your data stays with you.
   </p>
 
   <div class="readme-actions">
     <a class="btn btn-primary" href="{{ '/about-me.html' | relative_url }}">Experience &amp; publications {% include icon.html name="arrow-right" %}</a>
     <a class="btn" href="{{ '/projects.html' | relative_url }}">{% include icon.html name="git-branch" %} Projects</a>
     <a class="btn" href="{{ '/blogs.html' | relative_url }}">{% include icon.html name="pen-line" %} Articles</a>
+  </div>
+</section>
+
+<section class="side-project fade-in" aria-labelledby="samosa-heading">
+  <p class="side-project-label">// after hours · a taste of innovation</p>
+  <h2 class="side-project-title" id="samosa-heading">{% include icon.html name="bot" %} Samosa AI</h2>
+  <p class="side-project-body">
+    Samosa AI builds open-source, privacy-first AI solutions for learning, productivity and health:
+    Gotcha, an on-device Android copilot; Personal Guru, a local-first learning companion; and Chanakya,
+    a self-hostable voice assistant. No subscriptions, no cloud lock-in. Interested? Visit our website or
+    read our blog.
+  </p>
+  <div class="side-project-actions">
+    <a class="btn btn-accent" href="{{ site.data.samosa.website }}" target="_blank" rel="noopener">{% include icon.html name="globe" %} samosa-ai.com</a>
+    <a class="btn" href="{{ site.data.samosa.blog }}" target="_blank" rel="noopener">{% include icon.html name="newspaper" %} Read our blog</a>
+    <a class="btn" href="{{ site.data.samosa.github }}" target="_blank" rel="noopener">{% include icon.html name="github" %} GitHub</a>
   </div>
 </section>
 

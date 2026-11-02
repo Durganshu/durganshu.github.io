@@ -54,6 +54,10 @@
   if (read('vscode-terminal-state') === 'expanded') {
     root.setAttribute('data-terminal', 'open');
   }
+  var terminalHeight = parseInt(read('terminal-height'), 10);
+  if (terminalHeight >= 120 && terminalHeight <= 4000) {
+    root.style.setProperty('--panel-h', terminalHeight + 'px');
+  }
 
   document.addEventListener('DOMContentLoaded', function () {
     applyTheme(storedTheme());

@@ -83,6 +83,11 @@
           <li><a class="sidebar-file-item" href="{{ profile.url }}" target="_blank" rel="noopener">{% include icon.html name=profile.icon %}<span>{{ profile.name }}</span><span class="ext">{% include icon.html name="external-link" %}<span class="visually-hidden">(opens in a new tab)</span></span></a></li>
           {%- endfor %}
         </ul>
+        <p class="sidebar-folder-title">{% include icon.html name="chevron-down" %} samosa-ai</p>
+        <ul class="sidebar-file-list">
+          <li><a class="sidebar-file-item" href="{{ site.data.samosa.website }}" target="_blank" rel="noopener">{% include icon.html name="globe" %}<span>website</span><span class="ext">{% include icon.html name="external-link" %}<span class="visually-hidden">(opens in a new tab)</span></span></a></li>
+          <li><a class="sidebar-file-item" href="{{ site.data.samosa.blog }}" target="_blank" rel="noopener">{% include icon.html name="newspaper" %}<span>blog</span><span class="ext">{% include icon.html name="external-link" %}<span class="visually-hidden">(opens in a new tab)</span></span></a></li>
+        </ul>
       </div>
     </aside>
 
