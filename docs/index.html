@@ -1,13 +1,28 @@
 ---
 layout: default
 nav_key: index
+hero_motion: true
 description: Durganshu Mishra writes code that makes CPUs sweat. C++ and HPC by day at Teledyne SevenCs in Hamburg, local-first AI by night while building Samosa AI.
 ---
 <section class="readme-hero fade-in" aria-labelledby="hero-name">
-  <p class="readme-greeting"><span class="readme-wave" aria-hidden="true">👋</span> Hi, I'm</p>
-  <h1 class="readme-name" id="hero-name">Durganshu Mishra</h1>
-  <p class="readme-tagline">I write code that makes CPUs sweat.</p>
-  <p class="readme-tagline-sub">C++ and HPC by day, local-first AI by night.</p>
+  {%- comment -%} The moving graphic behind the name: four scenes, switchable (assets/js/hero-motion.js) {%- endcomment %}
+  <div class="hero-banner" data-hero-motion>
+    <canvas class="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-text">
+      <p class="readme-greeting"><span class="readme-wave" aria-hidden="true">👋</span> Hi, I'm</p>
+      <h1 class="readme-name" id="hero-name">Durganshu Mishra</h1>
+      <p class="readme-tagline">I write code that makes CPUs sweat.</p>
+      <p class="readme-tagline-sub">C++ and HPC by day, local-first AI by night.</p>
+    </div>
+    <div class="hero-controls" role="group" aria-label="Background animation">
+      <button type="button" class="hero-scene" data-hero-scene="flow" aria-pressed="false" title="Flow past a cylinder (CFD)">{% include icon.html name="wind" %}<span>flow</span></button>
+      <button type="button" class="hero-scene" data-hero-scene="heat" aria-pressed="false" title="Heat diffusing on a 5-point stencil (HPC)">{% include icon.html name="thermometer" %}<span>heat</span></button>
+      <button type="button" class="hero-scene" data-hero-scene="fluid" aria-pressed="false" title="Particle fluid in a tank (SPH)">{% include icon.html name="droplets" %}<span>fluid</span></button>
+      <button type="button" class="hero-scene" data-hero-scene="roofline" aria-pressed="false" title="Kernels climbing a roofline plot">{% include icon.html name="trending-up" %}<span>roofline</span></button>
+      <button type="button" class="hero-pause" data-hero-pause aria-pressed="false" aria-label="Pause animation" title="Pause animation"><span class="hero-pause-icon">{% include icon.html name="pause" %}</span><span class="hero-play-icon">{% include icon.html name="play" %}</span></button>
+      <span class="hero-caption" data-hero-caption></span>
+    </div>
+  </div>
 
   <ul class="readme-badges" aria-label="At a glance">
     <li class="readme-badge badge-role">{% include icon.html name="briefcase" %} Software Developer @ Teledyne SevenCs</li>

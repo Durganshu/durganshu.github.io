@@ -9,7 +9,7 @@
 
   var THEME_KEY = 'durganshu-theme';
   var THEMES = ['system', 'light', 'dark', 'night'];
-  var BAR_COLORS = { light: '#f6f8fa', dark: '#161b22', night: '#211c15' };
+  var BAR_COLORS = { light: '#f6f8fa', dark: '#0c0f14', night: '#1e1913' };
   var prefersLight = window.matchMedia ? window.matchMedia('(prefers-color-scheme: light)') : null;
 
   function read(key) {

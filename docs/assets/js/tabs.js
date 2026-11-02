@@ -51,12 +51,12 @@
     var key = keyOf(tab);
     if (key) writeOpen(readOpen().filter(function (k) { return k !== key; }));
 
+    // The tab to its left takes over (there always is one: index is pinned first)
     var shown = tabs.filter(isShown);
     var at = shown.indexOf(tab);
-    var neighbor = shown[at + 1] || shown[at - 1];
+    var neighbor = shown[at - 1] || shown[at + 1];
 
     if (tab.classList.contains('is-active')) {
-      // Closing the page you're reading moves to the tab beside it
       window.location.href = neighbor ? linkOf(neighbor).href : '/';
       return;
     }

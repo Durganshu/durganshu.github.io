@@ -44,6 +44,7 @@
         { type: 'pair', label: '  updates   ', value: 'open news and milestones' },
         { type: 'pair', label: '  samosa    ', value: 'what I build after hours' },
         { type: 'pair', label: '  contact   ', value: 'where to find me' },
+        { type: 'pair', label: '  hero      ', value: 'switch the home page animation' },
         { type: 'pair', label: '  neofetch  ', value: 'system info' },
         { type: 'pair', label: '  history   ', value: 'commands you have run' },
         { type: 'pair', label: '  clear     ', value: 'clear the terminal (Ctrl+L)' },
@@ -110,6 +111,37 @@
         { type: 'link', label: '  HackerNoon  ', url: 'https://hackernoon.com/about/durganshu' },
         { type: 'link', label: '  Samosa AI   ', url: 'https://samosa-ai.com' }
       ];
+    },
+
+    hero: function (args) {
+      var scenes = {
+        flow: 'flow past a cylinder: a Kármán vortex street',
+        heat: 'heat spreading on a 5-point stencil',
+        fluid: 'particle fluid sloshing in a tank',
+        roofline: 'kernels climbing a roofline plot'
+      };
+      var api = window.durganshuHero;
+      var arg = (args || '').trim().toLowerCase();
+      if (!arg) {
+        var current = api ? api.get() : read('durganshu-hero') || 'flow';
+        var lines = [{ type: 'output', text: 'Home page animations:' }, { type: 'blank' }];
+        Object.keys(scenes).forEach(function (name) {
+          lines.push({ type: 'pair', label: (name === current ? '* ' : '  ') + (name + '          ').slice(0, 10), value: scenes[name] });
+        });
+        lines.push({ type: 'blank' }, { type: 'muted', text: 'Usage: hero <name>   ·   hero pause   ·   hero play' });
+        return lines;
+      }
+      if (arg === 'pause' || arg === 'play') {
+        if (!api) return [{ type: 'muted', text: 'The animation lives on the home page. Type "home" to go there.' }];
+        api.setPaused(arg === 'pause');
+        return [{ type: 'output', text: arg === 'pause' ? 'Animation paused.' : 'Animation playing.' }];
+      }
+      if (!Object.prototype.hasOwnProperty.call(scenes, arg)) {
+        return [{ type: 'error', text: 'hero: unknown animation "' + arg + '". Try: ' + Object.keys(scenes).join(', ') }];
+      }
+      write('durganshu-hero', arg);
+      if (api) { api.set(arg); return [{ type: 'output', text: 'Home page animation: ' + arg + ' (' + scenes[arg] + ').' }]; }
+      return navigate('Home page animation set to ' + arg + '. Going home…', '/');
     },
 
     neofetch: function () { return [{ type: 'node', node: buildNeofetch() }]; },
