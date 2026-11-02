@@ -145,5 +145,8 @@
   </div>
 
   <script src="{{ '/assets/js/terminal.js' | relative_url }}{{ asset_version }}" defer></script>
+  {%- if page.hero_motion %}
+  <script src="{{ '/assets/js/hero-motion.js' | relative_url }}{{ asset_version }}" defer></script>
+  {%- endif %}
 </body>
 </html>
