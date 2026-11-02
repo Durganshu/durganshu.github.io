@@ -51,6 +51,13 @@
   if (sidebarState === 'collapsed' || sidebarState === 'expanded') {
     root.setAttribute('data-sidebar', sidebarState);
   }
+  // Tab bar mode: open editors while the Explorer is on screen, every page otherwise.
+  // Mirrors the .sidebar-col breakpoints in theme.css; tabs.js keeps it in sync after this.
+  var mq = function (query) { return !!(window.matchMedia && window.matchMedia(query).matches); };
+  var explorerShown = sidebarState === 'collapsed' ? false
+    : sidebarState === 'expanded' ? mq('(min-width: 768px)')
+    : mq('(min-width: 1024px)');
+  root.setAttribute('data-tabs', explorerShown ? 'editors' : 'nav');
   if (read('vscode-terminal-state') === 'expanded') {
     root.setAttribute('data-terminal', 'open');
   }

@@ -605,11 +605,4 @@
     }
     syncExplorerButton();
   }
-
-  // ─── Keep the active tab in view on narrow screens ─
-  var tabsList = document.querySelector('.tabs-list');
-  var activeTab = tabsList && tabsList.querySelector('[aria-current="page"]');
-  if (activeTab && activeTab.offsetLeft + activeTab.offsetWidth > tabsList.clientWidth) {
-    tabsList.scrollLeft = activeTab.offsetLeft - 8;
-  }
 })();

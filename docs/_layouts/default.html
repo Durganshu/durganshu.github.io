@@ -21,10 +21,9 @@
   {%- assign current_class = page.tab_class | default: "post" -%}
 {%- endif -%}
 
-{%- assign show_extra_tab = true -%}
-{%- if nav_item and is_post == false -%}
-  {%- unless nav_item.tab == false -%}{%- assign show_extra_tab = false -%}{%- endunless -%}
-{%- endif -%}
+{%- comment -%} Pages outside the nav (posts, 404) get a preview tab, like a file VS Code opened for a peek {%- endcomment -%}
+{%- assign show_preview_tab = true -%}
+{%- if nav_item and is_post == false -%}{%- assign show_preview_tab = false -%}{%- endif -%}
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -96,14 +95,26 @@
         <div class="tabs-bar">
           <nav class="tabs-list" aria-label="Pages">
             {%- for item in site.data.nav %}
-            {%- unless item.tab == false %}
-            <a class="tab file-{{ item.key }}" href="{{ item.url | relative_url }}"{% if item.key == nav_key and show_extra_tab == false %} aria-current="page"{% endif %}>{% include icon.html name=item.icon %}<span class="tab-label">{{ item.label }}</span></a>
-            {%- endunless %}
+            {%- assign tab_active = false %}
+            {%- if item.key == nav_key and show_preview_tab == false %}{% assign tab_active = true %}{% endif %}
+            <div class="tab file-{{ item.key }}{% if item.pinned %} is-pinned{% endif %}{% if item.tab == false %} is-secondary{% endif %}{% if tab_active %} is-active{% endif %}" data-tab="{{ item.key }}">
+              <a class="tab-link" href="{{ item.url | relative_url }}"{% if tab_active %} aria-current="page"{% endif %}>{% include icon.html name=item.icon %}<span class="tab-label">{{ item.label }}</span></a>
+              {%- if item.pinned %}
+              <span class="tab-pin" title="Pinned" aria-hidden="true">{% include icon.html name="pin" %}</span>
+              {%- else %}
+              <button type="button" class="tab-close" aria-label="Close {{ item.label }}{{ item.ext }}" title="Close">{% include icon.html name="x" %}</button>
+              {%- endif %}
+            </div>
             {%- endfor %}
-            {%- if show_extra_tab %}
-            <a class="tab is-preview file-{{ current_class }}" href="{{ page.url | relative_url }}" aria-current="page">{% include icon.html name=current_icon %}<span class="tab-label">{{ current_label }}{{ current_ext }}</span></a>
+            {%- if show_preview_tab %}
+            <div class="tab is-preview is-active file-{{ current_class }}">
+              <a class="tab-link" href="{{ page.url | relative_url }}" aria-current="page">{% include icon.html name=current_icon %}<span class="tab-label">{{ current_label }}{{ current_ext }}</span></a>
+              <button type="button" class="tab-close" aria-label="Close {{ current_label }}{{ current_ext }}" title="Close">{% include icon.html name="x" %}</button>
+            </div>
             {%- endif %}
           </nav>
+          {%- comment -%} Runs before the tab bar is painted, so the open tabs show up without a jump {%- endcomment %}
+          <script src="{{ '/assets/js/tabs.js' | relative_url }}"></script>
           <div class="tabs-actions needs-js">
             <button type="button" class="icon-btn" data-terminal-toggle aria-controls="terminal-panel" aria-expanded="false" aria-label="Terminal" title="Terminal">{% include icon.html name="square-terminal" %}</button>
           </div>
