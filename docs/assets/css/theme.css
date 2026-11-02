@@ -31,8 +31,8 @@
   --aurora-1: rgba(63, 185, 80, 0.13);
   --aurora-2: rgba(56, 139, 253, 0.11);
   --aurora-3: rgba(86, 212, 221, 0.07);
-  --grain-opacity: 0.35;
-  --grain-blend: soft-light;
+  --grain-opacity: 0.04;
+  --grain-size: 240px;
   --highlight: rgba(255, 255, 255, 0.05);
   --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 32px -16px rgba(0, 0, 0, 0.6);
 
@@ -88,8 +88,7 @@
   --aurora-1: rgba(26, 117, 54, 0.10);
   --aurora-2: rgba(8, 96, 202, 0.08);
   --aurora-3: rgba(15, 116, 136, 0.07);
-  --grain-opacity: 0.05;
-  --grain-blend: multiply;
+  --grain-opacity: 0.07;
   --highlight: rgba(255, 255, 255, 0.7);
   --shadow-card: 0 1px 2px rgba(31, 35, 40, 0.06), 0 12px 32px -18px rgba(31, 35, 40, 0.25);
   color-scheme: light;
@@ -119,8 +118,7 @@
     --aurora-1: rgba(26, 117, 54, 0.10);
     --aurora-2: rgba(8, 96, 202, 0.08);
     --aurora-3: rgba(15, 116, 136, 0.07);
-    --grain-opacity: 0.05;
-    --grain-blend: multiply;
+    --grain-opacity: 0.07;
     --highlight: rgba(255, 255, 255, 0.7);
     --shadow-card: 0 1px 2px rgba(31, 35, 40, 0.06), 0 12px 32px -18px rgba(31, 35, 40, 0.25);
     color-scheme: light;
@@ -150,8 +148,7 @@
   --aurora-1: rgba(230, 169, 90, 0.12);
   --aurora-2: rgba(156, 199, 110, 0.08);
   --aurora-3: rgba(207, 166, 227, 0.06);
-  --grain-opacity: 0.35;
-  --grain-blend: soft-light;
+  --grain-opacity: 0.07;
   --highlight: rgba(255, 240, 220, 0.05);
   color-scheme: dark;
 }
@@ -191,8 +188,10 @@ body::before {
     radial-gradient(70vw 50vh at 55% 112%, var(--aurora-3), transparent 70%);
 }
 
-/* Film grain over everything. A still SVG noise tile: no JavaScript, and it
-   never animates, so it costs nothing after the first paint. */
+/* Film grain over everything: faint light specks and faint dark specks from the
+   same still SVG noise tile. Plain alpha, no blend mode, so every browser
+   (Safari included) draws it the same way. No JavaScript, and it never
+   animates, so it costs nothing after the first paint. */
 body::after {
   content: '';
   position: fixed;
@@ -200,8 +199,18 @@ body::after {
   z-index: 200;
   pointer-events: none;
   opacity: var(--grain-opacity);
-  mix-blend-mode: var(--grain-blend);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='2 0 0 0 -0.5 2 0 0 0 -0.5 2 0 0 0 -0.5 0 0 0 0 1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 4 0 0 0 -2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -4 0 0 0 2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: var(--grain-size) var(--grain-size);
+}
+
+/* Phones: dense screens make a 1px grain too fine to see, so it is coarser and a little stronger */
+@media (max-width: 767.98px) {
+  body::after {
+    background-size: calc(var(--grain-size) * 1.35) calc(var(--grain-size) * 1.35);
+    opacity: calc(var(--grain-opacity) * 1.4);
+  }
 }
 
 @media (forced-colors: active) {
