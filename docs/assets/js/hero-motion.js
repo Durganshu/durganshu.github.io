@@ -441,7 +441,7 @@
       ctx.rotate(Math.atan2(this.Y(s, roof(4)) - this.Y(s, roof(0.5)), this.X(s, 4) - this.X(s, 0.5)));
       ctx.textAlign = 'left'; ctx.fillText('100 GB/s', 0, 0); ctx.restore();
       ctx.lineWidth = 1;
-      var hover = null, hoverD = 26 * 26, floor = Math.pow(2, s.ly[0]);
+      var hover = null, hoverD = Math.pow(s.pointer.reach || 26, 2), floor = Math.pow(2, s.ly[0]);
       KERNELS.forEach(function (k, idx) {
         var st = self.state(s, k, idx), P = Math.max(floor, st.f * roof(st.I));
         var x = self.X(s, st.I), y = self.Y(s, P), x0 = self.X(s, k.I), y0 = self.Y(s, Math.max(floor, k.f0 * roof(k.I)));
@@ -483,7 +483,7 @@
   var current = NAMES.indexOf(stored) > -1 ? stored : 'flow';
   var scene = null;
   var s = null;
-  var pointer = { x: 0, y: 0, vx: 0, vy: 0, in: false };
+  var pointer = { x: 0, y: 0, vx: 0, vy: 0, in: false, reach: 26 };
   var paused = reduceMotion, visible = true, raf = 0, last = 0;
 
   function setCaption(t) { if (captionEl) captionEl.textContent = t; }
@@ -559,15 +559,52 @@
   });
   if (pauseBtn) pauseBtn.addEventListener('click', function () { setPaused(!paused); });
 
-  // The text sits on top of the canvas, so listen on the whole banner
-  banner.addEventListener('pointermove', function (e) {
-    if (e.pointerType === 'touch') return;
+  // The text sits on top of the canvas, so listen on the whole banner.
+  // Mouse: the cursor interacts while it hovers. Touch and pen: a tap pokes the scene
+  // and the effect lingers briefly; dragging sideways keeps interacting. Vertical swipes
+  // still scroll the page (touch-action: pan-y in theme.css): the browser then cancels
+  // the pointer and the effect ends.
+  var touchId = null, releaseTimer = 0;
+  function track(e) {
     var r = canvas.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
     if (pointer.in) { pointer.vx = x - pointer.x; pointer.vy = y - pointer.y; }
     pointer.x = x; pointer.y = y; pointer.in = true;
     if (paused && s) scene.draw(s);
+  }
+  function release(delay) {
+    clearTimeout(releaseTimer);
+    releaseTimer = setTimeout(function () {
+      pointer.in = false; pointer.reach = 26;
+      if (paused && s) scene.draw(s);
+    }, delay);
+  }
+  banner.addEventListener('pointerdown', function (e) {
+    if (e.pointerType === 'mouse' || (e.target.closest && e.target.closest('a, button'))) return;
+    clearTimeout(releaseTimer);
+    touchId = e.pointerId;
+    pointer.in = false; pointer.vx = pointer.vy = 0;
+    pointer.reach = 48;                      // a fingertip is less precise than a cursor
+    track(e);
   });
-  banner.addEventListener('pointerleave', function () { pointer.in = false; if (paused && s) scene.draw(s); });
+  banner.addEventListener('pointermove', function (e) {
+    if (e.pointerType === 'mouse') { pointer.reach = 26; track(e); }
+    else if (e.pointerId === touchId) track(e);
+  });
+  banner.addEventListener('pointerup', function (e) {
+    if (e.pointerId !== touchId) return;
+    touchId = null;
+    release(current === 'roofline' ? 3500 : 1400);   // long enough to see what the tap did
+  });
+  banner.addEventListener('pointercancel', function (e) {
+    if (e.pointerId !== touchId) return;     // the page started scrolling
+    touchId = null;
+    release(150);
+  });
+  banner.addEventListener('pointerleave', function (e) {
+    if (e.pointerType !== 'mouse') return;
+    pointer.in = false;
+    if (paused && s) scene.draw(s);
+  });
 
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (es) { visible = es[0].isIntersecting; if (visible) start(); else stop(); }).observe(canvas);
