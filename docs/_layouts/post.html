@@ -1,0 +1,20 @@
+---
+layout: default
+---
+<article class="post fade-in">
+  <header class="post-header">
+    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time></p>
+    <h1 class="post-title">{% if page.icon %}<span aria-hidden="true">{{ page.icon }}</span> {% endif %}{{ page.title }}</h1>
+  </header>
+
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  <nav class="post-nav" aria-label="More updates">
+    <a href="{{ '/updates/' | relative_url }}">{% include icon.html name="arrow-left" %} All updates</a>
+    {%- if page.previous %}
+    <a href="{{ page.previous.url | relative_url }}">Older: {{ page.previous.title }} {% include icon.html name="arrow-right" %}</a>
+    {%- endif %}
+  </nav>
+</article>

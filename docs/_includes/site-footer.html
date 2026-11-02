@@ -1,0 +1,22 @@
+<footer class="footer-wrap">
+  <div class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <h2 class="footer-section-title">Profiles</h2>
+        <ul>
+          {%- for profile in site.data.profiles %}
+          <li><a class="footer-link" href="{{ profile.url }}" target="_blank" rel="noopener">{% include icon.html name=profile.icon %} {{ profile.name }}</a></li>
+          {%- endfor %}
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-section-title">About</h2>
+        <p class="footer-desc">C++ Software Developer at Teledyne SevenCs in Hamburg, working on high-performance computing, HPC–QC integration, GPU programming and scientific computing. I'm always open to new opportunities and collaborations; the quickest way to reach me is <a href="https://www.linkedin.com/in/durganshu" target="_blank" rel="noopener">LinkedIn</a>.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© {{ site.time | date: "%Y" }} Durganshu Mishra</span>
+      <span>Built with ☕ and too many compiler flags · <a href="{{ '/feed.xml' | relative_url }}">RSS</a></span>
+    </div>
+  </div>
+</footer>

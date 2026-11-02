@@ -1,58 +1,59 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
+# Site settings for durganshu.com (built by GitHub Pages from /docs).
+# This file is not reloaded by `jekyll serve`; restart the server after editing it.
 
 title: Durganshu Mishra
-description: >- # this means to ignore newlines until "baseurl:"
-  I'm Durganshu, a C++ Software Developer at Teledeyne SevenCs (Teledyne) in Hamburg. 
-          Explore my academic and professional journey, my projects and blogs here! I am always open to new opportunities and collaborations. Don't forget to contact me if you have any questions or just want to say hi!
-baseurl: "" # the subpath of your site, e.g. /blog
-url: https://durganshu.com # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: mdurganshu
-github_username:  durganshu
-linkedin_username: durganshu
-medium_username: durganshumishra
+tagline: C++ Software Developer
+description: >-
+  C++ Software Developer at Teledyne SevenCs in Hamburg, working on high-performance computing,
+  GPU programming and scientific computing. Projects, publications and articles.
+url: https://durganshu.com
+baseurl: ""
+lang: en_US
 
-# Build settings
-theme: minima
+author:
+  name: Durganshu Mishra
+  url: https://durganshu.com
+  twitter: mdurganshu
+
+twitter:
+  username: mdurganshu
+  card: summary_large_image
+
+social:
+  name: Durganshu Mishra
+  links:
+    - https://github.com/durganshu
+    - https://www.linkedin.com/in/durganshu
+    - https://medium.com/@durganshu
+    - https://hackernoon.com/about/durganshu
+
 plugins:
   - jekyll-feed
-# remote_theme: pages-themes/hacker@v0.2.0
-# plugins:
-# - jekyll-remote-theme # add this line to the plugins list if you already have one
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-redirect-from
 
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /images/og-card.png
+  - scope:
+      path: ""
+      type: posts
+    values:
+      # Updates live at /updates/<name>/; old /jekyll/update/... URLs redirect via redirect_from.
+      permalink: /updates/:title/
+      layout: post
+      nav_key: updates
+  - scope:
+      path: google8def1d34ccd23a22.html
+    values:
+      sitemap: false
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .sass-cache
+  - .jekyll-cache

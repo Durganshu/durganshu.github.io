@@ -1,8 +1,9 @@
 ---
-layout: post
 title:  "Discover the power of compiler optimizations!"
 date:   2023-11-30 18:00:00 +0100
-categories: jekyll update
+icon: "🔥"
+redirect_from:
+  - /jekyll/update/2023/11/30/third-blog-post.html
 ---
 Developers looking to optimize the performance of their C++ code should discover compiler optimizations: a set of very effective C++ flags that improve the code performance without much effort. The only prerequisite is that you know what you're doing. Explore flags suitable for Intel C++ compilers such as -fno-alias, -xHost, -xCORE-AVX512, IPO, etc, with a hands-on showdown on a Jacobi iteration C++ code. My latest blog post talks in detail about a set of very useful compiler flags, compatible with Intel C++ Compiler.
 

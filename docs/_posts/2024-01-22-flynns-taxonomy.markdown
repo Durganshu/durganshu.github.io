@@ -1,8 +1,9 @@
 ---
-layout: post
 title:  "New blog: An Introduction to Flynn's Taxonomy"
 date:   2024-01-22 18:00:00 +0100
-categories: jekyll update
+icon: "📝"
+redirect_from:
+  - /jekyll/update/2024/01/22/fifth-blog-post.html
 ---
 Flynn's taxonomy forms the basis of modern-day computing architectures. My latest blog marks the beginning of a blog series on multithreading. 💻✨
 

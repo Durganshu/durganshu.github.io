@@ -1,10 +1,10 @@
 ---
-layout: post
 title:  "Podcast Out Now & Paper Published in ISC 2025 Proceedings"
 date:   2025-06-05 11:00:00 +0100
-categories: jekyll update
+icon: "🎙️"
+redirect_from:
+  - /jekyll/update/2025/06/05/podcast.html
 ---
-
 Excited to share two major updates related to our award-winning research at ISC 2025! 🎙️📄
 
 First, my conversation with Addison Snell is now live on the [HPCwire podcast](https://www.hpcwire.com/podcast/advancing-the-integration-of-hpc-and-quantum-hans-meuer-award-), where we discuss the motivation and impact of our paper, *“Towards a Unified Architectural Representation in HPCQC: Extending sys-sage for Quantum Technologies.”* It was an honor to reflect on the work that led to the [Hans Meuer Award](https://www.ce.cit.tum.de/caps/aktuelles/news-single-view/article/isc-hans-meuer-award-goes-to-our-paper-towards-a-unified-architectural-representation-in-hpcqc-extending-sys-sage-for-quantum-technologies/) and the future of HPC-QC integration.

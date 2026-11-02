@@ -1,0 +1,23 @@
+---
+layout: default
+title: Updates
+nav_key: updates
+permalink: /updates/
+description: News, milestones and new articles from Durganshu Mishra.
+---
+<h1 class="page-title fade-in"><span class="prompt">~/</span>updates</h1>
+<p class="page-subtitle fade-in">// news, milestones and new articles, newest first</p>
+
+<ul class="updates-list fade-in-stagger">
+  {%- for post in site.posts %}
+  <li>
+    <a class="update-entry" href="{{ post.url | relative_url }}">
+      <time class="update-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+      <span class="update-body">
+        <span class="update-title">{% if post.icon %}<span aria-hidden="true">{{ post.icon }}</span> {% endif %}{{ post.title }}</span>
+        <span class="update-excerpt">{{ post.excerpt | strip_html | strip_newlines | truncatewords: 28 }}</span>
+      </span>
+    </a>
+  </li>
+  {%- endfor %}
+</ul>

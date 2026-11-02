@@ -1,8 +1,9 @@
 ---
-layout: post
 title:  "New blog: Understanding Parallel Programming Models"
 date:   2024-02-20 11:00:00 +0100
-categories: jekyll update
+icon: "📝"
+redirect_from:
+  - /jekyll/update/2024/02/20/sixth-blog-post.html
 ---
 Here's the second blog on my series on multi-threading. Discover SIMD intrinsics, MIMD architectures and parallel programming models: Shared Memory, distributed memory, PGAS, DSM, OpenMP, MPI, DGAS, etc.💻✨
 
