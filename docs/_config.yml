@@ -4,8 +4,8 @@
 title: Durganshu Mishra
 tagline: C++ Software Developer
 description: >-
-  C++ Software Developer at Teledyne SevenCs in Hamburg, working on high-performance computing,
-  GPU programming and scientific computing. Projects, publications and articles.
+  I write code that makes CPUs sweat. C++ and HPC by day at Teledyne SevenCs in Hamburg,
+  on-device AI agents by night while building Samosa AI. Projects, publications and articles.
 url: https://durganshu.com
 baseurl: ""
 lang: en_US
@@ -26,6 +26,7 @@ social:
     - https://www.linkedin.com/in/durganshu
     - https://medium.com/@durganshu
     - https://hackernoon.com/about/durganshu
+    - https://samosa-ai.com
 
 plugins:
   - jekyll-feed

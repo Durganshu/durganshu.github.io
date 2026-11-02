@@ -42,6 +42,7 @@
         { type: 'pair', label: '  projects  ', value: 'open my projects' },
         { type: 'pair', label: '  blogs     ', value: 'open my articles' },
         { type: 'pair', label: '  updates   ', value: 'open news and milestones' },
+        { type: 'pair', label: '  samosa    ', value: 'what I build after hours' },
         { type: 'pair', label: '  contact   ', value: 'where to find me' },
         { type: 'pair', label: '  neofetch  ', value: 'system info' },
         { type: 'pair', label: '  history   ', value: 'commands you have run' },
@@ -55,12 +56,13 @@
     whoami: function () {
       return [
         { type: 'output', text: "Hi! I'm Durganshu Mishra 👋" },
-        { type: 'output', text: 'C++ Software Developer @ Teledyne SevenCs, Hamburg 🇩🇪' },
+        { type: 'output', text: 'I write code that makes CPUs sweat.' },
+        { type: 'output', text: 'C++ and HPC by day at Teledyne SevenCs, Hamburg 🇩🇪' },
+        { type: 'output', text: 'On-device AI agents by night, building Samosa AI 🤖' },
         { type: 'blank' },
         { type: 'output', text: "I hold a Master's in Computational Science & Engineering from TU Munich." },
-        { type: 'output', text: 'My work spans HPC, HPC-QC integration, GPU programming, and scientific computing.' },
         { type: 'blank' },
-        { type: 'muted', text: 'Type "about" for my full journey, or "skills" for my tech stack.' }
+        { type: 'muted', text: 'Type "samosa" for my side project, "about" for my journey, or "skills" for my stack.' }
       ];
     },
 
@@ -83,6 +85,20 @@
     updates: function () { return navigate('📣 Opening updates…', '/updates/'); },
     home: function () { return navigate('🏠 Going home…', '/'); },
 
+    samosa: function () {
+      return [
+        { type: 'output', text: '🤖 Samosa AI: decentralised, on-device AI' },
+        { type: 'blank' },
+        { type: 'output', text: 'Open-source, privacy-first AI agents and tools that run locally on your own hardware.' },
+        { type: 'output', text: 'I build it in my free time, after the C++ day job.' },
+        { type: 'blank' },
+        { type: 'link', label: '  Website  ', url: 'https://samosa-ai.com' },
+        { type: 'link', label: '  Blog     ', url: 'https://blogs.samosa-ai.com' },
+        { type: 'link', label: '  GitHub   ', url: 'https://github.com/samosa-ai-com' }
+      ];
+    },
+    'samosa-ai': function () { return COMMANDS.samosa(); },
+
     contact: function () {
       return [
         { type: 'output', text: '📬 Find me here' },
@@ -90,7 +106,8 @@
         { type: 'link', label: '  GitHub      ', url: 'https://github.com/durganshu' },
         { type: 'link', label: '  LinkedIn    ', url: 'https://www.linkedin.com/in/durganshu' },
         { type: 'link', label: '  Medium      ', url: 'https://medium.com/@durganshu' },
-        { type: 'link', label: '  HackerNoon  ', url: 'https://hackernoon.com/about/durganshu' }
+        { type: 'link', label: '  HackerNoon  ', url: 'https://hackernoon.com/about/durganshu' },
+        { type: 'link', label: '  Samosa AI   ', url: 'https://samosa-ai.com' }
       ];
     },
 
@@ -132,11 +149,11 @@
         '       durganshu [--hpc] [--gpu] [--coffee]',
         '',
         'DESCRIPTION',
-        '       Works on high-performance computing, scientific',
-        '       computing, and GPU programming. Fueled by coffee.',
+        '       Writes code that makes CPUs sweat. C++ and HPC by day,',
+        '       on-device AI agents (Samosa AI) by night. Fueled by coffee.',
         '',
         'SEE ALSO',
-        '       about(1), projects(1), blogs(1), contact(1)'
+        '       about(1), projects(1), blogs(1), samosa(1), contact(1)'
       ].map(function (text) { return text ? { type: 'output', text: text } : { type: 'blank' }; });
     },
 
@@ -144,7 +161,7 @@
       var files = {
         'skills.txt': function () { return COMMANDS.skills(); },
         'interests.txt': function () {
-          return [{ type: 'output', text: 'High-Performance Computing · HPC-QC Integration · Scientific Computing' }];
+          return [{ type: 'output', text: 'High-Performance Computing · On-device AI Agents · Decentralised AI · Scientific Computing' }];
         },
         'contact.txt': function () { return COMMANDS.contact(); }
       };
@@ -248,7 +265,8 @@
     info.appendChild(el('span', 'terminal-rule', '─────────────────────────'));
     [
       ['OS', 'Linux & Windows'],
-      ['Role', 'C++ Software Developer @ Teledyne SevenCs'],
+      ['Day job', 'C++ Software Developer @ Teledyne SevenCs'],
+      ['Night job', 'Building Samosa AI (on-device AI agents)'],
       ['Degree', 'MSc Computational Science & Engineering, TU Munich'],
       ['Languages', 'C++, Python, Julia, MATLAB'],
       ['Parallel', 'MPI, OpenMP, CUDA, SIMD'],
@@ -302,9 +320,9 @@
 
   function playIntro() {
     var steps = [
-      { cmd: 'whoami', out: 'C++ Software Developer @ Teledyne SevenCs, Hamburg 🇩🇪' },
+      { cmd: 'whoami', out: 'C++ and HPC by day @ Teledyne SevenCs · on-device AI agents by night @ Samosa AI' },
       { cmd: 'cat skills.txt', out: 'C++ · HPC · GPU Programming · MPI · OpenMP · OpenGL · Vulkan' },
-      { cmd: 'cat interests.txt', out: 'High-Performance Computing · HPC-QC Integration · Scientific Computing' }
+      { cmd: 'cat interests.txt', out: 'High-Performance Computing · On-device AI Agents · Decentralised AI · Scientific Computing' }
     ];
     var outro = [{ type: 'muted', text: 'Type "help" to see what else you can run.' }];
 

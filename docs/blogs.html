@@ -2,84 +2,41 @@
 layout: default
 title: Blogs
 nav_key: blogs
-description: Articles by Durganshu Mishra on parallel programming, compiler optimizations, the roofline model and HPC fundamentals, published on Medium and HackerNoon.
+description: Durganshu Mishra writes about parallel computing, performance and on-device AI on Medium and HackerNoon, and about building Samosa AI on the Samosa AI blog.
 ---
 <h1 class="page-title fade-in"><span class="prompt">~/</span>blogs</h1>
-<p class="page-subtitle fade-in">// articles on parallel programming and performance, on Medium and HackerNoon</p>
+<p class="page-subtitle fade-in">// parallel computing, performance and on-device AI</p>
 
-<ol class="blog-list fade-in-stagger">
-  <li class="blog-card">
-    <img class="blog-thumb" src="{{ '/images/blog6.jpg' | relative_url }}" alt="" width="160" height="110" loading="lazy">
-    <div class="blog-info">
-      <h2 class="blog-title"><a href="https://medium.datadriveninvestor.com/understanding-parallel-programming-models-4f3e1c4c8637" target="_blank" rel="noopener">Understanding Parallel Programming Models</a></h2>
-      <p class="blog-desc">SIMD intrinsics, MIMD architectures and the main parallel programming models: shared memory, distributed memory, PGAS, DSM, OpenMP, MPI and more. The second article in my multithreading series.</p>
-      <p class="blog-meta">
-        <a class="blog-platform" href="https://medium.datadriveninvestor.com/understanding-parallel-programming-models-4f3e1c4c8637" target="_blank" rel="noopener">{% include icon.html name="medium" %} Medium</a>
-        <a class="blog-platform" href="https://hackernoon.com/navigating-the-parallel-programming-landscape-a-deep-dive-into-simd-and-mimd-architectures" target="_blank" rel="noopener">{% include icon.html name="hackernoon" %} HackerNoon</a>
-      </p>
-    </div>
-  </li>
+<p class="page-intro fade-in">I publish regularly, so the complete and up-to-date list of my articles lives on my profiles. Several of them were featured as HackerNoon Top Stories.</p>
 
-  <li class="blog-card">
-    <img class="blog-thumb" src="{{ '/images/blog5.webp' | relative_url }}" alt="" width="160" height="110" loading="lazy">
-    <div class="blog-info">
-      <h2 class="blog-title"><a href="https://medium.datadriveninvestor.com/towards-multithreading-an-introduction-to-flynns-taxonomy-bee0761ac90b" target="_blank" rel="noopener">An Introduction to Flynn's Taxonomy</a></h2>
-      <p class="blog-desc">Flynn's taxonomy is the basis of modern computing architectures. SISD, SIMD, MISD and MIMD are the foundation of parallel programming models and key to understanding threading fundamentals.</p>
-      <p class="blog-meta">
-        <a class="blog-platform" href="https://medium.datadriveninvestor.com/towards-multithreading-an-introduction-to-flynns-taxonomy-bee0761ac90b" target="_blank" rel="noopener">{% include icon.html name="medium" %} Medium</a>
-        <a class="blog-platform" href="https://hackernoon.com/flynns-taxonomy-and-the-concept-of-multithreading" target="_blank" rel="noopener">{% include icon.html name="hackernoon" %} HackerNoon</a>
-      </p>
-    </div>
+<ul class="link-cards fade-in-stagger">
+  <li>
+    <a class="link-card" href="https://medium.com/@durganshu" target="_blank" rel="noopener">
+      <span class="link-card-icon">{% include icon.html name="medium" %}</span>
+      <span class="link-card-name">Medium</span>
+      <span class="link-card-handle">medium.com/@durganshu</span>
+      <span class="link-card-desc">Deep dives on parallel programming, HPC and performance engineering, plus on-device AI.</span>
+      <span class="link-card-cta">Read on Medium {% include icon.html name="arrow-right" %}</span>
+    </a>
   </li>
+  <li>
+    <a class="link-card" href="https://hackernoon.com/about/durganshu" target="_blank" rel="noopener">
+      <span class="link-card-icon">{% include icon.html name="hackernoon" %}</span>
+      <span class="link-card-name">HackerNoon</span>
+      <span class="link-card-handle">hackernoon.com/about/durganshu</span>
+      <span class="link-card-desc">The same articles, several of them HackerNoon Top Stories translated into 12 languages.</span>
+      <span class="link-card-cta">Read on HackerNoon {% include icon.html name="arrow-right" %}</span>
+    </a>
+  </li>
+  <li>
+    <a class="link-card link-card-accent" href="{{ site.data.samosa.blog }}" target="_blank" rel="noopener">
+      <span class="link-card-icon">{% include icon.html name="bot" %}</span>
+      <span class="link-card-name">Samosa AI blog</span>
+      <span class="link-card-handle">blogs.samosa-ai.com</span>
+      <span class="link-card-desc">Notes from building Samosa AI: decentralised, on-device AI agents that keep your data on your hardware.</span>
+      <span class="link-card-cta">Read our blog {% include icon.html name="arrow-right" %}</span>
+    </a>
+  </li>
+</ul>
 
-  <li class="blog-card">
-    <img class="blog-thumb" src="{{ '/images/blog4.webp' | relative_url }}" alt="" width="160" height="110" loading="lazy">
-    <div class="blog-info">
-      <h2 class="blog-title"><a href="https://medium.com/nerd-for-tech/a-comprehensive-guide-to-the-roofline-model-fddaa506ce2b" target="_blank" rel="noopener">A Comprehensive Guide to the Roofline Model</a></h2>
-      <p class="blog-desc">The fundamentals and finer points of the Roofline performance model, with a hands-on C++ matrix multiplication example and all the relevant calculations.</p>
-      <p class="blog-meta">
-        <a class="blog-platform" href="https://medium.com/nerd-for-tech/a-comprehensive-guide-to-the-roofline-model-fddaa506ce2b" target="_blank" rel="noopener">{% include icon.html name="medium" %} Medium</a>
-        <a class="blog-platform" href="https://hackernoon.com/understanding-the-roofline-model" target="_blank" rel="noopener">{% include icon.html name="hackernoon" %} HackerNoon</a>
-      </p>
-    </div>
-  </li>
-
-  <li class="blog-card">
-    <img class="blog-thumb" src="{{ '/images/blog3.webp' | relative_url }}" alt="" width="160" height="110" loading="lazy">
-    <div class="blog-info">
-      <h2 class="blog-title"><a href="https://medium.com/nerd-for-tech/compiler-optimizations-boosting-code-performance-without-doing-much-95f1182a5757" target="_blank" rel="noopener">Compiler Optimizations: Boosting Code Performance Without Doing Much!</a></h2>
-      <p class="blog-desc">Effective C++ compiler flags that improve performance with little effort. Explores Intel C++ Compiler flags (-fno-alias, -xHost, -xCORE-AVX512, IPO) with a hands-on Jacobi iteration benchmark.</p>
-      <p class="blog-meta">
-        <a class="blog-platform" href="https://medium.com/nerd-for-tech/compiler-optimizations-boosting-code-performance-without-doing-much-95f1182a5757" target="_blank" rel="noopener">{% include icon.html name="medium" %} Medium</a>
-        <a class="blog-platform" href="https://hackernoon.com/compiler-optimizations-boosting-code-performance-with-minimum-tweaks" target="_blank" rel="noopener">{% include icon.html name="hackernoon" %} HackerNoon</a>
-        <span class="blog-badge"><span aria-hidden="true">🔥</span> HackerNoon Top Story · 12 languages</span>
-      </p>
-    </div>
-  </li>
-
-  <li class="blog-card">
-    <img class="blog-thumb" src="{{ '/images/blog2.webp' | relative_url }}" alt="" width="160" height="110" loading="lazy">
-    <div class="blog-info">
-      <h2 class="blog-title"><a href="https://medium.com/@durganshumishra/a-deep-dive-into-amdahls-law-and-gustafson-s-law-33c6313020bc" target="_blank" rel="noopener">A Deep Dive Into Amdahl's Law and Gustafson's Law</a></h2>
-      <p class="blog-desc">The core ideas, real-world applications and impact of both laws, with insights from the original research, the math, and CFD scaling tests.</p>
-      <p class="blog-meta">
-        <a class="blog-platform" href="https://medium.com/@durganshumishra/a-deep-dive-into-amdahls-law-and-gustafson-s-law-33c6313020bc" target="_blank" rel="noopener">{% include icon.html name="medium" %} Medium</a>
-        <a class="blog-platform" href="https://hackernoon.com/a-deep-dive-into-amdahls-law-and-gustafsons-law" target="_blank" rel="noopener">{% include icon.html name="hackernoon" %} HackerNoon</a>
-        <span class="blog-badge"><span aria-hidden="true">🔥</span> HackerNoon Top Story · 12 languages</span>
-      </p>
-    </div>
-  </li>
-
-  <li class="blog-card">
-    <img class="blog-thumb" src="{{ '/images/blog1.webp' | relative_url }}" alt="" width="160" height="110" loading="lazy">
-    <div class="blog-info">
-      <h2 class="blog-title"><a href="https://medium.com/@durganshu/the-power-of-parallel-programming-why-its-a-necessity-2429e4622f5e" target="_blank" rel="noopener">The Power of Parallel Programming: Why It's a Necessity</a></h2>
-      <p class="blog-desc">Why parallelism changed the tech landscape: a brief history, the role of Moore's law, and how multicore processors became necessary. My first technical article.</p>
-      <p class="blog-meta">
-        <a class="blog-platform" href="https://medium.com/@durganshu/the-power-of-parallel-programming-why-its-a-necessity-2429e4622f5e" target="_blank" rel="noopener">{% include icon.html name="medium" %} Medium</a>
-        <a class="blog-platform" href="https://hackernoon.com/why-parallel-programming-is-a-game-changer" target="_blank" rel="noopener">{% include icon.html name="hackernoon" %} HackerNoon</a>
-        <span class="blog-badge"><span aria-hidden="true">✨</span> First article</span>
-      </p>
-    </div>
-  </li>
-</ol>
+<p class="page-note fade-in">Curious about Samosa AI itself? Visit <a href="{{ site.data.samosa.website }}" target="_blank" rel="noopener">samosa-ai.com</a>. New articles and milestones also show up under <a href="{{ '/updates/' | relative_url }}">updates</a>.</p>
