@@ -995,6 +995,8 @@ html.is-resizing-panel * {
   isolation: isolate;
   padding-block: clamp(40px, 6vw, 72px) 32px;
   margin-bottom: 12px;
+  /* Touch: vertical swipes scroll the page; taps and sideways drags reach the animation */
+  touch-action: pan-y pinch-zoom;
 }
 .hero-canvas {
   position: absolute;
