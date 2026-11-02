@@ -452,8 +452,6 @@ html[data-sidebar="collapsed"] .sidebar-col { display: none; }
   position: relative;
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 0 16px;
   border-right: 1px solid var(--border-color);
   font-family: var(--font-mono);
   font-size: 13px;
@@ -461,11 +459,11 @@ html[data-sidebar="collapsed"] .sidebar-col { display: none; }
   white-space: nowrap;
 }
 .tab:hover { background: var(--bg-hover); color: var(--text-primary); }
-.tab[aria-current="page"] {
+.tab.is-active {
   background: var(--bg-primary);
   color: var(--text-primary);
 }
-.tab[aria-current="page"]::before {
+.tab.is-active::before {
   content: '';
   position: absolute;
   top: 0;
@@ -474,14 +472,65 @@ html[data-sidebar="collapsed"] .sidebar-col { display: none; }
   height: 2px;
   background: var(--accent-blue);
 }
-.tab:focus-visible { outline-offset: -3px; }
-.tab .icon { font-size: 15px; }
+
+.tab-link,
+.tab-link:hover {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  color: inherit;
+}
+.tab-link:focus-visible { outline-offset: -3px; }
+.tab-link .icon { font-size: 15px; }
 .tab.is-preview .tab-label {
   font-style: italic;
+  padding-right: 0.2em; /* room for the slanted last glyph, which overflow would clip */
   max-width: 24ch;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* Close button and pin: only while the tab bar lists open editors */
+.tab-close,
+.tab-pin {
+  display: none;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  margin-right: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: none;
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+.tab .tab-close .icon,
+.tab .tab-pin .icon { color: inherit; }
+.tab-pin { font-size: 13px; color: var(--text-muted); }
+
+/* Like VS Code: the × shows on the active tab and on hover */
+.tab-close { cursor: pointer; opacity: 0; }
+.tab.is-active .tab-close,
+.tab:hover .tab-close,
+.tab-close:focus-visible { opacity: 1; }
+.tab-close:hover { background: var(--bg-tertiary); color: var(--text-primary); }
+.tab-close:focus-visible { outline-offset: 0; }
+@media (hover: none) {
+  .tab-close { opacity: 1; }
+}
+
+/* Open editors mode (set by tabs.js): the Explorer is the navigation, so the
+   tab bar shows only pinned, active and opened pages */
+html[data-tabs="editors"] .tab:not(.is-pinned):not(.is-active):not(.is-open) { display: none; }
+html[data-tabs="editors"] .tab-link { padding-right: 6px; }
+html[data-tabs="editors"] .tab-close,
+html[data-tabs="editors"] .tab-pin { display: grid; }
+
+/* Navigation mode (no Explorer, or no JavaScript): every page except `tab: false` ones */
+html:not([data-tabs="editors"]) .tab.is-secondary:not(.is-active) { display: none; }
 
 .tabs-actions {
   margin-left: auto;
@@ -1227,7 +1276,7 @@ html.is-resizing-panel * {
   .titlebar { grid-template-columns: 1fr auto; }
 }
 
-/* Phones and small tablets: the tab bar is the navigation */
+/* Phones and small tablets: no Explorer, so the tab bar is the navigation */
 @media (max-width: 767.98px) {
   :root { --crumbs-h: 0px; }
 
@@ -1235,7 +1284,7 @@ html.is-resizing-panel * {
   .sidebar-col { display: none !important; }
 
   .tabs-actions { display: flex; }
-  .tab { padding: 0 12px; gap: 6px; }
+  .tab-link { padding: 0 12px; gap: 6px; }
   .breadcrumbs { display: none; }
 
   .editor-content { padding: 24px 16px 16px; }
@@ -1275,8 +1324,8 @@ html.is-resizing-panel * {
 }
 
 @media (max-width: 400px) {
-  .tab .icon { display: none; }
-  .tab { padding: 0 10px; }
+  .tab-link .icon { display: none; }
+  .tab-link { padding: 0 10px; }
 }
 
 @media (max-width: 359.98px) {

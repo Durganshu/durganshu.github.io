@@ -1,10 +1,16 @@
-# Pages shown in the editor tab bar and the Explorer.
-# `tab: false` keeps a page out of the tab bar (it still appears in the Explorer).
+# Pages shown in the Explorer and the editor tab bar.
+# While the Explorer is visible, the tab bar lists only the pages opened in this
+# browser tab, each closable (see assets/js/tabs.js). When there is no Explorer
+# (phones, or collapsed), the tab bar is the navigation and lists every page.
+# `pinned: true` keeps a page's tab open and unclosable.
+# `tab: false` leaves a page out of the tab bar while it is the navigation; it
+# still gets a tab while open.
 - key: index
   label: index
   ext: .md
   url: /
   icon: house
+  pinned: true
 - key: about
   label: about
   ext: .md
