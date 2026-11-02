@@ -10,7 +10,8 @@
     sidebar: 'vscode-sidebar-state',
     terminal: 'vscode-terminal-state',
     lines: 'terminal-lines-v2',
-    commands: 'terminal-commands-v2'
+    commands: 'terminal-commands-v2',
+    height: 'terminal-height'
   };
   var MAX_SAVED_LINES = 200;
   var PROMPT = 'durganshu@dev:~$';
@@ -46,7 +47,8 @@
         { type: 'pair', label: '  history   ', value: 'commands you have run' },
         { type: 'pair', label: '  clear     ', value: 'clear the terminal (Ctrl+L)' },
         { type: 'blank' },
-        { type: 'muted', text: 'Tip: ↑/↓ browse history, Esc closes the panel.' }
+        { type: 'muted', text: 'Tip: ↑/↓ browse history, Esc closes the panel.' },
+        { type: 'muted', text: "     Drag the panel's top edge to resize it; double-click it to reset." }
       ];
     },
 
@@ -418,6 +420,7 @@
 
     if (open) {
       initTerminal();
+      updateSashAria();
       if (options.focus && input) input.focus({ preventScroll: true });
     } else if (options.returnFocus) {
       var target = lastToggle && lastToggle.offsetParent !== null
@@ -453,6 +456,107 @@
     // Reopened from a previous page: restore it, but leave focus where the visitor is
     terminalToggles.forEach(function (btn) { btn.setAttribute('aria-expanded', 'true'); });
     initTerminal();
+  }
+
+  // ─── Resizable terminal panel ─────────────────────
+  // The height lives in the --panel-h custom property on <html> (applied before
+  // first paint by theme-switcher.js); CSS clamps it between --panel-min and --panel-max.
+  var sash = document.getElementById('terminal-sash');
+  var PANEL_MIN = 120;
+  var STEP = 16;
+  var BIG_STEP = 80;
+
+  function panelMax() {
+    var titlebar = document.querySelector('.titlebar');
+    var header = document.querySelector('.editor-header');
+    var chrome = (titlebar ? titlebar.offsetHeight : 0) + (header ? header.offsetHeight : 0);
+    return Math.max(PANEL_MIN, window.innerHeight - chrome - 48);
+  }
+
+  function panelHeight() {
+    return Math.round(panel.getBoundingClientRect().height);
+  }
+
+  function updateSashAria() {
+    if (!sash || !panel || !terminalOpen()) return;
+    sash.setAttribute('aria-valuemin', String(PANEL_MIN));
+    sash.setAttribute('aria-valuemax', String(panelMax()));
+    sash.setAttribute('aria-valuenow', String(panelHeight()));
+    sash.setAttribute('aria-valuetext', panelHeight() + ' pixels tall');
+  }
+
+  function setPanelHeight(px, persist) {
+    var height = Math.round(Math.min(panelMax(), Math.max(PANEL_MIN, px)));
+    var pinnedToBottom = body && body.scrollHeight - body.scrollTop - body.clientHeight < 8;
+    root.style.setProperty('--panel-h', height + 'px');
+    if (pinnedToBottom) scrollToBottom();
+    if (persist) write(KEYS.height, String(height));
+    updateSashAria();
+  }
+
+  function resetPanelHeight() {
+    root.style.removeProperty('--panel-h');
+    remove(KEYS.height);
+    updateSashAria();
+    if (body) scrollToBottom();
+  }
+
+  if (sash && panel) {
+    sash.addEventListener('pointerdown', function (e) {
+      if (e.button !== 0) return;
+      e.preventDefault();
+      var pointerId = e.pointerId;
+      var startY = e.clientY;
+      var startHeight = panelHeight();
+      var pendingY = null;
+      var frame = 0;
+
+      sash.setPointerCapture(pointerId);
+      root.classList.add('is-resizing-panel');
+
+      function onMove(ev) {
+        pendingY = ev.clientY;
+        if (!frame) {
+          frame = requestAnimationFrame(function () {
+            frame = 0;
+            setPanelHeight(startHeight + (startY - pendingY), false);
+          });
+        }
+      }
+
+      function onEnd() {
+        if (frame) cancelAnimationFrame(frame);
+        if (pendingY !== null) setPanelHeight(startHeight + (startY - pendingY), true);
+        root.classList.remove('is-resizing-panel');
+        if (sash.hasPointerCapture(pointerId)) sash.releasePointerCapture(pointerId);
+        sash.removeEventListener('pointermove', onMove);
+        sash.removeEventListener('pointerup', onEnd);
+        sash.removeEventListener('pointercancel', onEnd);
+      }
+
+      sash.addEventListener('pointermove', onMove);
+      sash.addEventListener('pointerup', onEnd);
+      sash.addEventListener('pointercancel', onEnd);
+    });
+
+    sash.addEventListener('dblclick', resetPanelHeight);
+
+    // Window-splitter keyboard pattern: arrows resize (Shift for bigger steps), Home/End jump to the limits
+    sash.addEventListener('keydown', function (e) {
+      var step = e.shiftKey ? BIG_STEP : STEP;
+      var next = null;
+      if (e.key === 'ArrowUp') next = panelHeight() + step;
+      else if (e.key === 'ArrowDown') next = panelHeight() - step;
+      else if (e.key === 'Home') next = PANEL_MIN;
+      else if (e.key === 'End') next = panelMax();
+      if (next !== null) {
+        e.preventDefault();
+        setPanelHeight(next, true);
+      }
+    });
+
+    window.addEventListener('resize', updateSashAria);
+    updateSashAria();
   }
 
   // ─── Explorer sidebar ─────────────────────────────
